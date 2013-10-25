@@ -10,8 +10,13 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+// Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
+Route	::group(array('before' => 'auth'), function()
+{	
+	Route::resource('admin/team','AdminTeamController');
+});	
 Route::get('/', function()
 {
-	return View::make('hello');
+	return "root";
 });
