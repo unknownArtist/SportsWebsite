@@ -12,9 +12,12 @@
 */
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
-Route	::group(array('before' => 'auth'), function()
+Route::get('admin/login',array("uses"=>'AdminTeamController@getLogin'));
+Route::group(array('before' => 'auth'), function()
 {	
-	Route::resource('admin/team','AdminTeamController');
+
+	Route::resource('admin/','AdminTeamController');
+
 });	
 Route::get('/', function()
 {
