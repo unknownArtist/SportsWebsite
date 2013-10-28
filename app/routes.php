@@ -12,13 +12,11 @@
 */
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
-Route::get('admin/login',array("uses"=>'AdminTeamController@getLogin'));
-Route::group(array('before' => 'auth'), function()
-{	
+	Route::post('admin/login',array("uses"=>'AdminTeamController@postLogin'));
+	Route::get('admin/login',array("uses"=>'AdminTeamController@getLogin'));
+	Route::get('admin',array("uses"=>'AdminTeamController@getIndex'));
 
-	Route::resource('admin/','AdminTeamController');
-
-});	
+	
 Route::get('/', function()
 {
 	return "root";

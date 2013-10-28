@@ -1,32 +1,36 @@
 @extends('layouts.adminlogin')
 @section('content')
 	<style>
+    #adminText {
+      margin-left: 500px;
+    }
+    #loginForm {
+      margin-left: 500px;
+    }
+    .formz {
+      margin-top: 4px;
+    }
 		.well {
-			margin-left: 300px; 
+		  
 		}
+    .form-control {
+      width: 250px;
+    }
 	</style>
-<h1>Login to your account</h1>
-  <hr />
-
-   <div class="row-fluid">
-          
-      <div class="row-fluid">
-        <div class="login-box">
-
-
-  {{ Form::open(array('#','POST'))  }}
-  {{ Form::token() }}
-  <fieldset class="well">
-  	<div class="positioning">
-          {{ Form::text('username','', array('id'=>'login_name', 'class' => 'input-block-level', 'placeholder' => 'Email address')) }}
-
-
-        {{ Form::password('password' , array('id'=>'password', 'class' => 'input-block-level', 'placeholder' => 'Password', 'AUTOCOMPLETE' => 'OFF')) }}
-
-
-      {{ Form::submit('Login', array('class'=>'btn btn-primary span12')) }}
+<h2 id="adminText">Login to Admin Account</h2>
+   <div class="well" >
+        <div id="loginForm">
+         {{ Form::open(array('admin/login','POST'))  }}
+              {{ Form::token() }}
+      
+                  {{ Form::text('username','', array('class'=>'form-control formz','placeholder' => 'Email address')) }}
+                  {{ Form::password('password' , array('class'=>'form-control formz','placeholder' => 'Password','AUTOCOMPLETE' => 'OFF')) }}  
+    
+    
+              {{ Form::submit('Login', array('class'=>'btn btn-primary span12 formz')) }}
+        </div>
   </div>
-  </fieldset>
+
   {{ Form::close() }}
 
 @stop

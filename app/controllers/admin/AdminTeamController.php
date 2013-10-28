@@ -7,7 +7,11 @@ class AdminTeamController extends Controller {
 	{
 		return View::make('admin.adminLogin');
 	}
-	public function index()
+	public function postLogin()
+	{
+		echo "post hello";
+	}
+	public function getIndex()
 	{
 		return "Hello";
 	}
