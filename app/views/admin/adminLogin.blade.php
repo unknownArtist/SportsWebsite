@@ -23,11 +23,9 @@
          {{ Form::open(array('admin/login','POST'))  }}
               {{ Form::token() }}
       
-                  {{ Form::text('username','', array('class'=>'form-control formz','placeholder' => 'Email address')) }}
+                  {{ Form::text('email','', array('class'=>'form-control formz','placeholder' => 'Email address')) }}
                   {{ Form::password('password' , array('class'=>'form-control formz','placeholder' => 'Password','AUTOCOMPLETE' => 'OFF')) }}  
-    
-    
-              {{ Form::submit('Login', array('class'=>'btn btn-primary span12 formz')) }}
+                  {{ Form::submit('Login', array('class'=>'btn btn-primary span12 formz')) }}
         </div>
   </div>
 

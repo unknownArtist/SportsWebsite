@@ -9,9 +9,15 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Eloquent::unguard();
-
-		// $this->call('UserTableSeeder');
+	
+		$create_seeder_for_admin_table = array(
+			'email' =>	'admin@admin.com',
+			'password' =>	md5('admin')
+		);
+		// Uncomment the below to run the seeder
+		DB::table('admin_login')->insert($create_seeder_for_admin_table);
+  
+		// $this->call('Create_seeder_for_admin_tableTableSeeder');
 	}
 
 }
