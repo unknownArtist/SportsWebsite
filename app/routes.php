@@ -12,6 +12,8 @@
 */
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
+
+	Route::get('admin/config',array("uses"=>'AdminConfigController@getIndex'));
 	Route::post('admin/login',array("uses"=>'AdminTeamController@postLogin'));
 	Route::get('admin/login',array("uses"=>'AdminTeamController@getLogin'));
 	Route::get('admin',array("uses"=>'AdminTeamController@getIndex'));
@@ -21,3 +23,5 @@ Route::get('/', function()
 {
 	return "root";
 });
+
+Route::resource('teams', 'TeamsController');

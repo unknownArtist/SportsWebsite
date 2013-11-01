@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder {
 		DB::table('admin_login')->insert($create_seeder_for_admin_table);
   
 		// $this->call('Create_seeder_for_admin_tableTableSeeder');
+		$this->call('TeamsTableSeeder');
 	}
 
 }
