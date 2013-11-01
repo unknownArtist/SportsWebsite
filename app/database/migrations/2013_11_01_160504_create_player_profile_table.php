@@ -10,6 +10,7 @@ class CreatePlayerProfileTable extends Migration {
 		Schema::create('player_profile', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 255);
+			$table->string('player_nickname')->nullable();
 			$table->date('age')->nullable();
 			$table->timestamps();
 			$table->decimal('weight')->nullable();
