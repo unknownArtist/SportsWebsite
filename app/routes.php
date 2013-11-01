@@ -12,6 +12,11 @@
 */
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
+/*--------------Profile routes-------------------------*/
+	Route::get('profile',array("uses"=>'ProfileController@getIndex'));
+/*-----------------------------------------------------*/
+	
+
 
 	Route::get('admin/config',array("uses"=>'AdminConfigController@getIndex'));
 	Route::post('admin/login',array("uses"=>'AdminTeamController@postLogin'));
@@ -23,5 +28,3 @@ Route::get('/', function()
 {
 	return "root";
 });
-
-Route::resource('teams', 'TeamsController');
