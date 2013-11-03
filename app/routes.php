@@ -10,8 +10,21 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+// Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
+/*--------------Profile routes-------------------------*/
+	Route::get('profile',array("uses"=>'ProfileController@getIndex'));
+/*-----------------------------------------------------*/
+	
+
+
+	Route::get('admin/config',array("uses"=>'AdminConfigController@getIndex'));
+	Route::post('admin/login',array("uses"=>'AdminTeamController@postLogin'));
+	Route::get('admin/login',array("uses"=>'AdminTeamController@getLogin'));
+	Route::get('admin',array("uses"=>'AdminTeamController@getIndex'));
+
+	
 Route::get('/', function()
 {
-	return View::make('hello');
+	return "root";
 });

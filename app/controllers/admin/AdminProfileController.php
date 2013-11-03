@@ -1,6 +1,7 @@
 <?php
 
-class HomeController extends BaseController {
+
+class AdminProfileController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -15,9 +16,7 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function index()
 	{
-		return View::make('hello');
+		return "Hello";
 	}
-
-}
