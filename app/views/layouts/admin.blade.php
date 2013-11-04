@@ -16,6 +16,9 @@
      {{ HTML::script('assets/js/morris/chart-data-morris.js') }}
      {{ HTML::script('assets/js/tablesorter/jquery.tablesorter.js') }}
      {{ HTML::script('assets/js/tablesorter/tables.js') }}
+
+
+
   </head>
   <body>   <!-- Docs master nav -->
     <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
