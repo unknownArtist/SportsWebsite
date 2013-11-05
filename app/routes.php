@@ -12,6 +12,13 @@
 */
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
+/*--------------Rink routes-------------------------*/
+	Route::get('admin/rink', array('uses'=>'RinkController@getIndex')); // should display created rinks 
+	Route::get('admin/rink/create', array('uses'=>'RinkController@getCreate')); // should display rink form
+	Route::post('admin/rink/create', array('uses'=>'RinkController@postCreate')); // Save rink form data
+
+/*-----------------------------------------------------*/
+
 /*--------------Auth routes-------------------------*/
 	Route::get('user/logout', array('uses'=>'AuthController@getLogout'));
 	Route::get('user/activation',array('uses'=>'AuthController@getActivateUser'));
@@ -30,7 +37,6 @@
 	Route::post('profile/{id}/edit',array("uses"=>'ProfileController@postEdit'));
 /*-----------------------------------------------------*/
 	
-
 
 	Route::get('admin/config',array("uses"=>'AdminConfigController@getIndex'));
 	Route::post('admin/login',array("uses"=>'AdminTeamController@postLogin'));
