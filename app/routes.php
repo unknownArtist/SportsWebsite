@@ -24,6 +24,10 @@
 
 /*--------------Profile routes-------------------------*/
 	Route::get('profile',array("uses"=>'ProfileController@getIndex'));
+	Route::get('profile',array("uses"=>'ProfileController@getCreate'));
+	Route::post('profile',array("uses"=>'ProfileController@postCreate'));
+	Route::get('profile/edit/{id}', array("uses"=>'ProfileController@getEdit'));
+	Route::post('profile/{id}/edit',array("uses"=>'ProfileController@postEdit'));
 /*-----------------------------------------------------*/
 	
 
