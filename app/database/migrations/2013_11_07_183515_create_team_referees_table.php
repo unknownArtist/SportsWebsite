@@ -3,18 +3,19 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateTeamVideosTable extends Migration {
+class CreateTeamRefereesTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('team_videos', function(Blueprint $table) {
+		Schema::create('team_referees', function(Blueprint $table) {
+			$table->increments('id');
 			$table->integer('team_id')->unsigned();
-			$table->string('video_name', 300);
+			$table->string('referee');
 		});
 	}
 
 	public function down()
 	{
-		Schema::drop('team_videos');
+		Schema::drop('team_referees');
 	}
 }

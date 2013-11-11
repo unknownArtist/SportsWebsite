@@ -8,6 +8,7 @@ class CreateTeamPhotosTable extends Migration {
 	public function up()
 	{
 		Schema::create('team_photos', function(Blueprint $table) {
+			$table->increments('id');
 			$table->integer('team_id')->unsigned();
 			$table->string('photo_name', 300);
 		});

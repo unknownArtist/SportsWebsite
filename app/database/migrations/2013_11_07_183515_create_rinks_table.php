@@ -15,7 +15,6 @@ class CreateRinksTable extends Migration {
 			$table->integer('rink_change_rooms')->nullable();
 			$table->integer('rink_boardType')->nullable();
 			$table->string('rink_other', 255)->nullable();
-			$table->enum('rink_homeTeams', array(''))->nullable();
 			$table->string('rink_highlights')->nullable();
 			$table->text('rink_history')->nullable();
 			$table->date('rink_opened_date')->nullable();
