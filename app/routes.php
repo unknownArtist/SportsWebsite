@@ -17,6 +17,11 @@
 	Route::get('admin/rink/create', array('uses'=>'RinkController@getCreate')); // should display rink form
 	Route::post('admin/rink/create', array('uses'=>'RinkController@postCreate')); // Save rink form data
 
+	//my routes
+	// Route::get('rink/create', array('uses'=>'RinkController@getCreate')); // should display rink form
+	// Route::post('rink/create', array('uses'=>'RinkController@postCreate')); // Save rink form data
+
+
 /*-----------------------------------------------------*/
 
 /*--------------Auth routes-------------------------*/
