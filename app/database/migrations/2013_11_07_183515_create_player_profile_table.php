@@ -12,15 +12,13 @@ class CreatePlayerProfileTable extends Migration {
 			$table->string('name', 255);
 			$table->string('player_nickname')->nullable();
 			$table->date('age')->nullable();
-			$table->timestamps();
 			$table->decimal('weight')->nullable();
 			$table->decimal('height')->nullable();
 			$table->string('position', 255);
 			$table->string('shoots', 255);
 			$table->string('statistic');
-			$table->enum('current_teams', array(''));
-			$table->enum('previous_teams', array(''));
 			$table->text('achievements')->nullable();
+			$table->timestamps();
 		});
 	}
 

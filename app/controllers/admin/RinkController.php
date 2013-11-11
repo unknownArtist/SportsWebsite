@@ -9,11 +9,11 @@ class RinkController extends BaseController {
 	 */
 	public function getIndex()
 	{
-        return View::make('admin.rink.index');
+        return View::make('admin.rinks.index');
 	}
 	public function getCreate()
 	{
-	return View::make('admin.rink.create');
+	return View::make('admin.rinks.create');
 	}
 	public function postCreate()
 	{

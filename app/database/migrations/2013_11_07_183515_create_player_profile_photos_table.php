@@ -8,6 +8,7 @@ class CreatePlayerProfilePhotosTable extends Migration {
 	public function up()
 	{
 		Schema::create('player_profile_photos', function(Blueprint $table) {
+			$table->increments('id');
 			$table->integer('player_profile_id')->unsigned();
 			$table->string('player_profile_videos', 300);
 		});

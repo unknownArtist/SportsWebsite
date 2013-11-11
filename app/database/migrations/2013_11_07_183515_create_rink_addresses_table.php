@@ -8,6 +8,7 @@ class CreateRinkAddressesTable extends Migration {
 	public function up()
 	{
 		Schema::create('rink_addresses', function(Blueprint $table) {
+			$table->increments('id');
 			$table->integer('rink_id')->unsigned();
 			$table->string('rink_addresse', 300);
 		});

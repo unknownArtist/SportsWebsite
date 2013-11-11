@@ -37,6 +37,36 @@ class CreateForeignKeys extends Migration {
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
+		Schema::table('team_timeKeepers', function(Blueprint $table) {
+			$table->foreign('team_id')->references('id')->on('teams')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+		});
+		Schema::table('team_prevJerseys', function(Blueprint $table) {
+			$table->foreign('team_id')->references('id')->on('teams')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+		});
+		Schema::table('team_referees', function(Blueprint $table) {
+			$table->foreign('team_id')->references('id')->on('teams')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+		});
+		Schema::table('player_profile_currentTeam', function(Blueprint $table) {
+			$table->foreign('player_profile_id')->references('id')->on('player_profile')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+		});
+		Schema::table('player_profile_prevTeam', function(Blueprint $table) {
+			$table->foreign('player_profile_id')->references('id')->on('player_profile')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+		});
+		Schema::table('rink_home_teams', function(Blueprint $table) {
+			$table->foreign('rink_id')->references('id')->on('rinks')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+		});
 	}
 
 	public function down()
@@ -58,6 +88,24 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('rink_addresses', function(Blueprint $table) {
 			$table->dropForeign('rink_addresses_rink_id_foreign');
+		});
+		Schema::table('team_timeKeepers', function(Blueprint $table) {
+			$table->dropForeign('team_timeKeepers_team_id_foreign');
+		});
+		Schema::table('team_prevJerseys', function(Blueprint $table) {
+			$table->dropForeign('team_prevJerseys_team_id_foreign');
+		});
+		Schema::table('team_referees', function(Blueprint $table) {
+			$table->dropForeign('team_referees_team_id_foreign');
+		});
+		Schema::table('player_profile_currentTeam', function(Blueprint $table) {
+			$table->dropForeign('player_profile_currentTeam_player_profile_id_foreign');
+		});
+		Schema::table('player_profile_prevTeam', function(Blueprint $table) {
+			$table->dropForeign('player_profile_prevTeam_player_profile_id_foreign');
+		});
+		Schema::table('rink_home_teams', function(Blueprint $table) {
+			$table->dropForeign('rink_home_teams_rink_id_foreign');
 		});
 	}
 }

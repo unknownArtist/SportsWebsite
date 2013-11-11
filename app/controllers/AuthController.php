@@ -29,45 +29,44 @@ class AuthController extends BaseController {
 				    	return Redirect::to('admin');
 				    }
 		}
-			catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
-			{
-			    return Redirect::to('login')->with('errors','Login field is required');
-			}
-			catch (Cartalyst\Sentry\Users\PasswordRequiredException $e)
-			{
-				return Redirect::to('login')->with('errors','Password field is required');
-			}
-			catch (Cartalyst\Sentry\Users\WrongPasswordException $e)
-			{
-				return Redirect::to('login')->with('errors','Wrong password, try again');
+		catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
+		{
+		    return Redirect::to('login')->with('errors','Login field is required');
+		}
+		catch (Cartalyst\Sentry\Users\PasswordRequiredException $e)
+		{
+			return Redirect::to('login')->with('errors','Password field is required');
+		}
+		catch (Cartalyst\Sentry\Users\WrongPasswordException $e)
+		{
+			return Redirect::to('login')->with('errors','Wrong password, try again');
 
-			}
-			catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
-			{
-				return Redirect::to('login')->with('errors','User was not found');
-			}
-			catch (Cartalyst\Sentry\Users\UserNotActivatedException $e)
-			{
-				return Redirect::to('login')->with('errors','User is not activated');
-			}
+		}
+		catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
+		{
+			return Redirect::to('login')->with('errors','User was not found');
+		}
+		catch (Cartalyst\Sentry\Users\UserNotActivatedException $e)
+		{
+			return Redirect::to('login')->with('errors','User is not activated');
+		}
 
-			// The following is only required if throttle is enabled
-			catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e)
-			{
-				return Redirect::to('login')->with('errors','User is suspended');
-			}
-			catch (Cartalyst\Sentry\Throttling\UserBannedException $e)
-			{
-				return Redirect::to('login')->with('errors','User is banned');
-			}
+		// The following is only required if throttle is enabled
+		catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e)
+		{
+			return Redirect::to('login')->with('errors','User is suspended');
+		}
+		catch (Cartalyst\Sentry\Throttling\UserBannedException $e)
+		{
+			return Redirect::to('login')->with('errors','User is banned');
+		}
 	}
 	public function getRegister()
 	{
 		return View::make('auth.register');
 	}
 	public function postRegister()
-	{	
-
+	{
 		try
 		{
     // Let's register a user.
@@ -131,8 +130,11 @@ class AuthController extends BaseController {
 
 	public function getLogout()
 	{
-		Sentry::logout();
-		 return Redirect::to('login')->with('success',"You are successfully logout");
+		if(Sentry::logout())
+		{
+			return Redirect::to('login')->with('success',"You are successfully logout");
+		}
+		
 	}
 
 	
