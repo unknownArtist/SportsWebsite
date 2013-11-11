@@ -14,21 +14,18 @@
 
 Route::resource('test','TestController');
 /*--------------Rink routes-------------------------*/
-<<<<<<< HEAD
-	Route::get('admin/rink', array('uses'=>'RinkController@getIndex')); // should display created rinks 
-	Route::get('admin/rink/create', array('uses'=>'RinkController@getCreate')); // should display rink form
-	Route::post('admin/rink/create', array('uses'=>'RinkController@postCreate')); // Save rink form data
+
+	Route::get('admin/rinks', array('uses'=>'RinkController@getIndex')); // should display created rinks 
+	Route::get('admin/rinks/create', array('uses'=>'RinkController@getCreate')); // should display rink form
+	Route::post('admin/rinks/create', array('uses'=>'RinkController@postCreate')); // Save rink form data
+	Route::get('admin/rinks/{id}/edit', array('uses'=>'RinkController@getEdit')); // should display rink form
+	Route::post('admin/rinks/{id}/edit', array('uses'=>'RinkController@postEdit')); // Save rink form data
 
 	//my routes
 	// Route::get('rink/create', array('uses'=>'RinkController@getCreate')); // should display rink form
 	// Route::post('rink/create', array('uses'=>'RinkController@postCreate')); // Save rink form data
 
 
-=======
-	Route::get('admin/rink', 		array('uses'	=>'RinkController@getIndex')); //>>> should display created rinks 
-	Route::get('admin/rink/create', array('uses'	=>'RinkController@getCreate')); //>>> should display rink form
-	Route::post('admin/rink/create',array('uses'	=>'RinkController@postCreate')); // >>>Save rink form data
->>>>>>> c3663ab1be3f08a5c4ad99c77cf7ab1dd064766b
 /*-----------------------------------------------------*/
 
 /*--------------Auth routes-------------------------*/
@@ -45,7 +42,7 @@ Route::resource('test','TestController');
 	Route::get('profile',array("uses"=>'ProfileController@getIndex'));
 	Route::get('profile',array("uses"=>'ProfileController@getCreate'));
 	Route::post('profile',array("uses"=>'ProfileController@postCreate'));
-	Route::get('profile/edit/{id}', array("uses"=>'ProfileController@getEdit'));
+	Route::get('profile/{id}/edit', array("uses"=>'ProfileController@getEdit'));
 	Route::post('profile/{id}/edit',array("uses"=>'ProfileController@postEdit'));
 /*-----------------------------------------------------*/
 	Route::get('admin/team/{teamID}/edit',array('uses'=>'AdminTeamController@getEditTeam'));

@@ -41,23 +41,37 @@ class ProfileController extends BaseController {
 
 	public function getEdit($id)
 	{
-		$id = Profile::find( $id );
+		$id = Request::segment(2);
+		$profile = Profile::find( $id );
 	
-		return View::make('profile.edit')->with('id',$id);
+		return View::make('profile.edit')->with('profiles',$profile);
 	}
 
 	public function postEdit($id)
 	{
+		$id = Request::segment(2);
+		$profile = Profile::find($id);
 		$user= Input::all();
-		$id = Profile::find( $id );
-		DB::table('player_profile')
-            ->where('id', $id)
-            ->update(array('name' => $user['name']));
+		
+		 DB::table('player_profile')
+            ->where('id','=', $id)
+            ->update(array($profile->name = $user['name'],
+						   $profile->player_nickname = $user['player_nickname'],
+						   $profile->age = $user['age'],
+						   $profile->weight = $user['weight'],
+						   $profile->height = $user['height'],
+						   $profile->position = $user['position'],
+						   $profile->shoots = $user['shoots'],
+						   $rofile->statistic = $user['statistic'],
+						   $profile->current_teams = $user['current_teams'],
+					       $profile->previous_teams = $user['previous_teams'],
+						   $profile->achievements = $user['achievements']));
+            $profile->save();
 		//DB::table('player_profile')->update(array('name' => $user['name']));
 
 		
-	//	$destinationPath = 'public/image/';
-	//	Input::file('player_profile_photos')->move($destinationPath);
+		$destinationPath = 'public/image/';
+		Input::file('player_profile_photos')->move($destinationPath);
 		//return View::make('profile.edit')->with('user',$user);
 	}
 }
