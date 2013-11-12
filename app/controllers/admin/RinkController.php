@@ -42,14 +42,14 @@ class RinkController extends BaseController {
 	}
 	public function getEdit($id)
 	{
-		$id = Request::segment(2);
+		$id = Request::segment(3);
 		$rink = Rink::find( $id );
 	
 		return View::make('admin.rinks.edit')->with('rinks',$rink);
 	}
 	public function postEdit($id)
 	{
-		$id = Request::segment(2);
+		$id = Request::segment(3);
 		$rink = Rink::find($id);
 		
 		$input= Input::all();
