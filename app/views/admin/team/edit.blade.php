@@ -11,7 +11,7 @@
 	 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
     <thead>
     <tbody>
-    	{{ Form::open(array('url'=>'admin/team/create','POST'))}}
+    	{{ Form::open(array('url'=>'admin/team/update','POST'))}}
         
         <tr class="odd gradeX">
         	<tr>
@@ -88,7 +88,8 @@
         		
         	</tr>  
             <td>
-                {{ Form::submit('Add',array('class'=>'btn btn-primary','style'=>'margin-top:25px;'))}}
+                {{ Form::submit('Update',array('class'=>'btn btn-primary','style'=>'margin-top:25px;'))}}
+                {{ Form::hidden('id',Request::segment(3))}}
                 {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success','style'=>'margin-top:25px;'))}}
             </td>
 
