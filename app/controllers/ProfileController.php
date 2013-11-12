@@ -54,18 +54,18 @@ class ProfileController extends BaseController {
 		$user= Input::all();
 		
 		 DB::table('player_profile')
-            ->where('id','=', $id)
-            ->update(array($profile->name = $user['name'],
-						   $profile->player_nickname = $user['player_nickname'],
-						   $profile->age = $user['age'],
-						   $profile->weight = $user['weight'],
-						   $profile->height = $user['height'],
-						   $profile->position = $user['position'],
-						   $profile->shoots = $user['shoots'],
-						   $rofile->statistic = $user['statistic'],
-						   $profile->current_teams = $user['current_teams'],
-					       $profile->previous_teams = $user['previous_teams'],
-						   $profile->achievements = $user['achievements']));
+            ->where('id','=', $profile->id)
+            ->update(array('name' => $user['name'],
+						   'player_nickname' => $user['player_nickname'],
+						   'age' => $user['age'],
+						   'weight' => $user['weight'],
+						   'height' => $user['height'],
+						   'position' => $user['position'],
+						   'shoots' => $user['shoots'],
+						   'statistic' => $user['statistic'],
+						   'current_teams' => $user['current_teams'],
+					       'previous_teams' => $user['previous_teams'],
+						   'achievements' => $user['achievements']));
             $profile->save();
 		//DB::table('player_profile')->update(array('name' => $user['name']));
 

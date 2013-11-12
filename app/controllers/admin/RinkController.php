@@ -53,17 +53,18 @@ class RinkController extends BaseController {
 		$rink = Rink::find($id);
 		
 		$input= Input::all();
-		DB::table('rinks')->insert(array(
-											$rink->rink_seating_capacity = $input['rink_seating_capacity'],
-											$rink->rink_change_rooms = $input['rink_change_rooms'],
-											$rink->rink_boardType = $input['rink_boardType'],
-											$rink->rink_other = $input['rink_other'],
-											$rink->rink_homeTeams = $input['rink_homeTeams'],
-											$rink->rink_highlights = $input['rink_highlights'],
-											$rink->rink_history = $input['rink_history'],
-											$rink->rink_opened_date = $input['rink_opened_date'],
-											$rink->rink_closed_date = $input['rink_closed_date'],
-											$rink->rink_description = $input['rink_description']));
+		DB::table('rinks')
+			->where('id','=',$rink->id)
+			->update(array($rink->rink_seating_capacity => $input['rink_seating_capacity'],
+						   $rink->rink_change_rooms = $input['rink_change_rooms'],
+						   $rink->rink_boardType = $input['rink_boardType'],
+						   $rink->rink_other = $input['rink_other'],
+						   $rink->rink_homeTeams = $input['rink_homeTeams'],
+						   $rink->rink_highlights = $input['rink_highlights'],
+						   $rink->rink_history = $input['rink_history'],
+						   $rink->rink_opened_date = $input['rink_opened_date'],
+						   $rink->rink_closed_date = $input['rink_closed_date'],
+						   $rink->rink_description = $input['rink_description']));
 		$rink->save();
 			//videos are to be inserted
 
