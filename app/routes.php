@@ -45,6 +45,7 @@ Route::resource('test','TestController');
 	Route::get('profile/{id}/edit', array("uses"=>'ProfileController@getEdit'));
 	Route::post('profile/{id}/edit',array("uses"=>'ProfileController@postEdit'));
 /*-----------------------------------------------------*/
+	Route::post('admin/team/update',array('uses'=>'AdminTeamController@postEditTeam'));
 	Route::get('admin/team/{teamID}/edit',array('uses'=>'AdminTeamController@getEditTeam'));
 	Route::post('admin/team/create',array("uses"=>'AdminTeamController@postCreateTeam'));
 	Route::get('admin/team/create',array("uses"=>'AdminTeamController@getCreateTeam'));

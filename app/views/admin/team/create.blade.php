@@ -21,10 +21,9 @@
 
         		</td>
         		<td>
-        			{{ Form::label('name','Team Logo')}}
-        			{{ Form::file('team_logo','',array('class'=>'form-control'))}}
+        			{{ Form::label('name','Team Logoo')}}
+        			{{ Form::file('team_logo[]','',array('class'=>'form-control'))}}
                     {{ Form::image('uploads/teamImages/image12641664611384007776.jpg','',array('class'=>'img-thumbnail'))}}
-
         		</td>
 
         	</tr>
