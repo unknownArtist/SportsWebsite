@@ -10,7 +10,10 @@ class ProfileController extends BaseController {
 	public function getIndex()
 	{
 		// Display the info here with the user_id(session) check
-   
+		$id = Sentry::getUser()->id;
+   		$profile = DB::table('player_profile')->where('id', '=', $id)->get();
+		
+        return View::make('profile.index')->with('profiles',$profile);
 	}
 	public function getCreate()
 	{
@@ -32,47 +35,52 @@ class ProfileController extends BaseController {
 											'previous_teams' => $input['previous_teams'],
 											'achievements' => $input['achievements']));
 
-		
-		$destinationPath = 'public/image/';
-		Input::file('player_profile_photos')->move($destinationPath);
+		return Redirect::to('profile')->with('message','Profile created');
+		// $destinationPath = 'public/image/';
+		// Input::file('player_profile_photos')->move($destinationPath);
 		//return View::make('profile.create')->with('input',$input);
 
-}
+	}
 
-	public function getEdit($id)
-	{
+	public function getEdit()
+	{ 
 		$id = Request::segment(2);
 		$profile = Profile::find( $id );
 	
 		return View::make('profile.edit')->with('profiles',$profile);
 	}
 
-	public function postEdit($id)
-	{
-		$id = Request::segment(2);
-		$profile = Profile::find($id);
-		$user= Input::all();
+	public function postEdit() // its not coming ot this action 
+	{	
 		
-		 DB::table('player_profile')
-            ->where('id','=', $profile->id)
-            ->update(array('name' => $user['name'],
-						   'player_nickname' => $user['player_nickname'],
-						   'age' => $user['age'],
-						   'weight' => $user['weight'],
-						   'height' => $user['height'],
-						   'position' => $user['position'],
-						   'shoots' => $user['shoots'],
-						   'statistic' => $user['statistic'],
-						   'current_teams' => $user['current_teams'],
-					       'previous_teams' => $user['previous_teams'],
-						   'achievements' => $user['achievements']));
-            $profile->save();
-		//DB::table('player_profile')->update(array('name' => $user['name']));
+		$fields = array(
+		   'name' => Input::get('name'),
+		   'player_nickname' => Input::get('player_nickname'),
+		   'age' => Input::get('age'),
+		   'weight' => Input::get('weight'),
+		   'height' => Input::get('height'),
+		   'position' => Input::get('position'),
+		   'shoots' => Input::get('shoots'),
+		   'statistic' => Input::get('statistic'),
+		   'current_teams' => Input::get('current_teams'),
+	       'previous_teams' => Input::get('previous_teams'),
+		   'achievements' => Input::get('achievements')
+		   );
 
-		
-		$destinationPath = 'public/image/';
-		Input::file('player_profile_photos')->move($destinationPath);
-		//return View::make('profile.edit')->with('user',$user);
+		  DB::table('player_profile')
+            ->where('id','=',Request::segment(2))
+            ->update($fields);
+
+            return Redirect::to('profile')->with('message','Profile updated');
+
+	}
+	public function getDelete()
+	{
+		 $id = Request::segment(3);
+		 $profile = Profile::find($id);
+		 $profile->delete();
+			//DB::table('rinks')->where('id','=',Request::segment(3))->delete();
+		return Redirect::to('profile')->with('message','Record deleted successfully');
 	}
 }
 //http://developer13.com/post/laravel-tutorial-model-bindings
