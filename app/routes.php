@@ -20,6 +20,7 @@ Route::resource('test','TestController');
 	Route::post('admin/rinks/create', array('uses'=>'RinkController@postCreate')); // Save rink form data
 	Route::get('admin/rinks/{id}/edit', array('uses'=>'RinkController@getEdit')); // should display rink form
 	Route::post('admin/rinks/{id}/edit', array('uses'=>'RinkController@postEdit')); // Save rink form data
+	Route::get('admin/rinks/{id}/delete', array('uses'=>'RinkController@getDelete')); // delete link
 
 	//my routes
 	// Route::get('rink/create', array('uses'=>'RinkController@getCreate')); // should display rink form
@@ -40,10 +41,11 @@ Route::resource('test','TestController');
 
 /*--------------Profile routes-------------------------*/
 	Route::get('profile',array("uses"=>'ProfileController@getIndex'));
-	Route::get('profile',array("uses"=>'ProfileController@getCreate'));
-	Route::post('profile',array("uses"=>'ProfileController@postCreate'));
+	Route::get('profile/create',array("uses"=>'ProfileController@getCreate'));
+	Route::post('profile/create',array("uses"=>'ProfileController@postCreate'));
 	Route::get('profile/{id}/edit', array("uses"=>'ProfileController@getEdit'));
 	Route::post('profile/{id}/edit',array("uses"=>'ProfileController@postEdit'));
+	Route::get('profile/{id}/delete', array("uses"=>'ProfileController@getDelete'));
 /*-----------------------------------------------------*/
 	Route::post('admin/team/update',array('uses'=>'AdminTeamController@postEditTeam'));
 	Route::get('admin/team/{teamID}/edit',array('uses'=>'AdminTeamController@getEditTeam'));
