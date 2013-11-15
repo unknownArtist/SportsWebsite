@@ -2,10 +2,15 @@
 @section('content')
 	
 
-    <div class="well">
-        {{ HTML::link('profile/create','Add Rink',array('class' => 'btn btn-success')) }}
-    </div>
+    
+        @foreach($profiles as $profile)
+        <?php if($profile->user_id != Sentry::getUser()->id)
+        {?>
+        <div class="well">
 
+        {{ HTML::link('profile/create','Add Profile',array('class' => 'btn btn-success')) }}
+    </div>
+<?php } ?>
 	 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
     <thead>
 
@@ -18,14 +23,12 @@
             <th>Position</th>
             <th>Shoots</th>
             <th>Statistic</th>
-            <th>Current Teams</th>
-            <th>Previous Teams</th>
             <th>Achievements</th>
             
         </tr>
     </thead>
     <tbody>
-    @foreach($profiles as $profile)
+        
         <tr class="odd gradeX">
             <td>{{ $profile->name }}</td>
             <td>{{ $profile->player_nickname }}</td>
@@ -35,8 +38,6 @@
             <td>{{ $profile->position }}</td>
             <td>{{ $profile->shoots }}</td>
             <td>{{ $profile->statistic }}</td>
-            <td>{{ $profile->current_teams }}</td>
-            <td>{{ $profile->previous_teams }}</td>
             <td>{{ $profile->achievements }}</td>
             
             <td>
@@ -52,6 +53,9 @@
             </td>
         </tr>
     @endforeach
+
+     
     </tbody>
     </table>
-@stop		
+
+@stop	
