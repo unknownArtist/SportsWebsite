@@ -25,6 +25,7 @@
         			{{ Form::file('team_logo','',array('class'=>'form-control'))}}
         		</td>
 
+
         	</tr>
         	<tr>
         		<td>
