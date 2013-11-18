@@ -1,6 +1,10 @@
 @extends('layouts.admin')
 @section('content')
-	
+<div class="well">
+    <div style="color:red">
+        {{ Session::get('errors') }}
+    </div>
+</div>	
 
     
         @foreach($profiles as $profile)
