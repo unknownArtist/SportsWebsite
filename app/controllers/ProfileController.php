@@ -17,25 +17,25 @@ class ProfileController extends BaseController {
 	}
 	public function getCreate()
 	{
-		// $input= Input::all();
+		$id = Sentry::getUser()->id;
+		$profile = DB::table('player_profile')->where('user_id','=', $id)->get(); 
+
+		if($profile) // here you had to place this code.. where we are displaying form.. so the logice is .. user cannot access this page
+		{
+			return Redirect::to('profile')->with('errors','You already have a profile');
+		}
 		return View::make('profile.create');
 	}
 	public function postCreate()
 	{
 		
-		$userId = Sentry::getUser()->id;
+		$userId = Sentry::getUser()->id; echo $userId;
 		$user = DB::table('users')->where('id','=',$userId)->get();
 		//print($userId);
-		$profile = DB::table('player_profile')->where('user_id','=', $userId)->get();
-		if($user->id == $profile->user_id)
-		{
-			echo "This user has a profile already";
-		}
-		else
-		{
+
 		$input= Input::all();
 		DB::table('player_profile')->insert(array('name' => $input['name'],
-											'user_id' => $id,
+											'user_id' => $userId,  // it was $id i changed it to $userId.
 											'player_nickname' => $input['player_nickname'],
 											'age' => $input['age'],
 											'weight' => $input['weight'],
@@ -48,10 +48,9 @@ class ProfileController extends BaseController {
 											'achievements' => $input['achievements']));
 
 		return Redirect::to('profile')->with('message','Profile created');
-		$destinationPath = 'public/image/';
-		Input::file('player_profile_photos')->move($destinationPath);
-		//return View::make('profile.create')->with('input',$input);
-	}
+
+
+
 
 	}
 

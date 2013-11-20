@@ -78,6 +78,7 @@
         </tr>  
           <td>
                   {{ Form::submit('Update', array('class'=>'btn btn-primary span12 formz')) }}
+                  {{ HTML::link('profile',"Back",array('class'=>'btn btn-success'))}}
         </tr>
   {{ Form::close() }}
    </tbody>
