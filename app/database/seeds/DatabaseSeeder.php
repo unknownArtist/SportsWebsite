@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder {
   
 		// $this->call('Create_seeder_for_admin_tableTableSeeder');
 		$this->call('TeamsTableSeeder');
+		$this->call('Add_register_userTableSeeder');
 	}
 
 }
