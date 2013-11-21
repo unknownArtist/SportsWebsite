@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'rooott@gmail.com', 'name' => 'Sports Website'),
+	'from' => array('address' => 'rameez.ahmad013@gmail.com', 'name' => 'Sports Website'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'rooott@gmail.com',
+	'username' => 'rameez.ahmad013@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => '',
+	'password' => 'Rdeveloper1',
 
 	/*
 	|--------------------------------------------------------------------------

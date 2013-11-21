@@ -1,7 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-	
-
     <div class="well">
         {{ HTML::link('admin/team/create','Add Team',array('class' => 'btn btn-success')) }}
     </div>
@@ -29,7 +27,7 @@
     <tbody>
     @foreach($teams as $team)
         <tr class="odd gradeX">
-            <td>{{ $team->team_logo }}</td>
+            <td>{{Form::image('uploads/teamImages/'.$team->team_logo )}}</td>
             <td>{{ $team->team_name }}</td>
             <td>{{ $team->current_jersey }}</td>
             <td>{{ $team->previous_jerseys }}</td>

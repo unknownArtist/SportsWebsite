@@ -11,6 +11,7 @@ class CreateTeamPrevJerseysTable extends Migration {
 			$table->increments('id');
 			$table->integer('team_id')->unsigned();
 			$table->string('previous_jersey');
+			$table->string('team_prevjerseysimg',300);
 		});
 	}
 
