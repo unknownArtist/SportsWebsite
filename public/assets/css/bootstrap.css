@@ -1287,8 +1287,9 @@ th {
   text-align: left;
 }
 .table {
-  width: 100%;
+  width: 50%;
   margin-bottom: 20px;
+  margin: 0 auto;
 }
 .table thead > tr > th,
 .table tbody > tr > th,
@@ -1316,6 +1317,7 @@ th {
 .table tbody + tbody {
   border-top: 2px solid #dddddd;
 }
+
 .table .table {
   background-color: #ffffff;
 }
