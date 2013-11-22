@@ -8,13 +8,8 @@
 
     
         @foreach($profiles as $profile)
-        <?php if($profile->user_id != Sentry::getUser()->id)
-        {?>
-        <div class="well">
-
-        {{ HTML::link('profile/create','Add Profile',array('class' => 'btn btn-success')) }}
-    </div>
-<?php } ?>
+        @if($profile->user_id == Sentry::getUser()->id)
+    
 	 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
     <thead>
 
@@ -56,9 +51,15 @@
                 </div>
             </td>
         </tr>
-    @endforeach
+   @else
+   <div class="well">
 
-     
+        {{ HTML::link('profile/create','Add Profile',array('class' => 'btn btn-success')) }}
+    </div>
+      @endif
+    @endforeach
+ 
+ 
     </tbody>
     </table>
 

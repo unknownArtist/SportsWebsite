@@ -11,6 +11,7 @@ class CreateTeamPhotosTable extends Migration {
 			$table->increments('id');
 			$table->integer('team_id')->unsigned();
 			$table->string('photo_name', 300);
+			$table->string('photo_name1', 300);
 		});
 	}
 

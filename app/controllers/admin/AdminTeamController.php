@@ -41,7 +41,7 @@ class AdminTeamController extends BaseController {
 	public function getIndex()
 	{
 		return View::make('admin.team.index')
-				   ->with('teams',Team::all());
+				   ->with('teams',Team::all(),'TeamMedicses',TeamMedics::all() );
 	}
 	public function getCreateTeam()
 	{
@@ -49,7 +49,8 @@ class AdminTeamController extends BaseController {
 	}
 	public function postCreateTeam()
 	{ 
-		// $team_logo = $this->ImageCrop('team_logo','teamImages','200','200','');
+	
+		 $team_logo = $this->ImageCrop('team_logo','teamImages','200','200','');
 		$jersey_image = $this->ImageCrop('jersey_image','prevTeamImages','200','200','');
 		// $prev_jersy = $this->ImageCrop('previous_jerseys','teamPhotos','200','200','');
 		$v = Validator::make(Input::all(), Team::$rules);
@@ -62,7 +63,7 @@ class AdminTeamController extends BaseController {
 		$id = DB::table('teams')->insertGetId(
     		array(
     			'team_name'			=>		Input::get('team_name'),
-    			'team_logo'			=>		Input::get('team_logo'),
+    			'team_logo'			=>		$team_logo,
     			'current_jersey'	=>		Input::get('current_jersey'),
     			'jersey_image'		=>		$jersey_image,
     			'president_name'	=>		Input::get('president_name'),
@@ -76,29 +77,34 @@ class AdminTeamController extends BaseController {
 		
 		if($id)
 		{
-			// DB::table('team_photos')->insert(array(
-			// 	'team_id'	=>	$id,
-			// 	'photo_name'=>	 $this->ImageCrop('photo_name','teamImages','200','200',''),
-			// 	'team_id'	=>	 $id,
-			// 	'photo_name'=>	$this->ImageCrop('photo_name1','teamImages','200','200',''),
-			// 	));
-			// DB::table('team_referees')->insert(array(
-			// 	'team_id'	=>	$id,
-			// 	'referee'	=>	Input::get()
-			// 	));
-			// DB::table('team_timeKeepers')->insert(array(
-			// 	'team_id'	 =>	$id,
-			// 	'time_keeper'=>	$team_logo
-			// 	));
-			// DB::table('team_videos')->insert(array(
-			// 	'team_id'	 =>	$id,
-			// 	'time_keeper'=>	$team_logo
-			// 	));
-			// DB::table('team_medics')->insert(array(
-			// 	'team_id'	 =>	$id,
-			// 	'medics'=>	$team_logo
-			// 	));
-
+			DB::table('team_photos')->insert(array(
+				'team_id'	=>	$id,
+				'photo_name'=>	 $this->ImageCrop('photo_name','teamImages','200','200',''),
+				'team_id'	=>	 $id,
+				'photo_name1'=>	$this->ImageCrop('photo_name1','teamImages','200','200',''),
+				));
+			DB::table('team_referees')->insert(array(
+				'team_id'	=>	$id,
+				'referee'	=>	Input::get('referees')
+				));
+			DB::table('team_timeKeepers')->insert(array(
+				'team_id'	 =>	$id,
+				'time_keeper'=>	Input::get('time_keepers')
+				));
+			DB::table('team_videos')->insert(array(
+				'team_id'	 =>	$id,
+				'video_name'=> Input::get('video_name'),
+				'video_name1'=> Input::get('video_name1'),
+				));
+			DB::table('team_medics')->insert(array(
+				'team_id'	 =>	$id,
+				'medics'=>	Input::get('medics')
+				));
+			DB::table('team_prevjerseys')->insert(array(
+				'team_id'	 =>	$id,
+				'team_prevjerseysimg'=>	$this->ImageCrop('previous_jerseysimg','teamPhotos','200','200',''),
+				'previous_jersey'   => Input::get('previous_jerseys'),
+				));
 			return Redirect::to('admin/teams')->with('success','Team added successfully');
 		}
 	}
