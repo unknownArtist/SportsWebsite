@@ -31,8 +31,6 @@
 
         			{{ Form::file('team_logo','',array('class'=>'form-control'))}}
                     
-        			{{ Form::file('team_logo[]','',array('class'=>'form-control'))}}
-                    
 
         		</td>
 
@@ -65,7 +63,7 @@
         	<tr>
         		<td>
         			{{ Form::label('previous_jerseys','Previous Jerseys')}}
-        			{{ Form::text('previous_jerseys','',array('class'=>'form-control'))}}
+        			{{ Form::text('previous_jerseys','',array('class'=>'form-control','placeholder'=>'red, blue, green'))}}
         		</td>
             </tr>    
             <tr>    
@@ -95,7 +93,7 @@
         	<tr>
         		<td>
         			{{ Form::label('disbanded','Team Disbanded')}}
-        			{{ Form::text('disbanded','',array('class'=>'form-control'))}}
+                    {{Form::text('disbanded','',array('class'=>'form-control'))}}
         		</td>
             </tr>    
             <tr> 

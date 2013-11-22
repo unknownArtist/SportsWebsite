@@ -25,18 +25,29 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($teams as $team)
+   
         <tr class="odd gradeX">
+        @foreach($teams as $team)
             <td>{{Form::image('uploads/teamImages/'.$team->team_logo )}}</td>
             <td>{{ $team->team_name }}</td>
+
+
             <td>{{ $team->current_jersey }}</td>
-            <td>{{ $team->previous_jerseys }}</td>
+
+
+            <td>{{ ($team->getPrevJerseys($team->id)); }}</td>
             <td>{{ $team->president_name }}</td>
             <td>{{ $team->head_coach }}</td>
             <td>{{ $team->assistant_coach }}</td>
-            <td>{{ $team->time_keepers }}</td>
-            <td>{{ $team->referees }}</td>
-            <td>{{ $team->medics }}</td>
+
+            <td>{{ ($team->getTimeKeeper($team->id)); }}</td>
+
+
+            <td>{{($team->getMedics($team->id));}}</td>
+
+
+            <td>{{ ($team->getReferees($team->id));}}</td>
+
             <td>{{ $team->history }}</td>
             <td>{{ $team->founded }}</td>
             <td>{{ $team->disbanded }}</td>
