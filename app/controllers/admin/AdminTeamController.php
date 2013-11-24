@@ -40,8 +40,13 @@ class AdminTeamController extends BaseController {
 	}
 	public function getIndex()
 	{
-		return View::make('admin.team.index')
-				   ->with('teams',Team::all(),'TeamMedicses',TeamMedics::all() );
+		$medics = DB::table('team_medics')->get();
+		$referee = DB::table('team_referees')->get();
+		$time_keepe = DB::table('team_timeKeepers')->get();
+		$previous_jersey = DB::table('team_prevJerseys')->get();
+
+		return View::make('admin.team.index', compact('medics','referee','time_keepe','previous_jersey'))
+						->with('teams',Team::all());
 	}
 	public function getCreateTeam()
 	{
@@ -49,7 +54,23 @@ class AdminTeamController extends BaseController {
 	}
 	public function postCreateTeam()
 	{ 
-	
+		// $previous_jerseys = Input::get('previous_jerseys');
+		// foreach($previous_jerseys as $key=>$value)
+		// 			  {
+					  
+		// 			  	print_r($value);
+		// 			  	die();
+
+		// 				DB::table('team_prevjerseys')->insert(
+		// 						array(
+		// 								'team_id'	 =>	$id,
+		// 								'team_prevjerseysimg'=>	$this->ImageCrop('previous_jerseysimg','teamPhotos','200','200',''),
+		// 								'previous_jersey'   => $value
+		// 		                    ));
+							 		
+		// 					 }
+		
+		
 		 $team_logo = $this->ImageCrop('team_logo','teamImages','200','200','');
 		$jersey_image = $this->ImageCrop('jersey_image','prevTeamImages','200','200','');
 		// $prev_jersy = $this->ImageCrop('previous_jerseys','teamPhotos','200','200','');
@@ -100,16 +121,29 @@ class AdminTeamController extends BaseController {
 				'team_id'	 =>	$id,
 				'medics'=>	Input::get('medics')
 				));
-			DB::table('team_prevjerseys')->insert(array(
-				'team_id'	 =>	$id,
-				'team_prevjerseysimg'=>	$this->ImageCrop('previous_jerseysimg','teamPhotos','200','200',''),
-				'previous_jersey'   => Input::get('previous_jerseys'),
-				));
+
+				$d = explode(',', Input::get('previous_jerseys'));
+		
+		foreach($d as $key=>$value)
+		{
+			
+			DB::table('team_prevjerseys')->insert(
+		 						array(
+								'team_id'	 =>	$id,
+								'team_prevjerseysimg'=>	$this->ImageCrop('previous_jerseysimg','teamPhotos','200','200',''),
+								'previous_jersey'   => $value
+		                    ));
+
+
+		}
+		
+
+
 			return Redirect::to('admin/teams')->with('success','Team added successfully');
 		}
 	}
 	public function getEditTeam()
-	{
+	{   
 		$id = Request::segment(3);
 		$team = Team::find($id);
 		return View::make('admin.team.edit')
@@ -117,8 +151,8 @@ class AdminTeamController extends BaseController {
 	}
 	public function postEditTeam()
 	{
-		// $jersey_image = $this->ImageCrop('jersey_image','prevTeamImages','200','200','');
-		// $prev_jersy = $this->ImageCrop('previous_jerseys','teamPhotos','200','200','');
+		$team_logo = $this->ImageCrop('team_logo','teamImages','200','200','');
+		$jersey_image = $this->ImageCrop('jersey_image','prevTeamImages','200','200','');
 		$v = Validator::make(Input::all(), Team::$rules);
 		if($v->fails())
 		{
@@ -126,14 +160,15 @@ class AdminTeamController extends BaseController {
 						   ->withInput()
 						   ->withErrors($v);
 		}
+
 		$id = DB::table('teams')
 				->where('id','=',Input::get('id'))
 				->update(
     		array(
     			'team_name'			=>		Input::get('team_name'),
-    			'team_logo'			=>		Input::get('team_logo'),
+    			'team_logo'			=>		$team_logo,
     			'current_jersey'	=>		Input::get('current_jersey'),
-    			// 'jersey_image'		=>		$jersey_image,
+    			 'jersey_image'		=>		$jersey_image,
     			'president_name'	=>		Input::get('president_name'),
     			'head_coach'		=>		Input::get('head_coach'),
     			'assistant_coach'	=>		Input::get('assistant_coach'),
@@ -143,6 +178,18 @@ class AdminTeamController extends BaseController {
     		)
 		);
 		return Redirect::to('admin/teams/')->with('message','Team Updated successfully');		
+	}
+
+	public function getDeleteTeam($id)
+	{
+		DB::table('teams')->where('id',$id)->delete();
+		$medics = DB::table('team_medics')->get();
+		$referee = DB::table('team_referees')->get();
+		$time_keepe = DB::table('team_timeKeepers')->get();
+		$previous_jersey = DB::table('team_prevJerseys')->get();
+
+		return View::make('admin.team.index', compact('medics','referee','time_keepe','previous_jersey'))
+						->with('teams',Team::all());
 	}
 
 }

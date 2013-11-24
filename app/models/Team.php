@@ -16,29 +16,26 @@ class Team extends Eloquent {
 		'founded' 			=> 'required',
 		'disbanded' 		=> 'required'
 	);
-	public function teamMedics()
-    {
-        return $this->hasMany('TeamMedics');
-    }
-    public function teamPhotos()
-    {
-        return $this->hasMany('TeamPhotos');
-    }
-    public function teamPrevJerseys()
-    {
-        return $this->hasMany('TeamPrevJerseys');
-    }
-    public function teamReferees()
-    {
-        return $this->hasMany('TeamReferees');
-    }
-    public function teamTimeKeeper()
-    {
-        return $this->hasMany('TeamTimeKeeper');
-    }
-    public function teamVideo()
-    {
-        return $this->hasMany('TeamVideo');
-    }
 
+    public function getPrevJerseys($id)
+    { 
+        $team = TeamPrevJerseys::where('team_id','=',$id)->get();
+        return $team[0]->previous_jersey;
+    }
+    public function getTimeKeeper($id)
+    { 
+        $team = TeamTimeKeeper::where('team_id','=',$id)->get();
+        return $team[0]->time_keeper;
+    }
+     public function getMedics($id)
+    { 
+        $team = TeamMedics::where('team_id','=',$id)->get();
+        return $team[0]->medics;
+    }
+      public function getReferees($id)
+    { 
+        $team = TeamReferees::where('team_id','=',$id)->get();
+        return $team[0]->referee;
+    }
 }
+
