@@ -43,9 +43,8 @@ class ProfileController extends BaseController {
 											'position' => $input['position'],
 											'shoots' => $input['shoots'],
 											'statistic' => $input['statistic'],
-											// 'current_teams' => $input['current_teams'],
-											// 'previous_teams' => $input['previous_teams'],
 											'achievements' => $input['achievements']));
+
 
 		return Redirect::to('profile')->with('message','Profile created');
 

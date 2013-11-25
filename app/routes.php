@@ -10,12 +10,19 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
+/* Routes for message */
+/*-------------------*/
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
+
 
 Route::resource('test','TestController');
 // /*-----------------------------Admin config--------------*/
 // 	Route::get('admin/Config',array("uses"=>'AdminConfigController@getindex'));
 // /*------------------------------------------------------*/
+
+	Route::get('/',array("uses"=>'HomeController@getIndex'));
+
 /*--------------schedule-------------------------*/
    Route::get('schedule',array("uses"=>'ProfileController@getSchedule'));
 /*-----------------------------------------------------*/
