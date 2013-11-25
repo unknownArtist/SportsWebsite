@@ -12,8 +12,13 @@
 	 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
     <thead>
     <tbody>
+
+    	{{ Form::open(array('url'=>'admin/team/create','POST','files'=>true))}}
+        <tr class="odd gradeX">
+
     	{{ Form::open(array('url'=>'admin/team/create','POST','files' => true))}}
         <tr>
+
         	<tr>
         		<td>
         			{{ Form::label('name','Team Name')}}
@@ -24,8 +29,10 @@
             <tr>    
         		<td>
         			{{ Form::label('name','Team Logoo')}}
-        			{{ Form::file('team_logo[]','',array('class'=>'form-control'))}}
+
+        			{{ Form::file('team_logo','',array('class'=>'form-control'))}}
                     
+
         		</td>
 
         	</tr>
@@ -50,14 +57,14 @@
             <tr>    
                 <td>
                     {{ Form::label('previous_jerseys','Previous Jerseys')}}
-                    {{ Form::file('previous_jerseys','',array('class'=>'form-control'))}}
+                    {{ Form::file('previous_jerseysimg','',array('class'=>'form-control'))}}
                     
                 </td>
             </tr>
         	<tr>
         		<td>
         			{{ Form::label('previous_jerseys','Previous Jerseys')}}
-        			{{ Form::text('previous_jerseys','',array('class'=>'form-control'))}}
+        			{{ Form::text('previous_jerseys','',array('class'=>'form-control','placeholder'=>'red, blue, green'))}}
         		</td>
             </tr>    
             <tr>    
@@ -66,6 +73,12 @@
         			{{ Form::text('head_coach','',array('class'=>'form-control'))}}
         		</td>
         	</tr>
+            <tr>
+                <td>
+                    {{ Form::label('current_jersey','Current Jersey')}}
+                    {{ Form::text('current_jersey','',array('class'=>'form-control'))}}
+                </td>
+            </tr>
         	<tr>
         		<td>
         			{{ Form::label('assistant_coach','Assistant Coach')}}
@@ -81,7 +94,7 @@
         	<tr>
         		<td>
         			{{ Form::label('disbanded','Team Disbanded')}}
-        			{{ Form::text('disbanded','',array('class'=>'form-control'))}}
+                    {{Form::text('disbanded','',array('class'=>'form-control'))}}
         		</td>
             </tr>    
             <tr> 
@@ -106,7 +119,7 @@
         	<tr>
         		<td>
         			{{ Form::label('history','Team History')}}
-        			{{ Form::text('history','',array('class'=>'form-control'))}}
+        			{{ Form::textarea('history','',array('class'=>'form-control'))}}
         		</td>
             </tr>    
             <tr>    
@@ -115,7 +128,18 @@
                     {{ Form::text('president_name','',array('class'=>'form-control'))}}
                 </td>
         		
-        	</tr>  
+        	</tr> 
+            <tr>
+            <td>
+                    {{ Form::label('Videos','Videos Link')}}
+                    {{ Form::text('video_name','',array('class'=>'form-control'))}}
+                </td> 
+                <td>
+                    {{ Form::label('Videos','Videos Link')}}
+                    {{ Form::text('video_name1','',array('class'=>'form-control'))}}
+                </td> 
+            </tr>
+            <tr>
             <td>
                 {{ Form::submit('Add',array('class'=>'btn btn-primary','style'=>'margin-top:25px;'))}}
                 {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success','style'=>'margin-top:25px;'))}}

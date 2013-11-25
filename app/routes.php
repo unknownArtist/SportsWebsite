@@ -10,9 +10,15 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
+/* Routes for message */
+/*-------------------*/
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
-Route::resource('test','TestController');
+	Route::get('/',array("uses"=>'HomeController@getIndex'));
+/*--------------schedule-------------------------*/
+   Route::get('schedule',array("uses"=>'ProfileController@getSchedule'));
+/*-----------------------------------------------------*/
 /*--------------Rink routes-------------------------*/
 
 	Route::get('admin/rinks', array('uses'=>'RinkController@getIndex')); // should display created rinks 
@@ -28,7 +34,7 @@ Route::resource('test','TestController');
 
 
 /*-----------------------------------------------------*/
-
+	
 /*--------------Auth routes-------------------------*/
 	Route::get('user/logout', array('uses'	=>'AuthController@getLogout'));
 	Route::get('user/activation',array('uses'=>'AuthController@getActivateUser'));
@@ -47,6 +53,7 @@ Route::resource('test','TestController');
 	Route::post('profile/{id}/edit',array("uses"=>'ProfileController@postEdit'));
 	Route::get('profile/{id}/delete', array("uses"=>'ProfileController@getDelete'));
 /*-----------------------------------------------------*/
+	Route::get('admin/team/{teamID}/delete',array('uses'=>'AdminTeamController@getDeleteTeam'));
 	Route::post('admin/team/update',array('uses'=>'AdminTeamController@postEditTeam'));
 	Route::get('admin/team/{teamID}/edit',array('uses'=>'AdminTeamController@getEditTeam'));
 	Route::post('admin/team/create',array("uses"=>'AdminTeamController@postCreateTeam'));

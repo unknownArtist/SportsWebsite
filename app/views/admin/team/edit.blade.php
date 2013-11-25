@@ -11,7 +11,7 @@
 	 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
     <thead>
     <tbody>
-    	{{ Form::open(array('url'=>'admin/team/update','POST'))}}
+    	{{ Form::open(array('url'=>'admin/team/update','POST','files'=>true))}}
         
         <tr class="odd gradeX">
         	<tr>

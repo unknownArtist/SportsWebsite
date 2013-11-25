@@ -11,6 +11,7 @@ class CreateTeamVideosTable extends Migration {
 			$table->increments('id');
 			$table->integer('team_id')->unsigned();
 			$table->string('video_name', 300);
+			$table->string('video_name1', 300);
 		});
 	}
 

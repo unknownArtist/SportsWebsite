@@ -43,9 +43,8 @@ class ProfileController extends BaseController {
 											'position' => $input['position'],
 											'shoots' => $input['shoots'],
 											'statistic' => $input['statistic'],
-											// 'current_teams' => $input['current_teams'],
-											// 'previous_teams' => $input['previous_teams'],
 											'achievements' => $input['achievements']));
+
 
 		return Redirect::to('profile')->with('message','Profile created');
 
@@ -93,6 +92,10 @@ class ProfileController extends BaseController {
 		 $profile->delete();
 			//DB::table('rinks')->where('id','=',Request::segment(3))->delete();
 		return Redirect::to('profile')->with('message','Record deleted successfully');
+	}
+	public function getSchedule()
+	{
+		return View::make('schedule.index');
 	}
 }
 //http://developer13.com/post/laravel-tutorial-model-bindings
