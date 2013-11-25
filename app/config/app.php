@@ -116,8 +116,6 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Cartalyst\Sentry\SentryServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
-		'Saas\Admin\AdminServiceProvider',
-		'Saas\Message\MessageServiceProvider',
 
 	),
 
