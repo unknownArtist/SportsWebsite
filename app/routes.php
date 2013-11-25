@@ -13,6 +13,9 @@
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
 Route::resource('test','TestController');
+// /*-----------------------------Admin config--------------*/
+// 	Route::get('admin/Config',array("uses"=>'AdminConfigController@getindex'));
+// /*------------------------------------------------------*/
 /*--------------schedule-------------------------*/
    Route::get('schedule',array("uses"=>'ProfileController@getSchedule'));
 /*-----------------------------------------------------*/
@@ -55,7 +58,7 @@ Route::resource('test','TestController');
 	Route::get('admin/team/{teamID}/edit',array('uses'=>'AdminTeamController@getEditTeam'));
 	Route::post('admin/team/create',array("uses"=>'AdminTeamController@postCreateTeam'));
 	Route::get('admin/team/create',array("uses"=>'AdminTeamController@getCreateTeam'));
-	Route::get('admin/config',array("uses"=>'AdminConfigController@getIndex'));
+	Route::get('admin/config',array("uses"=>'AdminTeamController@getConfig'));
 	Route::post('admin/login',array("uses"=>'AdminTeamController@postLogin'));
 	Route::get('admin/login',array("uses"=>'AdminTeamController@getLogin'));
 	Route::get('admin/teams',array("uses"=>'AdminTeamController@getIndex'));

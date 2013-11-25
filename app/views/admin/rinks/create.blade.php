@@ -17,8 +17,8 @@
         <tr class="odd gradeX">
             <tr>
             <td>
-            {{ Form::label('rink_addresse', 'Addresses:', array('class'=>'form-control formz','placeholder' => 'rink_addresse')) }}
-            {{ Form::text('rink_addresse') }}
+            {{ Form::label('rink_addresse', 'Addresses:', array('class'=>'form-control formz')) }}
+            {{ Form::text('rink_addresse','',array('class'=>'form-control','placeholder'=>'Address1, Address2')) }}
             </td>   
             <td>
             {{ Form::label('rink_seating_capacity', 'Seating Capacity:', array('class'=>'form-control formz','placeholder' => 'rink_seating_capacity')) }}
@@ -46,7 +46,7 @@
           </td>
           <td>
             {{ Form::label('rink_homeTeams', 'Home Teams:', array('class'=>'form-control formz','placeholder' => 'rink_homeTeams')) }}
-            {{ Form::text('rink_homeTeams') }}
+            {{ Form::text('rink_homeTeams','',array('class'=>'form-control','placeholder'=>'name1, name2')) }}
           </td>
           
           </tr>

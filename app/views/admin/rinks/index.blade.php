@@ -10,6 +10,7 @@
     <thead>
 
         <tr>
+            <th>Adresses</th>
         	<th>Seating Capacity</th>
             <th>No. of Change Rooms</th>
             <th>Board Type</th>
@@ -27,17 +28,19 @@
     <tbody>
     @foreach($rinks as $rink)
         <tr class="odd gradeX">
+            <td>{{ $rink->getAddress($rink->id) }}</td>
             <td>{{ $rink->rink_seating_capacity }}</td>
             <td>{{ $rink->rink_change_rooms }}</td>
-            <td>{{ $rink->rink_boardType }}</td>
-            <td>{{ $rink->rink_other }}</td>
-            <td>{{ $rink->rink_homeTeams }}</td>
+             <td>{{ $rink->rink_boardType }}</td>
+             <td>{{ $rink->rink_other }}</td>
+            <td>{{ $rink->getHome($rink->id) }}</td>
             <td>{{ $rink->rink_highlights }}</td>
             <td>{{ $rink->rink_history }}</td>
             <td>{{ $rink->rink_opened_date }}</td>
             <td>{{ $rink->rink_closed_date }}</td>
             <td>{{ $rink->rink_description }}</td>
-            <td>{{ $rink->rink_layout_image }}</td>
+            <td>{{Form::image('uploads/rinks_images/'.$rink->getImage($rink->id));}}</td>
+            
             
             <td>
                 <div class="btn-group">
