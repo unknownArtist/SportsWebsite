@@ -1,4 +1,8 @@
 {
+	"repositories": [{
+		"type": "composer",
+		"url": "http://packages.saasventure.com"
+	}],
 	"name": "laravel/laravel",
 	"description": "The Laravel Framework.",
 	"keywords": ["framework", "laravel"],
@@ -7,7 +11,8 @@
 		"laravel/framework": "4.0.*",
 		"way/generators": "dev-master",
 		"cartalyst/sentry": "2.0.*",
-		"intervention/image": "dev-master"
+		"intervention/image": "dev-master",
+		"saas/message": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
