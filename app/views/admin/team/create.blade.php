@@ -20,6 +20,7 @@
         			{{ Form::text('team_name','',array('class'=>'form-control','id'=>'myId'))}}
 
         		</td>
+            </tr>    
             <tr>    
         		<td>
         			{{ Form::label('name','Team Logoo')}}
