@@ -96,10 +96,9 @@
                     {{ Form::file('rink_layout_image', array('title' => 'rink_layout_image','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4)) }}
                 </td>
             </tr>  
-                <td>
+                <td >
+                  {{ HTML::link('admin/rinks/create','Back',array('class'=>'btn btn-success'))}}
                   {{ Form::submit('Submit', array('class'=>'btn btn-primary span12 formz')) }}
-                  {{ HTML::link('admin/rinks/create','Back',array('class'=>'btn btn-success','style'=>'margin-top:;'))}}
-
                 </td>
         </tr>
 

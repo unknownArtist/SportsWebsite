@@ -134,15 +134,13 @@
                     {{ Form::label('Videos','Videos Link')}}
                     {{ Form::text('video_name','',array('class'=>'form-control'))}}
                 </td> 
-                <td>
-                    {{ Form::label('Videos','Videos Link')}}
-                    {{ Form::text('video_name1','',array('class'=>'form-control'))}}
-                </td> 
+               
             </tr>
             <tr>
             <td>
-                {{ Form::submit('Add',array('class'=>'btn btn-primary','style'=>'margin-top:25px;'))}}
-                {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success','style'=>'margin-top:25px;'))}}
+                
+                {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success'))}}
+                {{ Form::submit('Add',array('class'=>'btn btn-primary'))}}
             </td>
 
         </tr>
