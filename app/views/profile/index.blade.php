@@ -4,11 +4,13 @@
     <div style="color:red">
         {{ Session::get('errors') }}
     </div>
+    @if(!$profiles)
+        {{ HTML::link('profile/create','Add Profile',array('class' => 'btn btn-success')) }}
+    @endif
 </div>	
-
     
-        @foreach($profiles as $profile)
-        @if($profile->user_id == Sentry::getUser()->id)
+    @foreach($profiles as $profile)
+
     
 	 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
     <thead>
@@ -51,12 +53,7 @@
                 </div>
             </td>
         </tr>
-   @else
-   <div class="well">
 
-        {{ HTML::link('profile/create','Add Profile',array('class' => 'btn btn-success')) }}
-    </div>
-      @endif
     @endforeach
  
  

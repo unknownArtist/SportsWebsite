@@ -5911,3 +5911,45 @@ td.visible-print {
   -webkit-transition: height 0.35s ease;
   transition: height 0.35s ease;
 }
+
+.hrheight
+{
+	border:2px solid;
+	margin-top:0px;
+}
+
+.userchathr
+{
+	
+	width:100%;
+	margin-top:0px;
+}
+
+.comingevents
+{
+	text-align:center;
+}
+
+.comingevents h4
+{
+	padding-bottom:15px;
+}
+
+.userchattxt
+{
+	width:62%;
+	height:80px;
+	margin-bottom:15px;
+	padding:5px;
+}
+
+.userchatheight
+{
+	height:350px;
+	overflow:auto;
+}
+
+.memberheight
+{
+	height:430px;
+}

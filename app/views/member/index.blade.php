@@ -12,82 +12,89 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 </div>
 
 <div class="col-xs-9">
-<h4>News Feed</h4>
+<h4>Members</h4>
 <hr class="hrheight" />
 
-
-<div class="userchatheight">
+<div class="memberheight">
 <div class="userchat">
-<div class="col-sm-1 col-md-1">
+<div class="col-sm-1">
     <a href="#" class="thumbnail">
       <img data-src="holder.js/100%x180" alt="...">
     </a>
-    <h6>username</h6>
   </div>
   
-  <div class="col-sm-11">
-  <p>21/10/13 – message that the person has written</p>
+  <div class="col-sm-8">
+  <h5>username</h5>
   </div> 
+  
+  <div class="col-sm-11 clearfix">
+  {{ HTML::link('#','View Profile...',array('class'=>'pull-right','style'=>'margin-top:;'))}}
+  </div>
   
   <hr class="userchathr" />
    
 </div>
 
 <div class="userchat">
-<div class="col-sm-1 col-md-1">
+<div class="col-sm-1">
     <a href="#" class="thumbnail">
       <img data-src="holder.js/100%x180" alt="...">
     </a>
-    <h6>username</h6>
   </div>
   
-  <div class="col-sm-11">
-  <p>21/10/13 – message that the person has written</p>
+  <div class="col-sm-8">
+  <h5>username</h5>
   </div> 
+  
+  <div class="col-sm-11 clearfix">
+  {{ HTML::link('#','View Profile...',array('class'=>'pull-right','style'=>'margin-top:;'))}}
+  </div>
   
   <hr class="userchathr" />
    
 </div>
 
 <div class="userchat">
-<div class="col-sm-1 col-md-1">
+<div class="col-sm-1">
     <a href="#" class="thumbnail">
       <img data-src="holder.js/100%x180" alt="...">
     </a>
-    <h6>username</h6>
   </div>
   
-  <div class="col-sm-11">
-  <p>21/10/13 – message that the person has written</p>
+  <div class="col-sm-8">
+  <h5>username</h5>
   </div> 
+  
+  <div class="col-sm-11 clearfix">
+  {{ HTML::link('#','View Profile...',array('class'=>'pull-right','style'=>'margin-top:;'))}}
+  </div>
   
   <hr class="userchathr" />
    
 </div>
 
+<div class="userchat">
+<div class="col-sm-1">
+    <a href="#" class="thumbnail">
+      <img data-src="holder.js/100%x180" alt="...">
+    </a>
+  </div>
+  
+  <div class="col-sm-8">
+  <h5>username</h5>
+  </div> 
+  
+  <div class="col-sm-11 clearfix">
+  {{ HTML::link('#','View Profile...',array('class'=>'pull-right','style'=>'margin-top:;'))}}
+  </div>
+  
+  <hr class="userchathr" />
+   
 </div>
-
+</div>
 <hr class="hrheight" />
-
-<div class="col-sm-1 col-md-1">
-    <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
-    </a>
-    <h6>username</h6>
-  </div>
-<div class="col-sm-11">
-{{ Form::textarea('user_chat','',array('class'=>'userchattxt','id'=>'myId','placeholder'=>'Start Typing...')) }}
-
-</div>
-<div class="col-sm-8">
-{{ Form::submit('Send', array('class'=>'btn btn-primary clearfix pull-right')) }}
 </div>
 </div>
 
 
-</div>
-
-
-
-
-@stop	
+@stop

@@ -117,6 +117,7 @@ return array(
 		'Cartalyst\Sentry\SentryServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
 
+
 	),
 
 	/*

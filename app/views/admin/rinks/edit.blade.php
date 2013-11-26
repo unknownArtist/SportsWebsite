@@ -14,11 +14,37 @@
     <tbody>
          {{ Form::open(array('url'=>'admin/rinks/'.$rinks['id'].'/edit','POST','files' => true))}}
               {{ Form::token() }}
-          <tr class="odd gradeX">
+          <?php $id= Request::segment(3);
+              $adresses = RinksAddress::where('rink_id','=',$id)->get();
+              $a = array();
+              foreach($adresses as $key => $address )
+              {
+                $a[] = $address->rink_addresse;
+              }
+
+              $d = implode(',',$a);
+              $homes = RinksHome::where('rink_id','=',$id)->get();
+              $hom = array();
+              foreach($homes as $key => $home)
+              {
+                $hom[] = $home->home_team;
+              }
+
+              $ho = implode(',',$hom);
+
+              $images = RinksImage::where('rink_id','=',$id)->get();
+              foreach($images as $key => $image)
+              {
+                $img = $image->rink_image;
+                
+              }
+            ?>
+             <tr class="odd gradeX">
             <tr>
             <td>
+              
             {{ Form::label('rink_addresse', 'Addresses:') }}
-            {{ Form::text('rink_addresse',$rinks['rink_addresse'],array('class'=>'form-control')) }}
+            {{ Form::text('rink_addresse', $d ,array('class'=>'form-control')) }}
             </td>   
             <td>
             {{ Form::label('rink_seating_capacity', 'Seating Capacity:')}}
@@ -44,7 +70,7 @@
           </td>
           <td>
             {{ Form::label('rink_homeTeams', 'Home Teams:') }}
-            {{ Form::text('rink_homeTeams',$rinks['rink_homeTeams'],array('class'=>'form-control')) }}
+            {{ Form::text('rink_homeTeams',$ho,array('class'=>'form-control')) }}
           </td> 
         </tr>
         
@@ -78,6 +104,7 @@
           <td>
             {{ Form::label('rink_layout_image', 'Layout Image:') }}
             {{ Form::file('rink_layout_image', array('title' => 'rink_layout_image','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4)) }}
+            {{Form::image('uploads/rinks_images/'.$img);}}
           </td>
         </tr>  
             <td>

@@ -93,9 +93,10 @@ class ProfileController extends BaseController {
 			//DB::table('rinks')->where('id','=',Request::segment(3))->delete();
 		return Redirect::to('profile')->with('message','Record deleted successfully');
 	}
-	public function getSchedule()
+	
+	public function getMembers()
 	{
-		return View::make('schedule.index');
+		return View::make('member.index');
 	}
 }
 //http://developer13.com/post/laravel-tutorial-model-bindings

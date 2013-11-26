@@ -15,9 +15,21 @@
 /*-------------------*/
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
+
+Route::resource('test','TestController');
+
+	/*---------------------Message center Routes-------------------------*/
+	Route::get('user/messages', array('uses'=>'MessageCentreController@getIndex')); 
+
+	/*--------------------------------------------------------------------*/
+// /*-----------------------------Admin config---------------------------*/
+// 	Route::get('admin/Config',array("uses"=>'AdminConfigController@getindex'));
+// /*------------------------------------------------------*/
+
 	Route::get('/',array("uses"=>'HomeController@getIndex'));
+
 /*--------------schedule-------------------------*/
-   Route::get('schedule',array("uses"=>'ProfileController@getSchedule'));
+   Route::get('schedule',array("uses"=>'AdminTeamController@getSchedule'));
 /*-----------------------------------------------------*/
 /*--------------Rink routes-------------------------*/
 
@@ -46,6 +58,7 @@
 /*-----------------------------------------------------*/
 
 /*--------------Profile routes-------------------------*/
+	Route::get('members',array("uses"=>'ProfileController@getMembers'));
 	Route::get('profile',array("uses"=>'ProfileController@getIndex'));
 	Route::get('profile/create',array("uses"=>'ProfileController@getCreate'));
 	Route::post('profile/create',array("uses"=>'ProfileController@postCreate'));
@@ -58,7 +71,8 @@
 	Route::get('admin/team/{teamID}/edit',array('uses'=>'AdminTeamController@getEditTeam'));
 	Route::post('admin/team/create',array("uses"=>'AdminTeamController@postCreateTeam'));
 	Route::get('admin/team/create',array("uses"=>'AdminTeamController@getCreateTeam'));
-	Route::get('admin/config',array("uses"=>'AdminConfigController@getIndex'));
+	Route::post('admin/config',array("uses"=>'AdminTeamController@postConfig'));
+	Route::get('admin/config',array("uses"=>'AdminTeamController@getConfig'));
 	Route::post('admin/login',array("uses"=>'AdminTeamController@postLogin'));
 	Route::get('admin/login',array("uses"=>'AdminTeamController@getLogin'));
 	Route::get('admin/teams',array("uses"=>'AdminTeamController@getIndex'));
