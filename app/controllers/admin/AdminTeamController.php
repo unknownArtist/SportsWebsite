@@ -194,7 +194,29 @@ class AdminTeamController extends BaseController {
 
 	public function getConfig()
 	{
-		return "Config";
+		return View::make('admin.config.index');
+	}
+	public function postConfig()
+	{
+		$v = Validator::make(Input::all(), Schedule::$rules);
+		if($v->fails())
+		{
+			return Redirect::to('admin/config/index')
+						   ->withInput()
+						   ->withErrors($v);
+		}
+		DB::table('schedule_sheet')
+				->where('id','=',11)
+				->update(
+    		array(
+    			'schedule_sheet_link'=>		Input::get('schedule_link'),
+		));
+	return Redirect::to('schedule');
+	}
+	public function getSchedule()
+	{
+		$schedules = Schedule::all();
+		return View::make('schedule.index')->with('schedules',$schedules);
 	}
 
 }

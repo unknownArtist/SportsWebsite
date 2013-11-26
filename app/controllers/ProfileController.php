@@ -93,10 +93,7 @@ class ProfileController extends BaseController {
 			//DB::table('rinks')->where('id','=',Request::segment(3))->delete();
 		return Redirect::to('profile')->with('message','Record deleted successfully');
 	}
-	public function getSchedule()
-	{
-		return View::make('schedule.index');
-	}
+	
 	public function getMembers()
 	{
 		return View::make('member.index');
