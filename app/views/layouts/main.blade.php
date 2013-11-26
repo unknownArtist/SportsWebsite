@@ -16,7 +16,8 @@
      {{ HTML::script('assets/js/morris/chart-data-morris.js') }}
      {{ HTML::script('assets/js/tablesorter/jquery.tablesorter.js') }}
      {{ HTML::script('assets/js/tablesorter/tables.js') }}
-     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.min.js"></script>
+    
+     
      
     
      

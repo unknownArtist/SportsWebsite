@@ -113,7 +113,7 @@
             <tr>    
         		<td>
         			{{ Form::label('founded','Team Founded')}}
-        			{{ Form::text('founded','',array('class'=>'form-control'))}}
+        			{{ Form::text('founded','',array('class'=>'form-control datepicker'))}}
         		</td>
         	</tr>
         	<tr>
@@ -148,4 +148,11 @@
         {{ Form::close() }}
     </tbody>
     </table>
+    </table>
+     <script >
+         $('.datepicker').datepicker({
+
+            'format': 'yyyy-mm-dd'
+         })
+  </script>
 @stop
