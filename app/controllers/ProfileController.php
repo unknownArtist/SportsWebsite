@@ -93,13 +93,43 @@ class ProfileController extends BaseController {
 			//DB::table('rinks')->where('id','=',Request::segment(3))->delete();
 		return Redirect::to('profile')->with('message','Record deleted successfully');
 	}
-	public function getSchedule()
-	{
-		return View::make('schedule.index');
-	}
+	
 	public function getMembers()
 	{
-		return View::make('member.index');
+		$users = User::all();
+		// $user_id = Sentry::getUser()->id;
+		return View::make('member.index')->with('users',$users);
+	}
+	public function getMembersprofile($id)
+	{
+		$users = Profile::where('user_id', $id)->get();
+
+
+		return View::make('member.edit')
+				   ->with('users',$users[0]);
+		// $user_id = Sentry::getUser()->id;
+		
+	}
+	public function postMembersprofile($id)
+	{
+	
+		DB::table('player_profile')
+					->where('user_id','=',$id)
+					->update(
+	    		array(
+	    			'name'            =>Input::get('name'),
+	    			'player_nickname' =>Input::get('player_nickname'),
+	    			'age'            =>Input::get('age'),
+	    			'weight'         =>Input::get('weight'),
+	    			'height'          =>Input::get('height'),
+	    			'position'        =>Input::get('position'),
+	    			'shoots'         =>Input::get('shoots'),
+	    			'statistic'          =>Input::get('statistic'),
+	    			'achievements'        =>Input::get('achievements'),
+	    		));
+
+			return Redirect::to('members');
+		
 	}
 }
 //http://developer13.com/post/laravel-tutorial-model-bindings
