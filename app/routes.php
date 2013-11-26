@@ -17,7 +17,12 @@
 
 
 Route::resource('test','TestController');
-// /*-----------------------------Admin config--------------*/
+
+	/*---------------------Message center Routes-------------------------*/
+	Route::get('user/messages', array('uses'=>'MessageCentreController@getIndex')); 
+
+	/*--------------------------------------------------------------------*/
+// /*-----------------------------Admin config---------------------------*/
 // 	Route::get('admin/Config',array("uses"=>'AdminConfigController@getindex'));
 // /*------------------------------------------------------*/
 
@@ -53,6 +58,7 @@ Route::resource('test','TestController');
 /*-----------------------------------------------------*/
 
 /*--------------Profile routes-------------------------*/
+	Route::get('members',array("uses"=>'ProfileController@getMembers'));
 	Route::get('profile',array("uses"=>'ProfileController@getIndex'));
 	Route::get('profile/create',array("uses"=>'ProfileController@getCreate'));
 	Route::post('profile/create',array("uses"=>'ProfileController@postCreate'));

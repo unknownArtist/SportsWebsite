@@ -97,5 +97,9 @@ class ProfileController extends BaseController {
 	{
 		return View::make('schedule.index');
 	}
+	public function getMembers()
+	{
+		return View::make('member.index');
+	}
 }
 //http://developer13.com/post/laravel-tutorial-model-bindings
