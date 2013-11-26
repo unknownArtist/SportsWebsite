@@ -5920,7 +5920,7 @@ td.visible-print {
 
 .userchathr
 {
-	float:left;
+	
 	width:100%;
 	margin-top:0px;
 }
@@ -5933,4 +5933,23 @@ td.visible-print {
 .comingevents h4
 {
 	padding-bottom:15px;
+}
+
+.userchattxt
+{
+	width:62%;
+	height:80px;
+	margin-bottom:15px;
+	padding:5px;
+}
+
+.userchatheight
+{
+	height:350px;
+	overflow:auto;
+}
+
+.memberheight
+{
+	height:430px;
 }
