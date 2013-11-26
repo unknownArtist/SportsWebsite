@@ -13,6 +13,7 @@ class ScheduleSheet extends Migration {
 	{
 		Schema::create('schedule_sheet', function($table) {
 			$table->increments('id');
+			$table->string('tittle');
 			$table->string('schedule_sheet_link');
 			$table->integer('active');
 		});

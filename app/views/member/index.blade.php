@@ -16,6 +16,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 <hr class="hrheight" />
 
 <div class="memberheight">
+   @foreach($users as $user)
 <div class="userchat">
 <div class="col-sm-1">
     <a href="#" class="thumbnail">
@@ -24,77 +25,19 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
   </div>
   
   <div class="col-sm-8">
-  <h5>username</h5>
+  <h5>{{$user->email}}</h5>
   </div> 
   
   <div class="col-sm-11 clearfix">
-  {{ HTML::link('#','View Profile...',array('class'=>'pull-right','style'=>'margin-top:;'))}}
+  {{ HTML::link('members/'.$user->id.'/profile','View Profile...',array('class'=>'pull-right','style'=>'margin-top:;'))}}
   </div>
   
   <hr class="userchathr" />
    
 </div>
-
-<div class="userchat">
-<div class="col-sm-1">
-    <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
-    </a>
-  </div>
-  
-  <div class="col-sm-8">
-  <h5>username</h5>
-  </div> 
-  
-  <div class="col-sm-11 clearfix">
-  {{ HTML::link('#','View Profile...',array('class'=>'pull-right','style'=>'margin-top:;'))}}
-  </div>
-  
-  <hr class="userchathr" />
-   
-</div>
-
-<div class="userchat">
-<div class="col-sm-1">
-    <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
-    </a>
-  </div>
-  
-  <div class="col-sm-8">
-  <h5>username</h5>
-  </div> 
-  
-  <div class="col-sm-11 clearfix">
-  {{ HTML::link('#','View Profile...',array('class'=>'pull-right','style'=>'margin-top:;'))}}
-  </div>
-  
-  <hr class="userchathr" />
-   
-</div>
-
-<div class="userchat">
-<div class="col-sm-1">
-    <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
-    </a>
-  </div>
-  
-  <div class="col-sm-8">
-  <h5>username</h5>
-  </div> 
-  
-  <div class="col-sm-11 clearfix">
-  {{ HTML::link('#','View Profile...',array('class'=>'pull-right','style'=>'margin-top:;'))}}
-  </div>
-  
-  <hr class="userchathr" />
-   
-</div>
-</div>
+ @endforeach
 <hr class="hrheight" />
 </div>
 </div>
-
 
 @stop
