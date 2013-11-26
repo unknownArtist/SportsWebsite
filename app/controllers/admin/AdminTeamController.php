@@ -194,7 +194,8 @@ class AdminTeamController extends BaseController {
 
 	public function getConfig()
 	{
-		return View::make('admin.config.index');
+		$schedules = Schedule::all();
+		return View::make('admin.config.index')->with('schedules',$schedules);
 	}
 	public function postConfig()
 	{
@@ -205,18 +206,81 @@ class AdminTeamController extends BaseController {
 						   ->withInput()
 						   ->withErrors($v);
 		}
-		DB::table('schedule_sheet')
-				->where('id','=',11)
-				->update(
-    		array(
-    			'schedule_sheet_link'=>		Input::get('schedule_link'),
-		));
-	return Redirect::to('schedule');
+		DB::table('schedule_sheet')->insert(
+    array('schedule_sheet_link' => Input::get('schedule_link'),
+    	  'active'=>0,
+    	 'tittle' => Input::get('tittle'))
+);
+	return Redirect::to('admin/config');
 	}
 	public function getSchedule()
 	{
-		$schedules = Schedule::all();
+		$schedules = Schedule::where('active', 1)->get();
 		return View::make('schedule.index')->with('schedules',$schedules);
 	}
+	public function getEditSchedule()
+	{   
+		$id = Request::segment(3);
+		$schedules = Schedule::find($id);
+		return View::make('admin.config.edit')
+				   ->with('schedules',$schedules);
+	}
+
+	public function postEditSchedule()
+	{
+		$v = Validator::make(Input::all(), Schedule::$rules);
+		if($v->fails())
+		{
+			return Redirect::to('admin/config/'.Input::get('id').'/edit')
+						   ->withInput()
+						   ->withErrors($v);
+		}
+
+		$id = DB::table('schedule_sheet')
+				->where('id','=',Input::get('id'))
+				->update(
+    		array(
+    			'tittle'			    =>Input::get('tittle'),
+    			'schedule_sheet_link'	=>Input::get('schedule_link'),
+    		)
+		);
+		return Redirect::to('admin/config/')->with('message','Team Updated successfully');		
+	}
+
+	public function getDeleteSchedule($id)
+	{
+		DB::table('schedule_sheet')->where('id',$id)->delete();
+	return Redirect::to('admin/config/')
+						->with('schedules',Schedule::all());
+	}
+	public function getPublishSchedule($id)
+	{   
+		$p= Request::segment(4);
+		DB::table('schedule_sheet')
+				->where('id','=',$id)
+				->update(
+    		array(
+    			'active' =>$p,
+    		));
+		
+		$schedules = Schedule::find($id);
+	return Redirect::to('admin/config/')
+						->with('schedules',Schedule::all());
+	}
+	public function getUnPublishSchedule($id)
+	{   
+		$p= Request::segment(4);
+		DB::table('schedule_sheet')
+				->where('id','=',$id)
+				->update(
+    		array(
+    			'active' =>$p,
+    		));
+		
+		$schedules = Schedule::find($id);
+	return Redirect::to('admin/config/')
+						->with('schedules',Schedule::all());
+	}
+
 
 }

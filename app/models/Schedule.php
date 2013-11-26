@@ -6,6 +6,7 @@ class Schedule extends Eloquent {
 	public $timestamps = false;
 
 	public static $rules = array(
-		'schedule_link' 		=> 'required'
+		'schedule_link' 		=> 'required',
+		'tittle' 		=> 'required'
 	);
 }
