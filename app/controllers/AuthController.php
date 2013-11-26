@@ -132,7 +132,7 @@ class AuthController extends BaseController {
 	{
 		if(Sentry::logout())
 		{
-			return Redirect::to('login')->with('success',"You are successfully logout");
+			return Redirect::to('/')->with('success',"You are successfully logout");
 		}
 		
 	}

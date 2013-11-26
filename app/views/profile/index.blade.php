@@ -1,6 +1,6 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('content')
-<div class="well">
+<div class="container">
     <div style="color:red">
         {{ Session::get('errors') }}
     </div>

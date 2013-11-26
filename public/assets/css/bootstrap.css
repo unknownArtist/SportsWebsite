@@ -3668,8 +3668,15 @@ textarea.input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+background: rgba(212,228,239,1);
+background: -moz-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(212,228,239,1)), color-stop(100%, rgba(134,174,204,1)));
+background: -webkit-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+background: -o-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+background: -ms-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+background: linear-gradient(to bottom, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=0 );
+border:0;
 }
 .navbar-default .navbar-brand {
   color: #777777;
@@ -3687,14 +3694,14 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333333;
+  color: #fff;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #555555;
-  background-color: #e7e7e7;
+  color: #fff;
+  background: url(../images/menuhover.png) center;
 }
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
@@ -5914,7 +5921,7 @@ td.visible-print {
 
 .hrheight
 {
-	border:2px solid;
+	border:2px solid #86aecc;
 	margin-top:0px;
 }
 
@@ -5933,6 +5940,12 @@ td.visible-print {
 .comingevents h4
 {
 	padding-bottom:15px;
+	color:#777777;
+}
+
+h4
+{
+	color:#777777;
 }
 
 .userchattxt
@@ -5952,4 +5965,9 @@ td.visible-print {
 .memberheight
 {
 	height:430px;
+}
+
+.formmargin
+{
+	margin:0 auto;
 }

@@ -17,7 +17,39 @@
      {{ HTML::script('assets/js/tablesorter/jquery.tablesorter.js') }}
      {{ HTML::script('assets/js/tablesorter/tables.js') }}
      <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.min.js"></script>
-     
+     <script type="text/javascript">
+function GetCurrentPageName() { 
+//method to get Current page name from url. 
+var PageURL = document.location.href; 
+var PageName = PageURL.substring(PageURL.lastIndexOf('/') + 1); 
+ 
+return PageName.toLowerCase() ;
+}
+ 
+$(document).ready(function(){
+var CurrPage = GetCurrentPageName();
+ 
+switch(CurrPage){
+case '':
+ $('#li_home').addClass('active') ;
+ break;
+case 'profile':
+ $('#li_profile').addClass('active') ;
+ break;
+case 'members':
+ $('#li_member').addClass('active') ;
+ break;
+ case 'schedule':
+ $('#li_schedule').addClass('active') ;
+ break;
+ case 'messages':
+ $('#li_messages').addClass('active') ;
+ break;
+
+
+}
+});
+</script> 
     
      
   </head>
@@ -38,14 +70,14 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="profile">My Profile</a></li>
-      <li><a href="#">Members</a></li>
-      <li><a href="schedule">Schedule</a></li>
+      <li id="li_home"><a href="{{URL::to('/')}}">Home</a></li>
+      <li id="li_profile"><a href="{{URL::to('profile')}}">My Profile</a></li>
+      <li id="li_member"><a href="{{URL::to('members')}}">Members</a></li>
+      <li id="li_schedule"><a href="{{URL::to('schedule')}}">Schedule</a></li>
          
     </ul>
     <ul class="nav navbar-nav navbar-right">
-       <li><a href="#">Inbox</a></li>
+       <li id="li_messages"><a href="{{URL::to('user/messages')}}">Inbox</a></li>
       <li><a href="user/logout">Logout</a></li> 
 	</ul>
     
@@ -53,6 +85,8 @@
 </nav>
 </div>
   	@yield('content')
+    
   </body>
+  
   
 </html>
