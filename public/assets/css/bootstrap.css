@@ -5911,3 +5911,26 @@ td.visible-print {
   -webkit-transition: height 0.35s ease;
   transition: height 0.35s ease;
 }
+
+.hrheight
+{
+	border:2px solid;
+	margin-top:0px;
+}
+
+.userchathr
+{
+	float:left;
+	width:100%;
+	margin-top:0px;
+}
+
+.comingevents
+{
+	text-align:center;
+}
+
+.comingevents h4
+{
+	padding-bottom:15px;
+}

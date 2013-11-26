@@ -192,4 +192,9 @@ class AdminTeamController extends BaseController {
 						->with('teams',Team::all());
 	}
 
+	public function getConfig()
+	{
+		return "Config";
+	}
+
 }
