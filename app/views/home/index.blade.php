@@ -15,6 +15,8 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 <h4>News Feed</h4>
 <hr class="hrheight" />
 
+
+<div class="userchatheight">
 <div class="userchat">
 <div class="col-sm-1 col-md-1">
     <a href="#" class="thumbnail">
@@ -63,6 +65,23 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
    
 </div>
 
+</div>
+
+<hr class="hrheight" />
+
+<div class="col-sm-1 col-md-1">
+    <a href="#" class="thumbnail">
+      <img data-src="holder.js/100%x180" alt="...">
+    </a>
+    <h6>username</h6>
+  </div>
+<div class="col-sm-11">
+{{ Form::textarea('user_chat','',array('class'=>'userchattxt','id'=>'myId','placeholder'=>'Start Typing...')) }}
+
+</div>
+<div class="col-sm-8">
+{{ Form::submit('Send', array('class'=>'btn btn-primary clearfix pull-right')) }}
+</div>
 </div>
 
 
