@@ -18,7 +18,7 @@
 
   </head>
   <body>   <!-- Docs master nav -->
-  <div class="container">
+  <div class="container" style="border:0; padding:0;">
     <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
