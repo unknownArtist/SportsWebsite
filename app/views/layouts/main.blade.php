@@ -16,11 +16,7 @@
      {{ HTML::script('assets/js/morris/chart-data-morris.js') }}
      {{ HTML::script('assets/js/tablesorter/jquery.tablesorter.js') }}
      {{ HTML::script('assets/js/tablesorter/tables.js') }}
-<<<<<<< HEAD
-    
-     
-     
-=======
+
      <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.min.js"></script>
      <script type="text/javascript">
 function GetCurrentPageName() { 
@@ -55,12 +51,11 @@ case 'members':
 }
 });
 </script> 
->>>>>>> d09430be8887b7b97c9b11f566cd5d38218d42b6
     
      
   </head>
   <body>   <!-- Docs master nav -->
-  <div class="container">
+  <div class="container" style="border:0; padding:0;">
     <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
