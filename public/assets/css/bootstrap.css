@@ -647,6 +647,9 @@ pre code {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  background:#f9f9f9;
+  border:1px solid #777777;
+  border-radius:4px;
 }
 .container:before,
 .container:after {
@@ -1506,6 +1509,7 @@ label {
   display: inline-block;
   margin-bottom: 5px;
   font-weight: bold;
+  color:#777777;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -3334,7 +3338,6 @@ textarea.input-group-sm > .input-group-btn > .btn {
   position: relative;
   z-index: 1000;
   min-height: 50px;
-  margin-bottom: 20px;
   border: 1px solid transparent;
 }
 .navbar:before,
@@ -3669,13 +3672,13 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default {
 background: rgba(212,228,239,1);
-background: -moz-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(212,228,239,1)), color-stop(100%, rgba(134,174,204,1)));
-background: -webkit-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-background: -o-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-background: -ms-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-background: linear-gradient(to bottom, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=0 );
+background: -moz-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(66,139,202,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(212,228,239,1)), color-stop(100%, rgba(66,139,202,1)));
+background: -webkit-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(66,139,202,1) 100%);
+background: -o-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(66,139,202,1) 100%);
+background: -ms-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(66,139,202,1) 100%);
+background: linear-gradient(to bottom, rgba(212,228,239,1) 0%, rgba(66,139,202,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#428bca', GradientType=0 );
 border:0;
 }
 .navbar-default .navbar-brand {
@@ -5970,4 +5973,15 @@ h4
 .formmargin
 {
 	margin:0 auto;
+}
+
+.labellineheight label
+{
+	margin-top:15px;
+}
+
+.submitbtn
+{
+	margin-top:15px;
+	margin-bottom:15px;
 }
