@@ -12,6 +12,11 @@ class MessageCentreController extends BaseController {
         return View::make('message.index');
 	}
 
+	public function getmessagecompose()
+	{
+        return View::make('message.messagecompose');
+	}
+
 
 
 }

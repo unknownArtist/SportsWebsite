@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="well">
+<div class="">
     @if ($errors->any())
     <ul>
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
@@ -9,6 +9,7 @@
 @endif
     </div>
 
+	<div class="container">
   <div class="col-xs-7" style="float:none; margin:0 auto;">
     <div class="labellineheight">
 
@@ -58,6 +59,12 @@
                     {{ Form::label('rink_highlights', 'Highlights') }}
                     {{ Form::text('rink_highlights','',array('class'=>'form-control','id'=>'myId')) }}
             </div>
+            
+                        <div class="col-xs-6">
+                    {{ Form::label('rink_layout_image', 'Layout Image') }}
+                    {{ Form::file('rink_layout_image',array('title' => 'rink_layout_image','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'form-control'))}}
+            </div> 
+
 
             <div class="col-xs-6">
                     {{ Form::label('rink_opened_date', 'Opened(date)') }}
@@ -68,17 +75,16 @@
                     {{ Form::text('rink_closed_date','',array('class'=>'form-control datepicker')) }}
               </div>
             
-            <div class="col-xs-6">
-                    {{ Form::label('rink_layout_image', 'Layout Image') }}
-                    {{ Form::file('rink_layout_image',array('title' => 'rink_layout_image','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'form-control'))}}
-            </div> 
-            <div class="col-xs-6">
+            
+            <div class="col-xs-12">
                   {{ HTML::link('admin/rinks/create','Back',array('class'=>'btn btn-success'))}}
-                  {{ Form::submit('Submit', array('class'=>'btn btn-primary span12 formz')) }}
-                  
+                  {{ Form::submit('Submit', array('class'=>'btn btn-primary pull-right')) }}                
                   {{ Form::close() }}
-           </div>
+           </div>  
          </div>
+         </div>
+         </div>
+         
      <script >
          $('.datepicker').datepicker({
 
