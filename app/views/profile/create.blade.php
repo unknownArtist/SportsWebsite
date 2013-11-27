@@ -65,7 +65,8 @@
             {{ Form::file('player_profile_photos', array('title' => 'player_profile_photos','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4, 'class'=>'form-control')) }}
          </div>
           <div class="col-xs-12">
-                  {{ Form::submit('Submit', array('class'=>'btn btn-primary pull-right submitbtn')) }}
+                  {{ Form::submit('Submit', array('class'=>'btn btn-primary pull-right')) }}
+                  {{ HTML::link('profile','Back',array('class'=>'btn btn-success '))}}
          
                   {{ Form::close() }}
   		</div>

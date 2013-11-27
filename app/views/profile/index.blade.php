@@ -7,7 +7,7 @@
     @if(!$profiles)
         {{ HTML::link('profile/create','Add Profile',array('class' => 'btn btn-success')) }}
     @endif
-</div>	
+
     
     @foreach($profiles as $profile)
 
@@ -25,6 +25,7 @@
             <th>Shoots</th>
             <th>Statistic</th>
             <th>Achievements</th>
+            
             
         </tr>
     </thead>
@@ -59,5 +60,7 @@
  
     </tbody>
     </table>
+    
+    </div>	
 
 @stop	
