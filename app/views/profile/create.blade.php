@@ -14,8 +14,11 @@
     <div class="labellineheight">
         
          {{ Form::open(array('profile.create','Post', 'files' => true))  }}
-              {{ Form::token() }}      
-       
+              {{ Form::token() }} 
+          <div class="col-xs-6">
+              {{ Form::label('team', 'Teams') }}
+              {{Form::select('team',$teams)}}     
+         </div>
          <div class="col-xs-6">
             {{ Form::label('name', 'Name') }}
             {{ Form::text('name','',array('class'=>'form-control')) }}

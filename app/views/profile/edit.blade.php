@@ -12,10 +12,18 @@
    <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
     <thead>
     <tbody>
-         
+       
          {{ Form::open(array('url'=>'profile/'.$profiles['id'].'/edit','POST','files' => true))}}
         
    <tr class="odd gradeX">
+          <tr>
+           
+            <td>
+              {{ Form::label('team', 'Teams') }}
+              {{Form::select('team' , $teams)}}
+             
+            </td>
+          </tr>
           <tr>
             <td>
 

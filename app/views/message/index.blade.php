@@ -12,14 +12,17 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 </div>
 
 <div class="col-xs-9">
+
 <div class="col-xs-4 comingmessages">
+
 <h4>Messages</h4>
 </div>
 <div class="col-xs-8">
-{{ HTML::link('admin/teams','Create new',array('class'=>'btn btn-success pull-right'))}}
+{{ HTML::link('message-compose','Create new',array('class'=>'btn btn-success pull-right'))}}
 </div>
 
 <hr class="hrheight" />
+
 
 <div class="">
 

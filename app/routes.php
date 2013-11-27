@@ -26,6 +26,7 @@ Route::resource('test','TestController');
 	/*--------------------------------------------------------------------*/
 
 	/*---------------------Message center Routes-------------------------*/
+	Route::get('user/message/compose', array('uses'=>'MessageCentreController@getmessagecompose'));
 	Route::get('user/messages', array('uses'=>'MessageCentreController@getIndex')); 
 
 	/*--------------------------------------------------------------------*/
