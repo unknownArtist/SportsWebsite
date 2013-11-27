@@ -1591,7 +1591,7 @@ fieldset[disabled] .form-control {
   background-color: #eeeeee;
 }
 textarea.form-control {
-  height: auto;
+  height: 183px;
 }
 .form-group {
   margin-bottom: 15px;
@@ -1811,9 +1811,10 @@ textarea.input-lg {
   }
 }
 .btn {
+  margin-top: 20px;
   display: inline-block;
   padding: 6px 12px;
-  margin-bottom: 0;
+  margin-bottom: 15px;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.428571429;
