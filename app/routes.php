@@ -18,6 +18,13 @@
 
 Route::resource('test','TestController');
 
+	/*---------------------Events-------------------------*/
+	Route::post('events/create', array('uses'=>'EventController@postCreate'));
+	Route::get('events/create', array('uses'=>'EventController@getCreate'));
+	Route::get('events', array('uses'=>'EventController@getindex')); 
+
+	/*--------------------------------------------------------------------*/
+
 	/*---------------------Message center Routes-------------------------*/
 	Route::get('user/messages', array('uses'=>'MessageCentreController@getIndex')); 
 
