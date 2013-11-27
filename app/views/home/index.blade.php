@@ -80,7 +80,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 
 </div>
 <div class="col-sm-8">
-{{ Form::submit('Send', array('class'=>'btn btn-primary clearfix pull-right')) }}
+{{ Form::submit('Send', array('class'=>'btn btn-primary clearfix pull-right submitbtn')) }}
 </div>
 </div>
 

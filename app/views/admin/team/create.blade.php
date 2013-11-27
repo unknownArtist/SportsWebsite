@@ -9,146 +9,99 @@
 @endif
     </div>
 
-	 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
-    <thead>
-    <tbody>
+	<div class="col-xs-7" style="float:none; margin:0 auto;">
+    <div class="labellineheight">
 
-    	{{ Form::open(array('url'=>'admin/team/create','POST','files'=>true))}}
-        <tr class="odd gradeX">
 
     	{{ Form::open(array('url'=>'admin/team/create','POST','files' => true))}}
-        <tr>
-
-        	<tr>
-        		<td>
+            <div class="col-xs-6">
         			{{ Form::label('name','Team Name')}}
         			{{ Form::text('team_name','',array('class'=>'form-control','id'=>'myId'))}}
 
-        		</td>
-            </tr>    
-            <tr>    
-        		<td>
+        	</div>
+            <div class="col-xs-6">
         			{{ Form::label('name','Team Logoo')}}
 
-        			{{ Form::file('team_logo','',array('class'=>'form-control'))}}
+        			{{ Form::file('team_logo',array('title' => 'team_logo','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'form-control'))}}
                     
 
-        		</td>
-
-        	</tr>
-        	<tr>
-        		<td>
+        	</div>
+        	<div class="col-xs-6">
         			{{ Form::label('team_photo','Team Photo')}}
-        			{{ Form::file('photo_name','',array('class'=>'form-control'))}}
-        		</td>
-            </tr>    
-        	<tr>	
-                <td>
+        			{{ Form::file('photo_name',array('title' => 'photo_name','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'form-control'))}}
+        		</div>
+        	<div class="col-xs-6">
                     {{ Form::label('Team_photos','Team Photo')}}
-                    {{ Form::file('photo_name1','',array('class'=>'form-control'))}}
-                </td>
-        	</tr>
-            <tr>
-                <td>
+                    {{ Form::file('photo_name1',array('title' => 'photo_name1','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'form-control'))}}
+               </div>
+            <div class="col-xs-6">
                     {{ Form::label('jersey_image','Jersey Image')}}
-                    {{ Form::file('jersey_image','',array('class'=>'form-control'))}}
-                </td>
-            </tr>    
-            <tr>    
-                <td>
+                    {{ Form::file('jersey_image',array('title' => 'jersey_image','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'form-control'))}}
+               </div>
+            <div class="col-xs-6">
                     {{ Form::label('previous_jerseys','Previous Jerseys')}}
-                    {{ Form::file('previous_jerseysimg','',array('class'=>'form-control'))}}
+                    {{ Form::file('previous_jerseysimg',array('title' => 'previous_jerseysimg','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'form-control'))}}
                     
-                </td>
-            </tr>
-        	<tr>
-        		<td>
+               </div>
+        	<div class="col-xs-6">
         			{{ Form::label('previous_jerseys','Previous Jerseys')}}
         			{{ Form::text('previous_jerseys','',array('class'=>'form-control','placeholder'=>'red, blue, green'))}}
-        		</td>
-            </tr>    
-            <tr>    
-        		<td>
+        		</div> 
+            <div class="col-xs-6">
         			{{ Form::label('head_coach','Head Coach')}}
         			{{ Form::text('head_coach','',array('class'=>'form-control'))}}
-        		</td>
-        	</tr>
-            <tr>
-                <td>
+        		</div>
+            <div class="col-xs-6">
                     {{ Form::label('current_jersey','Current Jersey')}}
                     {{ Form::text('current_jersey','',array('class'=>'form-control'))}}
-                </td>
-            </tr>
-        	<tr>
-        		<td>
+               </div>
+        	<div class="col-xs-6">
         			{{ Form::label('assistant_coach','Assistant Coach')}}
         			{{ Form::text('assistant_coach','',array('class'=>'form-control'))}}
-        		</td>
-            </tr>    
-            <tr>    
-        		<td>
+        		</div>
+            <div class="col-xs-6">
         			{{ Form::label('time_keepers','Time Keepers')}}
-        			{{ Form::text('time_keepers','',array('class'=>'form-control'))}}
-        		</td>
-        	</tr>
-        	<tr>
-        		<td>
+                    {{ Form::text('time_keepers','',array('class'=>'form-control'))}}
+        		</div>
+
+        	<div class="col-xs-6">
         			{{ Form::label('disbanded','Team Disbanded')}}
                     {{Form::text('disbanded','',array('class'=>'form-control'))}}
-        		</td>
-            </tr>    
-            <tr> 
-               
-        		<td>
+        		</div>
+             <div class="col-xs-6">
+                    {{ Form::label('history','Team History')}}
+                    {{ Form::textarea('history','',array('class'=>'form-control'))}}
+                </div>     
+
+            <div class="col-xs-6">
         			{{ Form::label('referees','Team Referees')}}
         			{{ Form::text('referees','',array('class'=>'form-control'))}}
-        		</td>
-        	</tr>
-        	<tr>
-        		<td>
+        		</div>
+        	<div class="col-xs-6">
         			{{ Form::label('medics','Team Medics')}}
         			{{ Form::text('medics','',array('class'=>'form-control'))}}
-        		</td>
-            </tr>    
-            <tr>    
-        		<td>
+        		</div>
+            <div class="col-xs-6">
         			{{ Form::label('founded','Team Founded')}}
         			{{ Form::text('founded','',array('class'=>'form-control datepicker'))}}
-        		</td>
-        	</tr>
-        	<tr>
-        		<td>
-        			{{ Form::label('history','Team History')}}
-        			{{ Form::textarea('history','',array('class'=>'form-control'))}}
-        		</td>
-            </tr>    
-            <tr>    
-                <td>
+        		</div>
+        	
+            <div class="col-xs-6">
                     {{ Form::label('president_name','President Name')}}
                     {{ Form::text('president_name','',array('class'=>'form-control'))}}
-                </td>
-        		
-        	</tr> 
-            <tr>
-            <td>
+               </div>
+            <div class="col-xs-6">
                     {{ Form::label('Videos','Videos Link')}}
                     {{ Form::text('video_name','',array('class'=>'form-control'))}}
-                </td> 
-               
-            </tr>
-            <tr>
-            <td>
-                
+              </div>
+            <div class="col-xs-6">
                 {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success'))}}
                 {{ Form::submit('Add',array('class'=>'btn btn-primary'))}}
-            </td>
+                {{ Form::close() }}
+           </div>
+        </div>   
 
-        </tr>
-
-        {{ Form::close() }}
-    </tbody>
-    </table>
-    </table>
+    
      <script >
          $('.datepicker').datepicker({
 
