@@ -5944,6 +5944,7 @@ td.visible-print {
 .comingevents h4
 {
 	padding-bottom:15px;
+	padding-top:20px;
 	color:#777777;
 }
 
@@ -5973,6 +5974,11 @@ h4
 .formmargin
 {
 	margin:0 auto;
+}
+
+.labellineheight
+{
+	padding-top:20px;
 }
 
 .labellineheight label

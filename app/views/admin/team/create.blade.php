@@ -1,14 +1,15 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="well">
+<div class="">
     @if ($errors->any())
     <ul>
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
     </ul>
 @endif
     </div>
-
+	
+    <div class="container">
 	<div class="col-xs-7" style="float:none; margin:0 auto;">
     <div class="labellineheight">
 
@@ -94,12 +95,13 @@
                     {{ Form::label('Videos','Videos Link')}}
                     {{ Form::text('video_name','',array('class'=>'form-control'))}}
               </div>
-            <div class="col-xs-6">
-                {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success'))}}
-                {{ Form::submit('Add',array('class'=>'btn btn-primary'))}}
+            <div class="col-xs-12">
+                {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success '))}}
+                {{ Form::submit('Add',array('class'=>'btn btn-primary pull-right'))}}
                 {{ Form::close() }}
            </div>
-        </div>   
+        </div>  
+        </div> 
 
     
      <script >
