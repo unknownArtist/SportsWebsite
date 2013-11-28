@@ -25,6 +25,8 @@
             <th>Shoots</th>
             <th>Statistic</th>
             <th>Achievements</th>
+            <th>Photo</th>
+
             
             
         </tr>
@@ -41,6 +43,7 @@
             <td>{{ $profile->shoots }}</td>
             <td>{{ $profile->statistic }}</td>
             <td>{{ $profile->achievements }}</td>
+            <td>{{Form::image('uploads/profiles_images/'.$profile->   getImage($profile->id));}}</td>
             
             <td>
                 <div class="btn-group">

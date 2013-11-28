@@ -11,8 +11,7 @@ class ProfileController extends BaseController {
 	{
 		// Display the info here with the user_id(session) check
 		$id = Sentry::getUser()->id;
-   		$profile = DB::table('player_profile')->where('user_id', '=', $id)->get();
-		
+   		$profile = Profile::where('user_id', '=', $id)->get();
         return View::make('profile.index')->with('profiles',$profile);
 	}
 	public function getCreate()
@@ -109,8 +108,12 @@ class ProfileController extends BaseController {
 		  DB::table('player_profile')
             ->where('id','=',Request::segment(2))
             ->update($fields);
+            $id = Sentry::getUser()->id;
+   		$profile = Profile::where('user_id', '=', $id)->get();
 
-            return Redirect::to('profile')->with('message','Profile updated');
+            return Redirect::to('profile')
+            ->with('profiles',$profile)
+            ->with('message','Profile updated');
 
 	}
 	public function getDelete()
