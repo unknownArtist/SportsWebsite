@@ -11,7 +11,7 @@ class ProfileController extends BaseController {
 	{
 		// Display the info here with the user_id(session) check
 		$id = Sentry::getUser()->id;
-   		$profile = Profile::where('user_id', '=', $id)->get();
+   		$profile = Profile::where('user_id','=',$id)->get();
         return View::make('profile.index')->with('profiles',$profile);
 	}
 	public function getCreate()
@@ -23,6 +23,7 @@ class ProfileController extends BaseController {
 		{
 			return Redirect::to('profile')->with('errors','You already have a profile');
 		}
+
 		$teams = Team::all();
 		$allTeams = array();
 		foreach($teams as $team)
@@ -36,8 +37,6 @@ class ProfileController extends BaseController {
 		
 		$userId = Sentry::getUser()->id; echo $userId;
 		$user = DB::table('users')->where('id','=',$userId)->get();
-		//print($userId);
-
 		$input= Input::all();
 		$id=DB::table('player_profile')->insertGetId(array(
 											'team_id' => $input['team'],

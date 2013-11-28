@@ -17,7 +17,6 @@ class Profile extends Eloquent {
 	// );
 public function getImage($id)
     { 
-   
         $profile = ProfileImage::where('player_profile_id','=',$id)->get();
         return $profile[0]->player_profile_videos;
     }

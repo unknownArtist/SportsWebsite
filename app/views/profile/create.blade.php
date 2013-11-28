@@ -8,16 +8,14 @@
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
     </ul>
 @endif
-    
-	
-   <div class="col-xs-7" style="float:none; margin:0 auto;">
+    <div class="col-xs-7" style="float:none; margin:0 auto;">
     <div class="labellineheight">
         
          {{ Form::open(array('profile.create','Post', 'files' => true))  }}
               {{ Form::token() }} 
           <div class="col-xs-6">
               {{ Form::label('team', 'Teams') }}
-              {{Form::select('team',$teams)}}     
+              {{Form::select('team', $teams)}}     
          </div>
          <div class="col-xs-6">
             {{ Form::label('name', 'Name') }}
@@ -67,12 +65,13 @@
           	{{ Form::label('userprofileimage', 'Choose Your Picture') }}
             {{ Form::file('player_profile_photos', array('title' => 'player_profile_photos','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4, 'class'=>'form-control')) }}
          </div>
-          <div class="col-xs-12">
+          <div class="col-xs-6">
                   {{ Form::submit('Submit', array('class'=>'btn btn-primary pull-right')) }}
                   {{ HTML::link('profile','Back',array('class'=>'btn btn-success '))}}
          
-                  {{ Form::close() }}
+                  
   		</div>
+      {{ Form::close() }}
     </div>
     
     </div>

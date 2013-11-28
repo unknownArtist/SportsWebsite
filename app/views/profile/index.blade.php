@@ -4,15 +4,14 @@
     <div style="color:red">
         {{ Session::get('errors') }}
     </div>
-    @if(!$profiles)
-        {{ HTML::link('profile/create','Add Profile',array('class' => 'btn btn-success')) }}
+
+    @if($profiles)
+   
+  {{ HTML::link('profile/create','Add Profile',array('class' => 'btn btn-success')) }}
+       
     @endif
-
-    
-    @foreach($profiles as $profile)
-
-    
-	 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
+@foreach($profiles as $profile)
+<table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
     <thead>
 
         <tr>
@@ -27,11 +26,13 @@
             <th>Achievements</th>
             <th>Photo</th>
 
+
             
             
         </tr>
     </thead>
     <tbody>
+
         
         <tr class="odd gradeX">
             <td>{{ $profile->name }}</td>
@@ -43,8 +44,10 @@
             <td>{{ $profile->shoots }}</td>
             <td>{{ $profile->statistic }}</td>
             <td>{{ $profile->achievements }}</td>
-            <td>{{Form::image('uploads/profiles_images/'.$profile->   getImage($profile->id));}}</td>
-            
+             <td>{{Form::image('uploads/profiles_images/'.$profile->getImage($profile->id));}}</td>
+
+
+     
             <td>
                 <div class="btn-group">
                     <a href="{{URL::to('profile/'.$profile->id.'/edit')}}" class="btn btn-mini" alt="Edit">
