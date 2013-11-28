@@ -25,7 +25,6 @@
             <th>Shoots</th>
             <th>Statistic</th>
             <th>Achievements</th>
-            <th>Picture</th>
             
             
         </tr>
@@ -42,8 +41,6 @@
             <td>{{ $profile->shoots }}</td>
             <td>{{ $profile->statistic }}</td>
             <td>{{ $profile->achievements }}</td>
-             <td>{{ $profile->player_profile_photos }}</td>
-            player_profile_photos
             
             <td>
                 <div class="btn-group">
