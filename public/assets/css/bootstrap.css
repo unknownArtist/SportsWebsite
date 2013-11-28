@@ -650,6 +650,8 @@ pre code {
   background:#f9f9f9;
   border:1px solid #777777;
   border-radius:4px;
+  -webkit-border-radius: 4px;
+-moz-border-radius: 4px;
 }
 .container:before,
 .container:after {
@@ -6000,4 +6002,59 @@ h4
 .backbtn
 {
 	margin-right:15px;
+}
+
+.profileimage
+{
+	width:150px;
+	height:150px;
+	-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+padding:1px;
+   border:1px solid #021a40;
+   background-color:#e7e7e7;
+}
+
+.labellineheight h1
+{
+	color:#428bca;
+	margin-top:0px;
+}
+
+.labellineheight h3
+{
+	color:#86aecc;
+	margin-top:-10px;
+}
+
+.spancolor
+{
+	color:#428bca;
+}
+
+.txtalign h4
+{
+	text-align:center;
+}
+
+.colorh3 h3
+{
+	color:#777777;
+	
+}
+
+.txtareaheight
+{
+	height:255px !important;
+}
+
+.spanfontsize
+{
+	font-size:14px;
+}
+
+.achievejustify
+{
+	text-align:justify;
 }

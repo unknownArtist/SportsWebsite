@@ -76,8 +76,10 @@
               </div>
             
             
-            <div class="col-xs-12">
+            <div class="col-xs-6">
                   {{ HTML::link('admin/rinks/create','Back',array('class'=>'btn btn-success'))}}
+                  </div>
+                  <div class="col-xs-6">
                   {{ Form::submit('Submit', array('class'=>'btn btn-primary pull-right')) }}                
                   {{ Form::close() }}
            </div>  
