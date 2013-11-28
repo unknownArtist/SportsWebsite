@@ -44,11 +44,9 @@
             <td>{{ $profile->shoots }}</td>
             <td>{{ $profile->statistic }}</td>
             <td>{{ $profile->achievements }}</td>
+
              <td>{{Form::image('uploads/profiles_images/'.$profile->getImage($profile->id));}}</td>
-
-
-     
-            <td>
+ <td>
                 <div class="btn-group">
                     <a href="{{URL::to('profile/'.$profile->id.'/edit')}}" class="btn btn-mini" alt="Edit">
                         <i class="icon-edit"></i> Edit
