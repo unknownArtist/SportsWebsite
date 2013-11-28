@@ -95,9 +95,19 @@
                     {{ Form::label('Videos','Videos Link')}}
                     {{ Form::text('video_name','',array('class'=>'form-control'))}}
               </div>
-            <div class="col-xs-12">
-                {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success '))}}
+              <div class="col-xs-6">
+                    {{ Form::label('Videos','Videos Link')}}
+                    {{ Form::text('video_name1','',array('class'=>'form-control'))}}
+              </div>
+            
+            <div class="col-xs-6">
+            {{ Form::label('','')}}
+            {{ Form::hidden('abc','',array('class'=>'form-control'))}}
+            </div>
+            <div class="col-xs-6">
+                       
                 {{ Form::submit('Add',array('class'=>'btn btn-primary pull-right'))}}
+                {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success pull-right backbtn'))}}      
                 {{ Form::close() }}
            </div>
         </div>  
