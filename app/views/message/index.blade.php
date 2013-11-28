@@ -18,7 +18,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 <h4>Messages</h4>
 </div>
 <div class="col-xs-8">
-{{ HTML::link('message-compose','Create new',array('class'=>'btn btn-success pull-right'))}}
+{{ HTML::link('user/message/compose','Create new',array('class'=>'btn btn-success pull-right'))}}
 </div>
 
 <hr class="hrheight" />
@@ -28,6 +28,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 
 <div class="userchat">
 <div class="col-sm-1 col-md-1">
+  @foreach($inboxs as $inbox)
     <a href="#" class="thumbnail">
       <img data-src="holder.js/100%x180" alt="...">
     </a>
@@ -35,132 +36,18 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
   </div>
   
   <div class="col-sm-10 comingevents">
-  <p>Message Text</p>
+  <p>{{$inbox->body}}</p>
   </div> 
   
   <div class="col-sm-1">
   {{ HTML::link('#','Reply',array('class'=>'','style'=>'margin-top:;'))}}
    {{ HTML::link('#','Delete',array('class'=>'','style'=>'margin-top:;'))}}
   </div> 
-  
+  @endforeach
   <hr class="userchathr" />
    
 </div>
 
-<div class="userchat">
-<div class="col-sm-1 col-md-1">
-    <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
-    </a>
-    <h6>username</h6>
-  </div>
-  
-  <div class="col-sm-10 comingevents">
-  <p>Message Text</p>
-  </div> 
-  
-  <div class="col-sm-1">
-  {{ HTML::link('#','Reply',array('class'=>'','style'=>'margin-top:;'))}}
-   {{ HTML::link('#','Delete',array('class'=>'','style'=>'margin-top:;'))}}
-  </div> 
-  
-  <hr class="userchathr" />
-   
-</div>
-
-<div class="userchat">
-<div class="col-sm-1 col-md-1">
-    <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
-    </a>
-    <h6>username</h6>
-  </div>
-  
-  <div class="col-sm-10 comingevents">
-  <p>Message Text</p>
-  </div> 
-  
-  <div class="col-sm-1">
-  {{ HTML::link('#','Reply',array('class'=>'','style'=>'margin-top:;'))}}
-   {{ HTML::link('#','Delete',array('class'=>'','style'=>'margin-top:;'))}}
-  </div> 
-  
-  <hr class="userchathr" />
-   
-</div>
-
-
-<div class="userchat">
-<div class="col-sm-1 col-md-1">
-    <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
-    </a>
-    <h6>username</h6>
-  </div>
-  
-  <div class="col-sm-10 comingevents">
-  <p>Message Text</p>
-  </div> 
-  
-  <div class="col-sm-1">
-  {{ HTML::link('#','Reply',array('class'=>'','style'=>'margin-top:;'))}}
-   {{ HTML::link('#','Delete',array('class'=>'','style'=>'margin-top:;'))}}
-  </div> 
-  
-  <hr class="userchathr" />
-   
-</div>
-
-
-<div class="userchat">
-<div class="col-sm-1 col-md-1">
-    <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
-    </a>
-    <h6>username</h6>
-  </div>
-  
-  <div class="col-sm-10 comingevents">
-  <p>Message Text</p>
-  </div> 
-  
-  <div class="col-sm-1">
-  {{ HTML::link('#','Reply',array('class'=>'','style'=>'margin-top:;'))}}
-   {{ HTML::link('#','Delete',array('class'=>'','style'=>'margin-top:;'))}}
-  </div> 
-  
-  <hr class="userchathr" />
-   
-</div>
-
-
-<div class="userchat">
-<div class="col-sm-1 col-md-1">
-    <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
-    </a>
-    <h6>username</h6>
-  </div>
-  
-  <div class="col-sm-10 comingevents">
-  <p>Message Text</p>
-  </div> 
-  
-  <div class="col-sm-1">
-  {{ HTML::link('#','Reply',array('class'=>'','style'=>'margin-top:;'))}}
-   {{ HTML::link('#','Delete',array('class'=>'','style'=>'margin-top:;'))}}
-  </div> 
-  
-  <hr class="userchathr" />
-   
-</div>
-
-</div>
-
-<hr class="hrheight" />
-
-</div>
-</div>
 
 
 @stop
