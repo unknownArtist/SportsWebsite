@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="well">
+    <div class="container">
+    <div class="">
         {{ HTML::link('admin/team/create','Add Team',array('class' => 'btn btn-success')) }}
     </div>
 
@@ -66,4 +67,5 @@
     @endforeach
     </tbody>
     </table>
+    </div>
 @stop
