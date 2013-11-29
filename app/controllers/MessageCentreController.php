@@ -72,7 +72,7 @@ class MessageCentreController extends BaseController {
     }
  	return Redirect::to('user/messages');
   }
-  public function getRply()
+  public function getReply()
   { 
     $id = Request::segment(3);
 
@@ -87,7 +87,19 @@ class MessageCentreController extends BaseController {
 		
 			}
 		}
- 		return View::make('message.messagecompose')->with('teams',$allTeamsMember);
+ 		return View::make('message.reply')->with('teams',$allTeamsMember);
+  }
+   public function postReply()
+  { 
+   $fields = array(
+ 			'from_user'	 =>	Sentry::getUser()->id,
+ 			'to_user'		 =>	Input::get('to'),
+ 			'body'			 =>	Input::get('body'),
+      		'created_at' => date("Y-m-d H:i:s"),
+ 		);
+   
+   DB::table('inbox')->insert($fields);
+   return Redirect::to('user/messages');
   }
   public function getDelete()
 	{
