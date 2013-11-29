@@ -3,9 +3,9 @@
 
 <div class="container">
 
-<div class="">
+<div class="labellineheight">
     @if ($errors->any())
-    <ul>
+    <ul style="color:red;">
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
     </ul>
 @endif

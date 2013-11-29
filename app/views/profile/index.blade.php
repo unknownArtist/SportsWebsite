@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 <div class="container">
-    <div style="color:red">
+    <div style="color:red" class="labellineheight">
         {{ Session::get('errors') }}
     </div>
 
@@ -99,16 +99,9 @@
                 
                 <h4 class="achievejustify">Achievements:<br /><span class="spancolor spanfontsize"> {{ $profile->achievements }}</span></h4>
                 
-                </div>   
-                
-                
-           
+                </div>          
 
     @endforeach
- 
- 
-    </tbody>
-    </table>
     
     </div>	
 
