@@ -9,9 +9,9 @@ class MessageCentreController extends BaseController {
 	public function getIndex()
 	{
 		$user = Sentry::getUser();
-		$inbox = Inbox::where('from_user','=',$user->id)
-               ->where('read_status','=',1)
-               ->get();
+		$inbox = Inbox::where('to_user','=',$user->id)
+	                  ->where('read_status','=',1)
+                      ->get();
 
      if ($inbox->isEmpty() )
 		{
@@ -25,7 +25,7 @@ class MessageCentreController extends BaseController {
 
 		 	}
 		 	
-		$emails=Profile::where('team_id','=',$tem)
+		$emails=Profile::where('user_id','=',$tem)
                ->get();
                
             foreach($emails as $email)
@@ -41,13 +41,17 @@ class MessageCentreController extends BaseController {
 
 	public function getmessagecompose()
 	{
-		$teams = Team::all();
-		
-		foreach($teams as $team)
+		$profiles = Profile::all();
+		$allTeamsMember = array();
+		foreach($profiles as $profile)
 		{
-			$allTeams[$team->id] = $team->team_name;
+			if($profile->user_id != Sentry::getUser()->id)
+			{
+				$allTeamsMember[$profile->user_id] = $profile->name;
+			}
+				
 		}
-        return View::make('message.messagecompose')->with('teams',$allTeams);
+        return View::make('message.messagecompose')->with('teams',$allTeamsMember);
 	}
 
 	 public  function postsendMessage()
@@ -72,14 +76,18 @@ class MessageCentreController extends BaseController {
   { 
     $id = Request::segment(3);
 
-    $teams = Team::where('player_id','=',$id)
+    $profiles = Profile::where('user_id','=',$id)
                ->get();
-		$allTeams = array();
-		foreach($teams as $team)
+		$allTeamsMember = array();
+		foreach($profiles as $profile)
 		{
-			$allTeams[$team->id] = $team->team_name;
+			if($profile->user_id != Sentry::getUser()->id)
+			{
+				$allTeamsMember[$profile->user_id] = $profile->name;
+		
+			}
 		}
- 		return View::make('message.messagecompose')->with('teams',$allTeams);
+ 		return View::make('message.messagecompose')->with('teams',$allTeamsMember);
   }
   public function getDelete()
 	{
