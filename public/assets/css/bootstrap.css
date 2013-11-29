@@ -6077,3 +6077,14 @@ float:left;
 	width:100px;
 	height:100px;
 }
+
+.selectwidth
+{
+	width:30% !important;
+}
+
+.userchatinbox
+{
+	height:490px;
+	overflow:auto;
+}

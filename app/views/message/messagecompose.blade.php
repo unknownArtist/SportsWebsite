@@ -10,7 +10,7 @@
    {{ Form::open(array('url'=>'user/message/compose','POST','files'=>true))}}
     <div class="col-xs-12">
   	{{ Form::label('send_to', 'Send To') }}
-  	{{Form::select('to',$teams, array('class'=>'form-control input-lg'));}}
+  	{{Form::select('to',$teams, '', array('class'=>'form-control selectwidth'));}}
   </div>	
     <div class="col-xs-12">
    	{{ Form::label('m_subject', 'Message Subject') }}
