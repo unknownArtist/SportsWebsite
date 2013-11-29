@@ -6085,6 +6085,11 @@ float:left;
 
 .userchatinbox
 {
-	height:490px;
+	height:450px;
 	overflow:auto;
+}
+
+.hrpadding
+{
+	margin-top:20px;
 }
