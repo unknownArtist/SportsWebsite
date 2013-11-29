@@ -9,16 +9,23 @@ class MessageCentreController extends BaseController {
 	public function getIndex()
 	{
 		$user = Sentry::getUser();
-		$inbox =  Inbox::where('from_user','=',$user->id)
+		$inbox = Inbox::where('from_user','=',$user->id)
                ->where('read_status','=',1)
                ->get();
+
+     if ($inbox->isEmpty() )
+		{
+			return Redirect::to('user/message/create');
+		}
+        
+            
+         
           foreach($inbox as $inboxs)
 		 {     $tem=$inboxs->to_user;
 
-		 	
 		 	}
-		 
-		 $emails=Profile::where('team_id','=',$tem)
+		 	
+		$emails=Profile::where('team_id','=',$tem)
                ->get();
                
             foreach($emails as $email)
@@ -29,6 +36,7 @@ class MessageCentreController extends BaseController {
 			return View::make('message.index')
 					->with('inboxs',$inbox)
 					->with('email',$name);
+			
 	}
 
 	public function getmessagecompose()
@@ -81,7 +89,11 @@ class MessageCentreController extends BaseController {
 			//DB::table('rinks')->where('id','=',Request::segment(3))->delete();
 		return Redirect::to('user/messages')->with('message','Record deleted successfully');
 	}
-	
+	public function getmessagecreate()
+
+	{
+	return View::make('message.create');
+	}
 
 
 
