@@ -28,10 +28,12 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 
 
 <div class="">
+<div class="userchatinbox">
 
-<div class="userchat">
+@foreach($inboxs as $inbox)
+
 <div class="col-sm-1 col-md-1">
-  @foreach($inboxs as $inbox)
+  
     <a href="#" class="thumbnail">
       <img data-src="holder.js/100%x180" alt="...">
     </a>
@@ -46,9 +48,11 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
   {{ HTML::link('user/messages/'.$inbox->from_user.'/reply','Reply',array('class'=>'','style'=>'margin-top:;'))}}
    {{ HTML::link('user/messages/'.$inbox->id.'/delete','Delete',array('class'=>'','style'=>'margin-top:;'))}}
   </div> 
-  @endforeach
+ 
   <hr class="userchathr" />
-   
+    @endforeach
+    <hr class="hrheight" />
+    
 </div>
 
 
