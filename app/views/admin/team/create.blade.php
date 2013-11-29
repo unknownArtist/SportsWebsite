@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 @section('content')
 
+<div class="container">
+
 <div class="">
     @if ($errors->any())
     <ul>
@@ -9,7 +11,7 @@
 @endif
     </div>
 	
-    <div class="container">
+    
 	<div class="col-xs-7" style="float:none; margin:0 auto;">
     <div class="labellineheight">
 
@@ -112,6 +114,7 @@
            </div>
         </div>  
         </div> 
+        </div>
 
     
      <script >
