@@ -51,10 +51,16 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
  
   <hr class="userchathr" />
     @endforeach
-    <hr class="hrheight" />
+    
     
 </div>
 
+<hr class="hrheight hrpadding" />
 
+</div>
+
+</div>
+
+</div>
 
 @stop
