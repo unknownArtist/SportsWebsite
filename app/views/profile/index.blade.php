@@ -15,42 +15,7 @@
     
     </div>
 @foreach($profiles as $profile)
-<!--<table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
-    <thead>
 
-        <tr>
-        	<th>Name</th>
-            <th>Player Nickname</th>
-            <th>Age</th>
-            <th>Weight</th>
-            <th>Height</th>
-            <th>Position</th>
-            <th>Shoots</th>
-            <th>Statistic</th>
-            <th>Achievements</th>
-            <th>Photo</th>
-
-
-            
-            
-        </tr>
-    </thead>
-    <tbody>
-
-        
-        <tr class="odd gradeX">
-            <td>{{ $profile->name }}</td>
-            <td>{{ $profile->player_nickname }}</td>
-            <td>{{ $profile->age }}</td>
-            <td>{{ $profile->weight }}</td>
-            <td>{{ $profile->height }}</td>
-            <td>{{ $profile->position }}</td>
-            <td>{{ $profile->shoots }}</td>
-            <td>{{ $profile->statistic }}</td>
-            <td>{{ $profile->achievements }}</td>
-
-             <td>{{Form::image('uploads/profiles_images/'.$profile->getImage($profile->id));}}</td>
- <td>-->
  
  				<div class="col-xs-2 labellineheight txtalign">
                 

@@ -9,21 +9,26 @@ class MessageCentreController extends BaseController {
 	public function getIndex()
 	{
 		$user = Sentry::getUser();
-
-    $inbox =  Inbox::where('from_user','=',$user->id)
+		$inbox =  Inbox::where('from_user','=',$user->id)
                ->where('read_status','=',1)
                ->get();
-              foreach($inbox as $inboxs)
-		{     $tem=$inboxs->to_user;
-			
+          foreach($inbox as $inboxs)
+		 {     $tem=$inboxs->to_user;
 
-		}
-		
-             
+		 	
+		 	}
+		 
+		 $emails=Profile::where('team_id','=',$tem)
+               ->get();
                
-return View::make('message.index')
+            foreach($emails as $email)
+		 {     $name=$email->name;
+		 	
+		 	
+		 	}
+			return View::make('message.index')
 					->with('inboxs',$inbox)
-					;
+					->with('email',$name);
 	}
 
 	public function getmessagecompose()
@@ -55,18 +60,30 @@ return View::make('message.index')
     }
  	return Redirect::to('user/messages');
   }
-  public function getmessageDetail()
+  public function getRply()
   { 
-      $message = DB::table('inbox')
-                   ->where('from_user','=',Request::segment(3))
-                   ->take(10)
-                   ->orderBy('id','DESC')
-                   ->get();
-      DB::table('inbox')->where('id','=',Request::segment(5))->update(array('read_status'=>0));
-      return View::make('saas::message.message_detail')
-                 ->with('msg',$message)
-                 ->with('unread_messages',Message::inboxCount());
+    $id = Request::segment(3);
+
+    $teams = Team::where('player_id','=',$id)
+               ->get();
+		$allTeams = array();
+		foreach($teams as $team)
+		{
+			$allTeams[$team->id] = $team->team_name;
+		}
+ 		return View::make('message.messagecompose')->with('teams',$allTeams);
   }
+  public function getDelete()
+	{
+		 $id = Request::segment(3);
+		 $inbox = Inbox::find($id);
+		 $inbox->delete();
+			//DB::table('rinks')->where('id','=',Request::segment(3))->delete();
+		return Redirect::to('user/messages')->with('message','Record deleted successfully');
+	}
+	
+
+
 
 
 

@@ -18,7 +18,10 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 <h4>Messages</h4>
 </div>
 <div class="col-xs-8">
+
+ 
 {{ HTML::link('user/message/compose','Create new',array('class'=>'btn btn-success pull-right'))}}
+
 </div>
 
 <hr class="hrheight" />
@@ -32,7 +35,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
     <a href="#" class="thumbnail">
       <img data-src="holder.js/100%x180" alt="...">
     </a>
-    <h6>username</h6>
+    <h6>{{$email}}</h6>
   </div>
   
   <div class="col-sm-10 comingevents">
@@ -40,8 +43,8 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
   </div> 
   
   <div class="col-sm-1">
-  {{ HTML::link('#','Reply',array('class'=>'','style'=>'margin-top:;'))}}
-   {{ HTML::link('#','Delete',array('class'=>'','style'=>'margin-top:;'))}}
+  {{ HTML::link('user/messages/'.$inbox->from_user.'/reply','Reply',array('class'=>'','style'=>'margin-top:;'))}}
+   {{ HTML::link('user/messages/'.$inbox->from_user.'/delete','Delete',array('class'=>'','style'=>'margin-top:;'))}}
   </div> 
   @endforeach
   <hr class="userchathr" />

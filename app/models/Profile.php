@@ -16,8 +16,11 @@ class Profile extends Eloquent {
 	// 	'achievements' => 'required'
 	// );
 public function getImage($id)
-    { 
+    {  
+
         $profile = ProfileImage::where('player_profile_id','=',$id)->get();
-        return $profile[0]->player_profile_videos;
+        
+         return $profile[0]->player_profile_videos;
+
     }
 }

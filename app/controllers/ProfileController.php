@@ -12,7 +12,7 @@ class ProfileController extends BaseController {
 		// Display the info here with the user_id(session) check
 		$id = Sentry::getUser()->id;
    		$profile = Profile::where('user_id','=',$id)->get();
-        return View::make('profile.index')->with('profiles',$profile);
+       return View::make('profile.index')->with('profiles',$profile);
 	}
 	public function getCreate()
 	{

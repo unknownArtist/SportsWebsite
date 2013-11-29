@@ -55,7 +55,8 @@ class AdminTeamController extends BaseController {
 	public function postCreateTeam()
 	{ 
 		$user = Sentry::getUser();
-	
+		$playerid=$user->id;
+			
 		// $previous_jerseys = Input::get('previous_jerseys');
 		// foreach($previous_jerseys as $key=>$value)
 		// 			  {
@@ -85,6 +86,7 @@ class AdminTeamController extends BaseController {
 		}
 		$id = DB::table('teams')->insertGetId(
     		array(
+    			'player_id'         =>		$playerid,
     			'team_name'			=>		Input::get('team_name'),
     			'team_logo'			=>		$team_logo,
     			'current_jersey'	=>		Input::get('current_jersey'),

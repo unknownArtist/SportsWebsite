@@ -26,6 +26,8 @@ Route::resource('test','TestController');
 	/*--------------------------------------------------------------------*/
 
 	/*---------------------Message center Routes-------------------------*/
+	Route::get('user/messages/{id}/delete', array('uses'=>'MessageCentreController@getDelete'));
+	Route::get('user/messages/{id}/reply', array('uses'=>'MessageCentreController@getRply'));
 	Route::post('user/message/compose', array('uses'=>'MessageCentreController@postsendMessage'));
 	Route::get('user/message/compose', array('uses'=>'MessageCentreController@getmessagecompose'));
 	Route::get('user/messages', array('uses'=>'MessageCentreController@getIndex')); 
