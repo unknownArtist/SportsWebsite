@@ -16,7 +16,7 @@
     </div>
 @foreach($profiles as $profile)
 
- 
+ 				
  				<div class="col-xs-2 labellineheight txtalign">
                 
                 {{Form::image('uploads/profiles_images/'.$profile->getImage($profile->id),'',array('class'=>'profileimage'));}}
@@ -35,36 +35,38 @@
                 
                 </div>
                 
-                <div class="col-xs-10 labellineheight">
+                <div class="col-xs-6">
+                <div class="col-xs-12 labellineheight">
                 <h1>{{ $profile->name }}</h1> 
                 <h3> {{ $profile->player_nickname }}</h3>              
                 </div>
                 
               
                 
-                <div class="col-xs-10 colorh3">
+                <div class="col-xs-12 colorh3">
                 
                 <h4>Position:<span class="spancolor"> {{ $profile->position }}</span></h4>
                 
                 </div>   
                 
-                <div class="col-xs-10 colorh3">
+                <div class="col-xs-12 colorh3">
                 
                 <h4>Statistics:<span class="spancolor"> {{ $profile->statistic }}</span></h4>
                 
                 </div>    
                 
-                <div class="col-xs-10 colorh3">
+                <div class="col-xs-12 colorh3">
                 
                 <h4>Shoots:<span class="spancolor"> {{ $profile->shoots }}</span></h4>
                 
                 </div>  
                 
-                 <div class="col-xs-6 colorh3">
+                 <div class="col-xs-12 colorh3">
                 
                 <h4 class="achievejustify">Achievements:<br /><span class="spancolor spanfontsize"> {{ $profile->achievements }}</span></h4>
                 
-                </div>          
+                </div> 
+                </div>         
 
     @endforeach
     
