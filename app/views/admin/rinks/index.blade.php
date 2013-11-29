@@ -2,7 +2,7 @@
 @section('content')
 	
 
-    <div class="well">
+    <div class="">
         {{ HTML::link('admin/rinks/create','Add Rink',array('class' => 'btn btn-success')) }}
     </div>
 
