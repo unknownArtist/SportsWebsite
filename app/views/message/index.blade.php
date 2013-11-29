@@ -46,7 +46,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
   
   <div class="col-sm-1">
   {{ HTML::link('user/messages/'.$inbox->from_user.'/reply','Reply',array('class'=>'','style'=>'margin-top:;'))}}
-   {{ HTML::link('user/messages/'.$inbox->from_user.'/delete','Delete',array('class'=>'','style'=>'margin-top:;'))}}
+   {{ HTML::link('user/messages/'.$inbox->id.'/delete','Delete',array('class'=>'','style'=>'margin-top:;'))}}
   </div> 
  
   <hr class="userchathr" />
