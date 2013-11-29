@@ -11,6 +11,7 @@ class MessageCentreController extends BaseController {
 		$user = Sentry::getUser();
 		$inbox = Inbox::where('to_user','=',$user->id)
 	                  ->where('read_status','=',1)
+	                  ->orderBy('id','DESC')
                       ->get();
 
      if ($inbox->isEmpty() )
@@ -97,7 +98,7 @@ class MessageCentreController extends BaseController {
  			'body'			 =>	Input::get('body'),
       		'created_at' => date("Y-m-d H:i:s"),
  		);
-   
+
    DB::table('inbox')->insert($fields);
    return Redirect::to('user/messages');
   }
