@@ -6071,3 +6071,20 @@ margin-bottom:15px;
 margin-left:1.3%;
 float:left;
 }
+
+.imagewidth
+{
+	width:100px;
+	height:100px;
+}
+
+.selectwidth
+{
+	width:30% !important;
+}
+
+.userchatinbox
+{
+	height:490px;
+	overflow:auto;
+}

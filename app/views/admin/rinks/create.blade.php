@@ -23,10 +23,7 @@
             <div class="col-xs-6">
                     {{ Form::label('rink_seating_capacity', 'Seating Capacity') }}
                     {{ Form::text('rink_seating_capacity','',array('class'=>'form-control','id'=>'myId')) }}
-             </div>
-            
-            
-           
+             </div>          
 
             <div class="col-xs-6">
                     {{ Form::label('rink_change_rooms', 'No. of Change Rooms') }}
@@ -74,8 +71,7 @@
             <div class="col-xs-6">
                     {{ Form::label('rink_closed_date', 'Closed(date)') }}
                     {{ Form::text('rink_closed_date','',array('class'=>'form-control datepicker')) }}
-              </div>
-            
+              </div>            
             
             <div class="col-xs-6">
                   {{ HTML::link('admin/rinks/create','Back',array('class'=>'btn btn-success'))}}
