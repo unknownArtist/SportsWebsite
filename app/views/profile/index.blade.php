@@ -35,7 +35,7 @@
                 
                 </div>
                 
-                <div class="col-xs-6 labellineheight">
+                <div class="col-xs-10 labellineheight">
                 <h1>{{ $profile->name }}</h1> 
                 <h3> {{ $profile->player_nickname }}</h3>              
                 </div>
