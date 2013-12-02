@@ -1,6 +1,5 @@
 @extends('layouts.main')
 @section('content')
-
 <div class="container">
 
 <div class="col-xs-3 comingevents">
@@ -14,6 +13,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 <div class="col-xs-9">
 
 <div class="col-xs-4 comingmessages">
+  {{$notifications}}
 
 <h4>Messages</h4>
 </div>
@@ -45,7 +45,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
   </div> 
   
   <div class="col-sm-1">
-  {{ HTML::link('user/messages/'.$inbox->from_user.'/reply','Reply',array('class'=>'','style'=>'margin-top:;'))}}
+  {{ HTML::link('user/messages/'.$inbox->from_user.'/'.$inbox->id.'/reply','Reply',array('class'=>'','style'=>'margin-top:;'))}}
    {{ HTML::link('user/messages/'.$inbox->id.'/delete','Delete',array('class'=>'','style'=>'margin-top:;'))}}
   </div> 
  

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddColumnToTeams extends Migration {
+class AddColunmToInbox extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,8 +12,9 @@ class AddColumnToTeams extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('teams', function(Blueprint $table) {
-		$table->integer('player_id')->unsigned()->after('id');
+		Schema::table('inbox', function(Blueprint $table) {
+			$table->integer('notification')->nullable()->default(1)->after('read_status');
+			
 		});
 	}
 
@@ -24,8 +25,9 @@ class AddColumnToTeams extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('teams', function(Blueprint $table) {
-			$table->dropColumn('player_id');
+		Schema::table('inbox', function(Blueprint $table) {
+			$table->dropColumn('notification');
+			
 		});
 	}
 
