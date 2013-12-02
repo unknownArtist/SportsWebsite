@@ -1,10 +1,13 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="well">
+    <div class="container">
+    <div class="col-xs-12">
         {{ HTML::link('admin/team/create','Add Team',array('class' => 'btn btn-success')) }}
     </div>
 
-	 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
+	
+        
+           <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies" style="margin-bottom:15px;">
     <thead>
 
         <tr>
@@ -16,8 +19,8 @@
             <th>Head Coach</th>
             <th>Assistant Coach</th>
             <th>Time Keepers</th>
-            <th>Referees</th>
             <th>Medics</th>
+            <th>Referees</th>
             <th>History</th>
             <th>Founded</th>
             <th>Disbanded</th>
@@ -28,7 +31,7 @@
    
         <tr class="odd gradeX">
         @foreach($teams as $team)
-            <td>{{Form::image('uploads/teamImages/'.$team->team_logo )}}</td>
+            <td>{{Form::image('uploads/teamImages/'.$team->team_logo, '', array('class'=>'imagewidth') )}}</td>
             <td>{{ $team->team_name }}</td>
 
 
@@ -62,8 +65,13 @@
                     </a>
                 </div>
             </td>
-        </tr>
+        </tr>               
+        
     @endforeach
+    
     </tbody>
-    </table>
+    </table>  
+    
+    </div>
+    
 @stop

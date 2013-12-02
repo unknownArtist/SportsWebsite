@@ -54,6 +54,9 @@ class AdminTeamController extends BaseController {
 	}
 	public function postCreateTeam()
 	{ 
+		$user = Sentry::getUser();
+		$playerid=$user->id;
+			
 		// $previous_jerseys = Input::get('previous_jerseys');
 		// foreach($previous_jerseys as $key=>$value)
 		// 			  {
@@ -83,6 +86,7 @@ class AdminTeamController extends BaseController {
 		}
 		$id = DB::table('teams')->insertGetId(
     		array(
+    			'player_id'         =>		$playerid,
     			'team_name'			=>		Input::get('team_name'),
     			'team_logo'			=>		$team_logo,
     			'current_jersey'	=>		Input::get('current_jersey'),
@@ -188,7 +192,7 @@ class AdminTeamController extends BaseController {
 		$time_keepe = DB::table('team_timeKeepers')->get();
 		$previous_jersey = DB::table('team_prevJerseys')->get();
 
-		return View::make('admin.team.index', compact('medics','referee','time_keepe','previous_jersey'))
+		return Redirect::to('admin.team.index', compact('medics','referee','time_keepe','previous_jersey'))
 						->with('teams',Team::all());
 	}
 

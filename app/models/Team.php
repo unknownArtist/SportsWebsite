@@ -14,7 +14,8 @@ class Team extends Eloquent {
 		'referees' 			=> 'required',
 		'medics' 			=> 'required',
 		'founded' 			=> 'required',
-		'disbanded' 		=> 'required'
+		'disbanded' 		=> 'required',
+        'video_name1'      =>  'required'
 	);
 
     public function getPrevJerseys($id)

@@ -18,7 +18,20 @@
 
 Route::resource('test','TestController');
 
+	/*---------------------Events-------------------------*/
+	Route::post('events/create', array('uses'=>'EventController@postCreate'));
+	Route::get('events/create', array('uses'=>'EventController@getCreate'));
+	Route::get('events', array('uses'=>'EventController@getindex')); 
+
+	/*--------------------------------------------------------------------*/
+
 	/*---------------------Message center Routes-------------------------*/
+	Route::get('user/message/create', array('uses'=>'MessageCentreController@getmessagecreate'));
+	Route::get('user/messages/{id}/delete', array('uses'=>'MessageCentreController@getDelete'));
+	Route::post('user/messages/{id}/reply', array('uses'=>'MessageCentreController@postReply'));
+	Route::get('user/messages/{id}/reply', array('uses'=>'MessageCentreController@getReply'));
+	Route::post('user/message/compose', array('uses'=>'MessageCentreController@postsendMessage'));
+	Route::get('user/message/compose', array('uses'=>'MessageCentreController@getmessagecompose'));
 	Route::get('user/messages', array('uses'=>'MessageCentreController@getIndex')); 
 
 	/*--------------------------------------------------------------------*/

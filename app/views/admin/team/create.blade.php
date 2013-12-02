@@ -1,14 +1,17 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="well">
+<div class="container">
+
+<div class="labellineheight">
     @if ($errors->any())
-    <ul>
+    <ul style="color:red;">
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
     </ul>
 @endif
     </div>
-
+	
+    
 	<div class="col-xs-7" style="float:none; margin:0 auto;">
     <div class="labellineheight">
 
@@ -94,12 +97,24 @@
                     {{ Form::label('Videos','Videos Link')}}
                     {{ Form::text('video_name','',array('class'=>'form-control'))}}
               </div>
+              <div class="col-xs-6">
+                    {{ Form::label('Videos','Videos Link')}}
+                    {{ Form::text('video_name1','',array('class'=>'form-control'))}}
+              </div>
+            
             <div class="col-xs-6">
-                {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success'))}}
-                {{ Form::submit('Add',array('class'=>'btn btn-primary'))}}
+            {{ Form::label('','')}}
+            {{ Form::hidden('abc','',array('class'=>'form-control'))}}
+            </div>
+            <div class="col-xs-6">
+                       
+                {{ Form::submit('Add',array('class'=>'btn btn-primary pull-right'))}}
+                {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success pull-right backbtn'))}}      
                 {{ Form::close() }}
            </div>
-        </div>   
+        </div>  
+        </div> 
+        </div>
 
     
      <script >

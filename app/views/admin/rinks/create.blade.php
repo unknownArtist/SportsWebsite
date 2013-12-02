@@ -1,14 +1,16 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="well">
+<div class="container">
+<div class="labellineheight">
     @if ($errors->any())
-    <ul>
+    <ul style="color:red;">
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
     </ul>
 @endif
     </div>
 
+	
   <div class="col-xs-7" style="float:none; margin:0 auto;">
     <div class="labellineheight">
 
@@ -21,10 +23,7 @@
             <div class="col-xs-6">
                     {{ Form::label('rink_seating_capacity', 'Seating Capacity') }}
                     {{ Form::text('rink_seating_capacity','',array('class'=>'form-control','id'=>'myId')) }}
-             </div>
-            
-            
-           
+             </div>          
 
             <div class="col-xs-6">
                     {{ Form::label('rink_change_rooms', 'No. of Change Rooms') }}
@@ -58,6 +57,12 @@
                     {{ Form::label('rink_highlights', 'Highlights') }}
                     {{ Form::text('rink_highlights','',array('class'=>'form-control','id'=>'myId')) }}
             </div>
+            
+                        <div class="col-xs-6">
+                    {{ Form::label('rink_layout_image', 'Layout Image') }}
+                    {{ Form::file('rink_layout_image',array('title' => 'rink_layout_image','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'form-control'))}}
+            </div> 
+
 
             <div class="col-xs-6">
                     {{ Form::label('rink_opened_date', 'Opened(date)') }}
@@ -66,19 +71,19 @@
             <div class="col-xs-6">
                     {{ Form::label('rink_closed_date', 'Closed(date)') }}
                     {{ Form::text('rink_closed_date','',array('class'=>'form-control datepicker')) }}
-              </div>
+              </div>            
             
             <div class="col-xs-6">
-                    {{ Form::label('rink_layout_image', 'Layout Image') }}
-                    {{ Form::file('rink_layout_image',array('title' => 'rink_layout_image','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'form-control'))}}
-            </div> 
-            <div class="col-xs-6">
                   {{ HTML::link('admin/rinks/create','Back',array('class'=>'btn btn-success'))}}
-                  {{ Form::submit('Submit', array('class'=>'btn btn-primary span12 formz')) }}
-                  
+                  </div>
+                  <div class="col-xs-6">
+                  {{ Form::submit('Submit', array('class'=>'btn btn-primary pull-right')) }}                
                   {{ Form::close() }}
-           </div>
+           </div>  
          </div>
+         </div>
+         </div>
+         
      <script >
          $('.datepicker').datepicker({
 

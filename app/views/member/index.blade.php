@@ -11,7 +11,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
  style=" border-width:0 " width="240" height="160" frameborder="0" scrolling="no"></iframe>
 </div>
 
-<div class="col-xs-9">
+<div class="col-xs-9 comingmessages">
 <h4>Members</h4>
 <hr class="hrheight" />
 

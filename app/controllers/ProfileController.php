@@ -11,9 +11,8 @@ class ProfileController extends BaseController {
 	{
 		// Display the info here with the user_id(session) check
 		$id = Sentry::getUser()->id;
-   		$profile = DB::table('player_profile')->where('user_id', '=', $id)->get();
-		
-        return View::make('profile.index')->with('profiles',$profile);
+   		$profile = Profile::where('user_id','=',$id)->get();
+       return View::make('profile.index')->with('profiles',$profile);
 	}
 	public function getCreate()
 	{
@@ -24,17 +23,24 @@ class ProfileController extends BaseController {
 		{
 			return Redirect::to('profile')->with('errors','You already have a profile');
 		}
-		return View::make('profile.create');
+
+		$teams = Team::all();
+		$allTeams = array();
+		foreach($teams as $team)
+		{
+			$allTeams[$team->id] = $team->team_name;
+		}
+		return View::make('profile.create')->with('teams',$allTeams);
 	}
 	public function postCreate()
 	{
 		
 		$userId = Sentry::getUser()->id; echo $userId;
 		$user = DB::table('users')->where('id','=',$userId)->get();
-		//print($userId);
-
 		$input= Input::all();
-		DB::table('player_profile')->insert(array('name' => $input['name'],
+		$id=DB::table('player_profile')->insertGetId(array(
+											'team_id' => $input['team'],
+											'name' => $input['name'],
 											'user_id' => $userId,  // it was $id i changed it to $userId.
 											'player_nickname' => $input['player_nickname'],
 											'age' => $input['age'],
@@ -44,6 +50,18 @@ class ProfileController extends BaseController {
 											'shoots' => $input['shoots'],
 											'statistic' => $input['statistic'],
 											'achievements' => $input['achievements']));
+		DB::table('player_profile_photos')->insert(array(
+				'player_profile_id'	=> $id,
+				'player_profile_videos'	=>	$this->ImageCrop('player_profile_photos','profiles_images','200','200',''),
+				));
+       DB::table('player_profile_currentteam')->insert(array(
+				'player_profile_id'	=> $id,
+				'current_team'	=> Input::get('current_teams'),
+				));
+       DB::table('player_profile_prevteam')->insert(array(
+				'player_profile_id'	=> $id,
+				'previous_team'	=> Input::get('previous_teams'),
+				));
 
 
 		return Redirect::to('profile')->with('message','Profile created');
@@ -57,14 +75,22 @@ class ProfileController extends BaseController {
 	{ 
 		$id = Request::segment(2);
 		$profile = Profile::find( $id );
-	
-		return View::make('profile.edit')->with('profiles',$profile);
+		$teams = Team::all();
+		$allTeams = array();
+		foreach($teams as $team)
+		{
+			$allTeams[$team->id] = $team->team_name;
+		}
+
+	return View::make('profile.edit')->with('profiles',$profile)
+									->with('teams',$allTeams);
 	}
 
 	public function postEdit() // its not coming ot this action 
 	{	
 		
 		$fields = array(
+			'team_id'=>Input::get('team'),
 		   'name' => Input::get('name'),
 		   'player_nickname' => Input::get('player_nickname'),
 		   'age' => Input::get('age'),
@@ -81,8 +107,12 @@ class ProfileController extends BaseController {
 		  DB::table('player_profile')
             ->where('id','=',Request::segment(2))
             ->update($fields);
+            $id = Sentry::getUser()->id;
+   		$profile = Profile::where('user_id', '=', $id)->get();
 
-            return Redirect::to('profile')->with('message','Profile updated');
+            return Redirect::to('profile')
+            ->with('profiles',$profile)
+            ->with('message','Profile updated');
 
 	}
 	public function getDelete()
