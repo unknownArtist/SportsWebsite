@@ -7,6 +7,8 @@
     {{ HTML::style('assets/css/sb-admin.css') }}
     {{ HTML::style('assets/font-awesome/css/font-awesome.min.css') }} 
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css" />
+     {{ HTML::style('assets/css/fullcalendar.css') }}
+    {{ HTML::style('assets/css/fullcalendar.print.css') }}
     
     {{ HTML::script('assets/js/jquery.js') }} 
     {{ HTML::script('assets/js/bootstrap.js') }} 
@@ -16,6 +18,10 @@
      {{ HTML::script('assets/js/morris/chart-data-morris.js') }}
      {{ HTML::script('assets/js/tablesorter/jquery.tablesorter.js') }}
      {{ HTML::script('assets/js/tablesorter/tables.js') }}
+     
+     {{ HTML::script('assets/js/jquery.min.js') }} 
+    {{ HTML::script('assets/js/jquery-ui.custom.min.js') }} 
+    {{ HTML::script('assets/js/fullcalendar.min.js') }} 
 
      <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.min.js"></script>
      <script type="text/javascript">
@@ -39,6 +45,9 @@ case 'profile':
  break;
 case 'members':
  $('#li_member').addClass('active') ;
+ break;
+ case 'events':
+ $('#li_events').addClass('active') ;
  break;
  case 'schedule':
  $('#li_schedule').addClass('active') ;
@@ -74,6 +83,7 @@ case 'members':
       <li id="li_home"><a href="{{URL::to('/')}}">Home</a></li>
       <li id="li_profile"><a href="{{URL::to('profile')}}">My Profile</a></li>
       <li id="li_member"><a href="{{URL::to('members')}}">Members</a></li>
+      <li id="li_events"><a href="{{URL::to('events')}}">Events</a></li>
       <li id="li_schedule"><a href="{{URL::to('schedule')}}">Schedule</a></li>
          
     </ul>
