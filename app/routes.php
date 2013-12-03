@@ -16,7 +16,9 @@
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
 
-Route::resource('test','TestController');
+	Route::get('/',array("uses"=>'HomeController@getIndex'));
+	Route::get('loginhome',array("uses"=>'HomeController@getHome'));
+	Route::resource('test','TestController');
 
 	/*---------------------Events-------------------------*/
 	Route::post('events/create', array('uses'=>'EventController@postCreate'));
@@ -39,7 +41,7 @@ Route::resource('test','TestController');
 // 	Route::get('admin/Config',array("uses"=>'AdminConfigController@getindex'));
 // /*------------------------------------------------------*/
 
-	Route::get('/',array("uses"=>'HomeController@getIndex'));
+	
 
 /*--------------schedule-------------------------*/
    Route::get('schedule',array("uses"=>'AdminTeamController@getSchedule'));
