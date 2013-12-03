@@ -63,5 +63,80 @@ class EventController extends BaseController {
 		
 		return Redirect::to('event.index')->with('events',$events);
 	}
+	public function getFeed()
+	{
+		$team = Sentry::getUser()->id;
+		 
+		 $teams_id = Profile::where('user_id','=',$team)->get();
+		 foreach ($teams_id as $team_id)
+		 	{
+		 		$my_teamid= $team_id->team_id;
+		 		
+		 	}
+		 	
+
+			$stream = Feed::where('team_id','=',$my_teamid)
+	                  ->orderBy('id','DESC')
+                      ->get();
+            foreach ($stream as $streams)
+		 	{
+		 		$user_id= $streams->user_id;
+		 		
+				}
+            $usernames=Profile::where('user_id','=',$user_id)
+		 						->where('team_id','=',$my_teamid)
+		 						->get();
+		 	foreach ($usernames as $username)
+		 	{
+		 		$user_name= $username->name;
+		 		
+		 		
+		 	}
+		 	
+		 		return View::make('feed.index')
+							->with('streams',$stream)
+							->with('user_names',$user_name);
+
+
 	
+	}
+	
+	public function postFeed()
+	{
+		 $user_id = Sentry::getUser()->id;
+		
+		 $teams_id = Profile::where('user_id','=',$user_id)->get();
+		 foreach ($teams_id as $team_id)
+		 	{
+		 		$my_teamid= $team_id->team_id;
+		 		
+			}
+
+			$fields = array(
+			            'stream'    => Input::get('stream') );
+           
+			$rules = array(
+		            'stream'        => 'required');
+			
+		    $v = Validator::make($fields, $rules);
+			        if ($v->fails()) 
+			        {
+
+			        	
+
+			return Redirect::to('feeds/create')
+						   ->withInput()
+						   ->withErrors($v);
+
+			        }
+			        $date = date('Y-m-d H:i:s');
+
+			 DB::table('stream')->insert(array(
+											'user_id'    => $user_id,
+											'team_id'    => $my_teamid,
+											'stream'     => $fields['stream'],
+											'created_at' =>$date,
+												));
+	return Redirect::to('feeds');
+	}
 }
