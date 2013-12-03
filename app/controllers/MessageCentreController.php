@@ -22,7 +22,7 @@ class MessageCentreController extends BaseController {
             
          
           foreach($inbox as $inboxs)
-		 {     $tem=$inboxs->to_user;
+		 {     $tem=$inboxs->from_user;
 
 		 	}
 		 	
@@ -34,9 +34,15 @@ class MessageCentreController extends BaseController {
 		 	
 		 	
 		 	}
-			return View::make('message.index')
+		 	$notification = Inbox::where('to_user','=',$user->id)
+	                  ->where('notification','=',1)
+	                  ->orderBy('id','DESC')
+                      ->count();
+                      
+					return View::make('message.index')
 					->with('inboxs',$inbox)
-					->with('email',$name);
+					->with('email',$name)
+					->with('notifications',$notification);
 			
 	}
 
@@ -76,6 +82,8 @@ class MessageCentreController extends BaseController {
   public function getReply()
   { 
     $id = Request::segment(3);
+    $inbox_id=Request::segment(4);
+    
 
     $profiles = Profile::where('user_id','=',$id)
                ->get();
@@ -88,6 +96,10 @@ class MessageCentreController extends BaseController {
 		
 			}
 		}
+		DB::table('inbox')
+            ->where('to_user', Sentry::getUser()->id)
+            ->where('id', $inbox_id)
+            ->update(array('notification' => 0));
  		return View::make('message.reply')->with('teams',$allTeamsMember);
   }
    public function postReply()
@@ -96,7 +108,7 @@ class MessageCentreController extends BaseController {
  			'from_user'	 =>	Sentry::getUser()->id,
  			'to_user'		 =>	Input::get('to'),
  			'body'			 =>	Input::get('body'),
-      		'created_at' => date("Y-m-d H:i:s"),
+			'created_at' => date("Y-m-d H:i:s"),
  		);
 
    DB::table('inbox')->insert($fields);

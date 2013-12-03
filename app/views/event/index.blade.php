@@ -1,7 +1,9 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('content')
-<div id='calendar'></div>
 
+<div class="container">
+<div id='calendar'></div>
+</div>
 @foreach($events as $event)
 
 @endforeach
@@ -41,16 +43,9 @@
 </script>
 <style>
 
-	body {
-		margin-top: 40px;
-		text-align: center;
-		font-size: 14px;
-		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-		}
-
 	#calendar {
 		width: 900px;
-		margin: 0 auto;
+		margin: 20px auto 20px auto;
 		}
 
 </style>
