@@ -13,7 +13,7 @@ class MessageCentreController extends BaseController {
 	                  ->where('read_status','=',1)
 	                  ->orderBy('id','DESC')
                       ->get();
-
+             
      if ($inbox->isEmpty() )
 		{
 			return Redirect::to('user/message/create');
@@ -125,6 +125,14 @@ class MessageCentreController extends BaseController {
 
 	{
 	return View::make('message.create');
+	}
+
+	public static function getUnreadMessages()
+	{
+		return  Inbox::where('to_user','=',Sentry::getUser()->id)
+	                  ->where('notification','=',1)
+	                  ->orderBy('id','DESC')
+                      ->count();
 	}
 
 

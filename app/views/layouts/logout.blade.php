@@ -83,23 +83,10 @@ case 'members':
       <li id="li_home"><a href="{{URL::to('/')}}">Home</a></li>
 
 
-    <li id="li_profile"><a href="{{URL::to('profile')}}">My Profile</a></li>
-
-    <li id="li_profile" style="display:none;"><a href="{{URL::to('profile')}}">My Profile</a></li>
-
-
-  <li id="li_member"><a href="{{URL::to('members')}}">Members</a></li>
-
-       
-      <li id="li_events"><a href="{{URL::to('events')}}">Events</a></li>
-      
-      
-      <li id="li_schedule"><a href="{{URL::to('schedule')}}">Schedule</a></li>
-       
     </ul>
     <ul class="nav navbar-nav navbar-right">
-       <li id="li_messages"><a href="{{URL::to('user/messages')}}">Inbox({{ MessageCentreController::getUnreadMessages() }})</a></li>
-      <li><a href="/">Logout</a></li> 
+       
+      <li><a href="login">Login</a></li> 
 	</ul>
     
   </div><!-- /.navbar-collapse -->

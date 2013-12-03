@@ -13,11 +13,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 <div class="col-xs-9">
 
 <div class="col-xs-4 comingmessages">
-    @if(!$notifications)
-    {{'no new msg'}}
-    @else
-    {{$notifications.'unread msg'}}
-    @endif
+   
   
 
 <h4>Messages</h4>
