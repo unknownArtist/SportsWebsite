@@ -9,9 +9,18 @@ class EventController extends BaseController {
 	 */
 	public function getindex()
 	{
+		$id = Sentry::getUser()->id;
+		if(!$id)
+		{
+			echo "please login first";
+
+		}
+		else
+		{
 		$events = Calender::all(); 
 		
 		return View::make('event.index')->with('events',$events);
+	}
 	}
 	public function getCreate()
 	{

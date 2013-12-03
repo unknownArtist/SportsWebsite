@@ -13,7 +13,12 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 <div class="col-xs-9">
 
 <div class="col-xs-4 comingmessages">
-  {{$notifications}}
+    @if(!$notifications)
+    {{'no new msg'}}
+    @else
+    {{$notifications.'unread msg'}}
+    @endif
+  
 
 <h4>Messages</h4>
 </div>
@@ -37,6 +42,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
     <a href="#" class="thumbnail">
       <img data-src="holder.js/100%x180" alt="...">
     </a>
+
     <h6>{{$email}}</h6>
   </div>
   

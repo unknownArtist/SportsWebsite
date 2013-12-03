@@ -38,8 +38,7 @@ class MessageCentreController extends BaseController {
 	                  ->where('notification','=',1)
 	                  ->orderBy('id','DESC')
                       ->count();
-                      
-					return View::make('message.index')
+                      return View::make('message.index')
 					->with('inboxs',$inbox)
 					->with('email',$name)
 					->with('notifications',$notification);
