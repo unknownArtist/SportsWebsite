@@ -13,7 +13,8 @@ class MessageCentreController extends BaseController {
 	                  ->where('read_status','=',1)
 	                  ->orderBy('id','DESC')
                       ->get();
-             
+
+            
      if ($inbox->isEmpty() )
 		{
 			return Redirect::to('user/message/create');
@@ -47,7 +48,17 @@ class MessageCentreController extends BaseController {
 
 	public function getmessagecompose()
 	{
-		$profiles = Profile::all();
+		$team = Sentry::getUser()->id;
+		 
+		 $teams_id = Profile::where('user_id','=',$team)->get();
+		 foreach ($teams_id as $team_id)
+		 	{
+		 		$my_teamid= $team_id->team_id;
+		 		
+		 	}
+		 	
+		 
+		$profiles = Profile::where('team_id','=',$my_teamid)->get();
 		$allTeamsMember = array();
 		foreach($profiles as $profile)
 		{
