@@ -45,10 +45,10 @@
   
   <div class="col-sm-10 comingevents">
     @if($inbox->notification == 0)
-    <p>{{$inbox->body}}</p>
+    <p>{{HTML::link('user/messages/'.$inbox->id.'/readmsg',$inbox->subject)}}</p>
     
      @else
-     <p style="font-weight:bold; color:green;">{{$inbox->body}}</p>
+     <p style="font-weight:bold; color:green;">{{HTML::link('user/messages/'.$inbox->id.'/readmsg',$inbox->subject)}}</p>
      @endif
   
   </div> 
