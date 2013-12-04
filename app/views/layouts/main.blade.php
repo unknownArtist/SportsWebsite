@@ -6,19 +6,29 @@
     {{ HTML::style('assets/css/bootstrap.css') }}
     {{ HTML::style('assets/css/sb-admin.css') }}
     {{ HTML::style('assets/font-awesome/css/font-awesome.min.css') }} 
-    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css" />
-     <link href="assets/css/lib/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/lib/bootstrap-responsive.css" rel="stylesheet">
+   
+     <!--<link href="assets/css/lib/bootstrap.css" rel="stylesheet">-->
+     {{ HTML::style('assets/css/lib/bootstrap.css') }} 
+     {{ HTML::style('assets/css/extension.css') }} 
+      {{ HTML::style('assets/css/boo.css') }} 
+       {{ HTML::style('assets/css/style.css') }} 
+        {{ HTML::style('assets/css/boo-coloring.css') }} 
+         {{ HTML::style('assets/css/boo-utility.css') }} 
+          {{ HTML::style('assets/css/lib/bootstrap-responsive.css') }} 
+     
+     
+   <!-- <link href="assets/css/lib/bootstrap-responsive.css" rel="stylesheet">
     <link href="assets/css/extension.css" rel="stylesheet">
     <link href="assets/css/boo.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/boo-coloring.css" rel="stylesheet">
-    <link href="assets/css/boo-utility.css" rel="stylesheet">
+    <link href="assets/css/boo-utility.css" rel="stylesheet">-->
      {{ HTML::style('assets/css/fullcalendar.css') }}
     {{ HTML::style('assets/css/fullcalendar.print.css') }}
     
     {{ HTML::script('assets/js/jquery.js') }} 
-    {{ HTML::script('assets/js/bootstrap.js') }} 
+    {{ HTML::script('assets/js/bootstrap.js') }}     
+     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css" />
 
      <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
      <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>

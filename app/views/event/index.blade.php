@@ -1,8 +1,18 @@
 @extends('layouts.main')
 @section('content')
 
-<div class="container">
+<div id="main-content" class="container-fluid">
+
+<div id="page-content" class="page-content">
+<div class="row-fluid margin-top20">
+<div class="col-xs-12 grider">
+<div class="widget widget-simple">
+
 <div id='calendar'></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 @foreach($events as $event)
 

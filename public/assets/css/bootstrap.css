@@ -5284,7 +5284,7 @@ td.visible-print {
 
 .hrheight
 {
-	border:2px solid #86aecc;
+	border:2px solid #77a170;
 	margin-top:0px;
 }
 
@@ -5326,7 +5326,7 @@ h4
 
 .userchatheight
 {
-	height:350px;
+	height:330px;
 	overflow:auto;
 }
 
@@ -5352,8 +5352,7 @@ h4
 
 .submitbtn
 {
-	margin-top:15px;
-	margin-bottom:15px;
+	margin-top:0px;
 }
 
 .backbtn
@@ -5457,5 +5456,5 @@ float:left;
 
 .updatebtnwidth
 {
-	margin-left:50px;
+	margin-left:64px;
 }
