@@ -531,6 +531,8 @@ label.label-left,
 .form-horizontal.label-left .control-label,
 .form-horizontal .label-left .control-label {
   text-align: left;
+  float: left;
+  margin-top: 10px;
 }
 
 .mini-labels .control-group > label {
@@ -670,6 +672,7 @@ a.help-inline {
   margin-bottom: 0;
   border-bottom: 1px solid #c8ccce;
   border-top: 1px solid #fff;
+  padding-left: 65px;
 }
 
 .list-bordered.dotted .control-group {

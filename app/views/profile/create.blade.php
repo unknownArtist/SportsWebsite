@@ -1,85 +1,119 @@
 @extends('layouts.main')
 @section('content')
 
-<div class="container">
+ <div class="row-fluid">
+                        <div class="span8 grider">
+                            <div class="widget widget-simple">
+                                <div class="widget-header">
 	
-    <div class="labellineheight">
+    <div class="">
     @if ($errors->any())
     <ul style="color:red;">
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
     </ul>
     </div>
 @endif
-    <div class="col-xs-7" style="float:none; margin:0 auto;">
-    <div class="labellineheight">
+  <div class="row-fluid">
+        <div class="span12 form-dark">
+            <ul class="form-list label-left list-bordered">
         
-         {{ Form::open(array('profile.create','Post', 'files' => true))  }}
-              {{ Form::token() }} 
-          <div class="col-xs-6">
-              {{ Form::label('team', 'Teams') }}
-              {{Form::select('team', $teams, '', array('class'=>'form-control'))}}     
-         </div>
-         <div class="col-xs-6">
-            {{ Form::label('name', 'Name') }}
-            {{ Form::text('name','',array('class'=>'form-control')) }}
-            </div>
-             <div class="col-xs-6">
-            {{ Form::label('player_nickname', 'NickName') }}
-            {{ Form::text('player_nickname','',array('class'=>'form-control')) }}
-           </div>
-            <div class="col-xs-6">
-            {{ Form::label('age', 'Age') }}
-            {{ Form::text('age','',array('class'=>'form-control')) }}
-            </div>
-           <div class="col-xs-6">
-            {{ Form::label('weight', 'Weight') }}
-            {{ Form::text('weight','',array('class'=>'form-control')) }}
-          </div>
-           <div class="col-xs-6">
-            {{ Form::label('height', 'Height') }}
-            {{ Form::text('height','',array('class'=>'form-control')) }}
-          </div>
-           <div class="col-xs-6">
-            {{ Form::label('position', 'Position') }}
-            {{ Form::text('position','',array('class'=>'form-control')) }}
-          </div>
-           <div class="col-xs-6">
-            {{ Form::label('shoots', 'Shoots') }}
-            {{ Form::text('shoots','',array('class'=>'form-control')) }}
-          </div>
-           <div class="col-xs-6">
-            {{ Form::label('achievements', 'Achievements') }}
-            {{ Form::textarea('achievements','',array('class'=>'form-control txtareaheight')) }}
-          </div>
-           <div class="col-xs-6">
-            {{ Form::label('statistic', 'Statistics') }}
-            {{ Form::text('statistic','',array('class'=>'form-control')) }}
-         </div>
-         
-          <div class="col-xs-6">
-            {{ Form::label('current_teams', 'Current teams') }}
-            {{ Form::text('current_teams','',array('class'=>'form-control')) }}
-          </div>
+                      {{ Form::open(array('profile.create','Post', 'files' => true,'class'=>'form-horizontal'))  }}
+                      {{ Form::token() }}
+                 
+                <li class="control-group">     
           
-           <div class="col-xs-6">
-            {{ Form::label('previous_teams', 'Previous Teams') }}
-            {{ Form::text('previous_teams','',array('class'=>'form-control')) }}
-        </div>
-        
-           <div class="col-xs-6">
-          	{{ Form::label('userprofileimage', 'Choose Your Picture') }}
-            {{ Form::file('player_profile_photos', array('title' => 'player_profile_photos','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4, 'class'=>'form-control')) }}
-         </div>
+                      {{ Form::label('team', 'Teams', '', array('class'=>'control-label selectpicker-block')) }}
+              <div class="controls">    
+                      {{Form::select('team', $teams, '', array('class'=>'span6'))}}    
+              </div>
+                </li>
+                <li class="control-group">
+                      {{ Form::label('name', 'Name', '', array('class'=>'control-label')) }}
+                     <div class="controls"> 
+                      {{ Form::text('name','',array('class'=>'span6')) }}
+                    </div>
+                </li>
+                 <li class="control-group">
+                      {{ Form::label('player_nickname', 'NickName', '', array('class'=>'control-label')) }}
+                     <div class="controls">
+                      {{ Form::text('player_nickname','',array('class'=>'span6')) }}
+                     </div>
+                 </li>
+                 <li class="control-group">     
+                      {{ Form::label('age', 'Age', '', array('class'=>'control-label')) }}
+                      <div class="controls">
+                      {{ Form::text('age','',array('class'=>'span6')) }}
+                </div>
+                </li>
+                <li class="control-group">
+                      {{ Form::label('weight', 'Weight', '', array('class'=>'control-label')) }}
+                      <div class="controls">
+                      {{ Form::text('weight','',array('class'=>'span6')) }}
+                </div>
+                </li>  
+               <li class="control-group">
+                      {{ Form::label('height', 'Height', '', array('class'=>'control-label')) }}
+                      <div class="controls">
+                      {{ Form::text('height','',array('class'=>'span6')) }}
+                </div>
+                </li>
+                <li class="control-group">
+                      {{ Form::label('position', 'Position', '', array('class'=>'control-label')) }}
+                      <div class="controls">
+                      {{ Form::text('position','',array('class'=>'span6')) }}
+                </div>
+                <li class="control-group">
+                      {{ Form::label('shoots', 'Shoots', '', array('class'=>'control-label')) }}
+                      <div class="controls">
+                      {{ Form::text('shoots','',array('class'=>'span6')) }}
+                </div>
+                <li class="control-group">
+                      {{ Form::label('achievements', 'Achievements', '', array('class'=>'control-label')) }}
+                      <div class="controls">
+                      {{ Form::textarea('achievements','',array('class'=>'span6')) }}
+                </div>
+                <li class="control-group">
+                      {{ Form::label('statistic', 'Statistics', '', array('class'=>'control-label')) }}
+                      <div class="controls">
+                      {{ Form::text('statistic','',array('class'=>'span6')) }}
+                 </div>
+                </li>
          
-                  <div class="col-xs-6">
-                  {{ HTML::link('profile','Back',array('class'=>'btn btn-success backbtn'))}}                  
-  		</div>
-         <div class="col-xs-6">
-                  {{ Form::submit('Submit', array('class'=>'btn btn-primary pull-right')) }}
+                <li class="control-group">
+                      {{ Form::label('current_teams', 'Current teams', '', array('class'=>'control-label')) }}
+                      <div class="controls">
+                      {{ Form::text('current_teams','',array('class'=>'span6')) }}
                   </div>
+                </li>
+          
+                <li class="control-group">
+                      {{ Form::label('previous_teams', 'Previous Teams', '', array('class'=>'control-label')) }}
+                      <div class="controls">
+                      {{ Form::text('previous_teams','',array('class'=>'span6')) }}
+                  </div>
+                </li>
+        
+                <li class="control-group">
+                    	{{ Form::label('userprofileimage', 'Choose Your Picture', '', array('class'=>'control-label')) }}
+                      <div class="controls">
+                      {{ Form::file('player_profile_photos', array('title' => 'player_profile_photos','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4, 'class'=>'span6')) }}
+                </div>
+                </li>
+         
+                <div>
+                <li class="">
+                      {{ HTML::link('profile','Back',array('class'=>'btn btn-success span2'))}}                  
+              		</div>
+                  <div>
+                      {{ Form::submit('Submit', array('class'=>'btn btn-primary span2 pull-right')) }}
+                      </div>
+                </li>      
+                
         
       {{ Form::close() }}
+       </ul> 
     </div>
+    </ul>
     
     </div>
     </div>
