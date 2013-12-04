@@ -5,7 +5,7 @@
 
 <div id="page-content" class="page-content">
 <div class="row-fluid margin-top20">
-<div class="col-xs-8 grider">
+<div class="col-xs-9 grider">
 <div class="widget widget-simple">
 
     <div style="color:red" class="">

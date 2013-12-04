@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @section('content')
+
 <div class="container">
 
 <div class="col-xs-3 comingevents">
