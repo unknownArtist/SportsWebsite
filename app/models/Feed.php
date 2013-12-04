@@ -13,18 +13,36 @@ class Feed extends Eloquent {
 			   ->get();
 		return $name[0]->name;
 	}
-	public function getDateFrm($datefr,$out_in_array=false)
+	public function getDateFrm($datefr)
 	{
-	$intervalo = date_diff(date_create(), date_create($datefr));
-        $out = $intervalo->format("Days:%d,Hours:%H,Minutes:%i");
-        if(!$out_in_array)
-            return $out;
-        $a_out = array();
-        array_walk(explode(',',$out),
-        function($val,$key) use(&$a_out){
-            $v=explode(':',$val);
-            $a_out[$v[0]] = $v[1];
-        });
-        return $a_out;
+
+		$then = new DateTime($datefr);
+		$now = new DateTime();
+		$delta = $now->diff($then);
+
+		$quantities = array(
+		    'year' => $delta->y,
+		    'month' => $delta->m,
+		    'day' => $delta->d,
+		    'hour' => $delta->h,
+		    'minute' => $delta->i,
+		    'second' => $delta->s);
+
+		$str = '';
+		foreach($quantities as $unit => $value) {
+		    if($value == 0) continue;
+		    $str .= $value . ' ' . $unit;
+		    if($value != 1) {
+		        $str .= 's';
+		    }
+		    $str .=  ', ';
+		}
+		$str = $str == '' ? 'a moment ' : substr($str, 0, -2);
+
+		return $str;
+
+
+
+	
 	}
 }
