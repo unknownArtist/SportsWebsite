@@ -7,6 +7,10 @@
    
   	
   	{{ Form::hidden('to',Request::segment(3))}}
+    <div class="col-xs-12">
+    {{ Form::label('m_subject', 'Message Subject') }}
+    {{ Form::text('subject','',array('class'=>'form-control')) }}
+   </div>
 
 <div class="col-xs-12">
 	{{ Form::label('msg', 'Message') }}

@@ -89,6 +89,19 @@ class MessageCentreController extends BaseController {
     }
  	return Redirect::to('user/messages');
   }
+ 
+  public function  getReadmessage($id)
+  {	
+  	$inbox = Inbox::where('id','=',$id)
+	                	->get();
+
+	DB::table('inbox')
+            ->where('to_user', Sentry::getUser()->id)
+            ->where('id', $id)
+            ->update(array('notification' => 0));
+  	 return View::make('message.readmessage')
+  	 				->with('inboxs',$inbox);
+  }
   public function getReply()
   { 
     $id = Request::segment(3);
@@ -106,10 +119,10 @@ class MessageCentreController extends BaseController {
 		
 			}
 		}
-		DB::table('inbox')
-            ->where('to_user', Sentry::getUser()->id)
-            ->where('id', $inbox_id)
-            ->update(array('notification' => 0));
+		// DB::table('inbox')
+  //           ->where('to_user', Sentry::getUser()->id)
+  //           ->where('id', $inbox_id)
+  //           ->update(array('notification' => 0));
  		return View::make('message.reply')->with('teams',$allTeamsMember);
   }
    public function postReply()
@@ -118,6 +131,7 @@ class MessageCentreController extends BaseController {
  			'from_user'	 =>	Sentry::getUser()->id,
  			'to_user'		 =>	Input::get('to'),
  			'body'			 =>	Input::get('body'),
+ 			'subject'        =>Input::get('subject'),
 			'created_at' => date("Y-m-d H:i:s"),
  		);
 

@@ -34,27 +34,10 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 
 @foreach($inboxs as $inbox)
 
-
-<div class="col-sm-1 col-md-1">
-  
-    <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
-    </a>
+<div class="col-sm-10 comingevents">
     
-    <h6>{{$email}}</h6>
-
-    
-  </div>
-  
-  <div class="col-sm-10 comingevents">
-    @if($inbox->notification == 0)
-    <p>{{HTML::link('user/messages/'.$inbox->id.'/readmsg',$inbox->subject)}}</p>
-    
-     @else
-     <p style="font-weight:bold; color:green;">{{HTML::link('user/messages/'.$inbox->id.'/readmsg',$inbox->subject)}}</p>
-     @endif
-  
-  </div> 
+    <p>{{$inbox->body}}</p>
+     </div> 
   
   <div class="col-sm-1">
   {{ HTML::link('user/messages/'.$inbox->from_user.'/'.$inbox->id.'/reply','Reply',array('class'=>'','style'=>'margin-top:;'))}}

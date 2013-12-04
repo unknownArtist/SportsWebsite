@@ -30,6 +30,7 @@
 	/*--------------------------------------------------------------------*/
 
 	/*---------------------Message center Routes-------------------------*/
+	Route::get('user/messages/{id}/readmsg', array('uses'=>'MessageCentreController@getReadmessage'));
 	Route::get('user/message/create', array('uses'=>'MessageCentreController@getmessagecreate'));
 	Route::get('user/messages/{id}/delete', array('uses'=>'MessageCentreController@getDelete'));
 	Route::post('user/messages/{id}/reply', array('uses'=>'MessageCentreController@postReply'));
