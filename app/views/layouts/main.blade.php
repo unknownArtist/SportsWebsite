@@ -7,6 +7,7 @@
     {{ HTML::style('assets/css/sb-admin.css') }}
     {{ HTML::style('assets/font-awesome/css/font-awesome.min.css') }} 
    
+   
      <!--<link href="assets/css/lib/bootstrap.css" rel="stylesheet">-->
      {{ HTML::style('assets/css/lib/bootstrap.css') }} 
      {{ HTML::style('assets/css/extension.css') }} 
@@ -15,6 +16,7 @@
         {{ HTML::style('assets/css/boo-coloring.css') }} 
          {{ HTML::style('assets/css/boo-utility.css') }} 
           {{ HTML::style('assets/css/lib/bootstrap-responsive.css') }} 
+          {{ HTML::style('assets/plugins/select2/select-theme.css') }} 
      
      
    <!-- <link href="assets/css/lib/bootstrap-responsive.css" rel="stylesheet">
@@ -100,7 +102,7 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
                         <div class="nav-collapse collapse">
                             
                             <ul class="nav">
-                                <li id="li_home"> <a href="{{URL::to('loginhome')}}">Home</a> </li>
+                                <li id="li_home"> <a href="{{URL::to('feeds')}}">Home</a> </li>
                                 
 	 <li id="li_profile"><a href="{{URL::to('profile')}}">My Profile</a></li>
 

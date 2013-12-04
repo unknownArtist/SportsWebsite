@@ -78,28 +78,12 @@ class EventController extends BaseController {
 			$stream = Feed::where('team_id','=',$my_teamid)
 	                  ->orderBy('id','DESC')
                       ->get();
-            foreach ($stream as $streams)
-		 	{
-		 		$user_id= $streams->user_id;
-		 		
-				}
-            $usernames=Profile::where('user_id','=',$user_id)
-		 						->where('team_id','=',$my_teamid)
-		 						->get();
-		 	foreach ($usernames as $username)
-		 	{
-		 		$user_name= $username->name;
-		 		
-		 		
-		 	}
+
+        
 		 	
 		 		return View::make('feed.index')
-							->with('streams',$stream)
-							->with('user_names',$user_name);
-
-
-	
-	}
+							->with('streams',$stream);
+}
 	
 	public function postFeed()
 	{

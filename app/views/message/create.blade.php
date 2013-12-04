@@ -6,7 +6,7 @@
 <div id="page-content" class="page-content">
 <div class="row-fluid margin-top20">
 <div class="col-xs-9 grider">
-<div class="widget widget-simple">
+<div class="widget widget-simple mesageboxheight">
 
 <!--<div class="col-xs-3 comingevents">
 <h4>Upcoming Events</h4>
@@ -16,11 +16,11 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
  style=" border-width:0 " width="240" height="160" frameborder="0" scrolling="no"></iframe>
 </div>-->
 
-<div class="col-xs-9">
+<div class="col-xs-12 widget-header">
 
 <div class="col-xs-4 comingmessages">
 
-<h4>No Message</h4>
+<h4>Message Box Empty</h4>
 </div>
 <div class="col-xs-8">
 

@@ -5285,7 +5285,8 @@ td.visible-print {
 .hrheight
 {
 	border:2px solid #77a170;
-	margin-top:0px;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 .userchathr
@@ -5310,6 +5311,7 @@ td.visible-print {
 .comingmessages h4
 {
 	padding-top:20px;
+	margin-bottom:0px;
 }
 
 h4
@@ -5457,4 +5459,30 @@ float:left;
 .updatebtnwidth
 {
 	margin-left:64px;
+}
+
+.mesageboxheight
+{
+	height:450px;
+}
+
+.txtboxheight
+{
+	height:34px !important;
+}
+
+.txtareaheight2
+{
+	height:330px !important;
+}
+
+.timecolor
+{
+	color:#77a170;
+	margin-top:60px;
+}
+
+.txtheight
+{
+	height:34px !important;
 }
