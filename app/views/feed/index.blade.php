@@ -16,7 +16,15 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 <hr class="hrheight" />
 
 
+
 <div class="userchatheight">
+  <div class="col-sm-11">
+   {{ Form::open(array('url'=>'feeds','POST','files' => true))}}
+{{ Form::textarea('stream','',array('class'=>'userchattxt','id'=>'myId','placeholder'=>'Start Typing...')) }}
+{{ Form::submit('Send', array('class'=>'btn btn-primary clearfix pull-right submitbtn')) }}
+{{ Form::close() }}
+
+</div>
 <div class="userchat">
   @foreach($streams as $stream)
 <div class="col-sm-1 col-md-1">
@@ -24,11 +32,11 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
       <img data-src="holder.js/100%x180" alt="...">
     </a>
 
-    <h6>{{$user_names}}</h6>
+    <h6>{{ $stream->getUserName($stream->user_id, $stream->team_id) }}</h6>
   </div>
    
   <div class="col-sm-11">
-  <p>{{$stream->created_at." ".$stream->stream}} </p>
+  <p>{{$stream->getDateFrm($stream->created_at).'<br> '.$stream->stream }} </p>
   </div> 
   
   <hr class="userchathr" />
@@ -36,19 +44,8 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 </div>
 @endforeach
 
-  {{ Form::open(array('url'=>'feeds','POST','files' => true))}}
-<div class="col-sm-11">
-{{ Form::textarea('stream','',array('class'=>'userchattxt','id'=>'myId','placeholder'=>'Start Typing...')) }}
+</div> 
 
-
-</div>
-<div class="col-sm-8">
-{{ Form::submit('Send', array('class'=>'btn btn-primary clearfix pull-right submitbtn')) }}
-</div>
-</div>
- {{ Form::close() }}
-
-</div>
 
 
 
