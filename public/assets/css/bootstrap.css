@@ -1509,7 +1509,7 @@ label {
   display: inline-block;
   margin-bottom: 5px;
   font-weight: bold;
-  color:#777777;
+  color:#000;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -5480,4 +5480,9 @@ float:left;
 {
 	color:#77a170;
 	margin-top:60px;
+}
+
+.txtheight
+{
+	height:34px !important;
 }

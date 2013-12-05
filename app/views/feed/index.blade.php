@@ -28,10 +28,10 @@
   
 
 
-  <div class="col-sm-8">
+  <div class="col-sm-7">
   <p>{{ $stream->stream }} </p>
   </div> 
-  <div class="col-sm-3">
+  <div class="col-sm-4">
  	<p class="pull-right timecolor">{{ $stream->getDateFrm($stream->created_at) }}</p>
   </div>
   <hr class="userchathr" />

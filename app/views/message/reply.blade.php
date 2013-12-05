@@ -6,16 +6,16 @@
 <div id="page-content" class="page-content">
 <div class="row-fluid margin-top20">
 <div class="col-xs-9 grider">
-<div class="widget widget-simple padding-bottom15 mesageboxheight">
+<div class="widget widget-simple padding-bottom15">
 
 
    {{ Form::open(array('url'=>'user/messages/{id}/reply','POST','files'=>true))}}
    
   	
   	{{ Form::hidden('to',Request::segment(3))}}
-    <div class="col-xs-12">
+    <div class="col-xs-12 padding-top10">
     {{ Form::label('m_subject', 'Message Subject') }}
-    {{ Form::text('subject','',array('class'=>'form-control')) }}
+    {{ Form::text('subject','',array('class'=>'form-control txtheight')) }}
    </div>
 
 <div class="col-xs-12 padding-top15">
