@@ -1,6 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="text/javascript">
+setTimeout(function(){
+   window.location.reload(1);
+}, 300000)
+</script>
 
     <!--/Favicon and Touch Icons -->
     {{ HTML::style('assets/css/bootstrap.css') }}

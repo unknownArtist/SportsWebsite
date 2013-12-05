@@ -1,11 +1,5 @@
 @extends('layouts.main')
 @section('content')
-<script type="text/javascript">
-setTimeout(function(){
-   window.location.reload(1);
-}, 100000)
-</script>
-
 <div id="main-content" class="container-fluid">
 
 <div id="page-content" class="page-content">
