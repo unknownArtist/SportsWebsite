@@ -2,9 +2,9 @@
 @section('content')
 
  <div class="row-fluid">
-                        <div class="span8 grider">
-                            <div class="widget widget-simple">
-                                <div class="widget-header">
+    <div class="span8 grider">
+      <div class="widget widget-simple">
+        <div class="widget-header">
 	
     <div class="">
     @if ($errors->any())

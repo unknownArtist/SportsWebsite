@@ -1,58 +1,54 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="well">
+<div class="row-fluid">
+    <div class="span8 grider">
+      <div class="widget widget-simple">
+        <div class="widget-header">
     @if ($errors->any())
     <ul>
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
     </ul>
+     </div>
 @endif
-    </div>
+   
 
-     <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
-    <thead>
-    <tbody>
+    <div class="row-fluid">
+        <div class="span12 form-dark">
+            <ul class="form-list label-left list-bordered">
 
-        {{ Form::open(array('url'=>'events/create','POST','files'=>true))}}
-        <tr class="odd gradeX">
+        {{ Form::open(array('url'=>'events/create','POST','files'=>true,'class'=>'form-horizontal'))}}
+     
+                    <li class="control-group">
+                    {{ Form::label('ev_name','Event Name', '', array('class'=>'control-label'))}}
+                    <div class="controls">
+                    {{ Form::text('ev_name','',array('class'=>'span6','id'=>'ev_name'))}}
+                    </div>
+                    </li>
 
-        {{ Form::open(array('url'=>'events/create','POST','files' => true))}}
-        <tr>
-
-            <tr>
-                <td>
-                    {{ Form::label('ev_name','Event Name')}}
-                    {{ Form::text('ev_name','',array('class'=>'form-control','id'=>'myId'))}}
-
-                </td>
-            </tr>    
-            <tr>    
-                <td>
-                    {{ Form::label('ev_time','Event Date&Time')}}
-
-                    {{ Form::text('ev_time','',array('class'=>'form-control'))}}
+                    <li class="control-group">
+                    {{ Form::label('ev_time','Event Date&Time', '', array('class'=>'control-label'))}}
+                    <div class="controls">
+                    {{ Form::text('ev_time','',array('class'=>'span6'))}}
+                    </div>
+                    </li>
                     
-
-                </td>
-
-            </tr>
-            <tr>
-                <td>
-                    {{ Form::label('ev_place','Event Place')}}
-                    {{ Form::text('ev_place','',array('class'=>'form-control'))}}
-                </td>
-            </tr>    
-            <tr>
-            <td>
-                
+                    <li class="control-group">
+                    {{ Form::label('ev_place','Event Place', '', array('class'=>'control-label'))}}
+                    <div class="controls">
+                    {{ Form::text('ev_place','',array('class'=>'span6'))}}
+                    </div>
+                    </li>
+           
+                <li class="control-group">
                 {{ HTML::link('events','Back',array('class'=>'btn btn-success'))}}
                 {{ Form::submit('Add',array('class'=>'btn btn-primary'))}}
-            </td>
-
-        </tr>
+                </li>
+         
 
         {{ Form::close() }}
-    </tbody>
-    </table>
-    </table>
+            </ul>
+              </div>
+                  </div>
+                    </div>
 @stop
