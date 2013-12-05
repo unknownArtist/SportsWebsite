@@ -9,10 +9,20 @@
     {{ HTML::style('assets/datepicker/css/datepicker.css') }}
    
 
-    
+    <!--<link href="assets/css/lib/bootstrap.css" rel="stylesheet">-->
     {{ HTML::script('assets/js/jquery.js') }} 
     {{ HTML::script('assets/js/bootstrap.js') }} 
     {{ HTML::script('assets/datepicker/js/bootstrap-datepicker.js')}}
+
+    <!--css-->
+    {{ HTML::style('assets/css/lib/bootstrap.css') }} 
+     {{ HTML::style('assets/css/extension.css') }} 
+      {{ HTML::style('assets/css/boo.css') }} 
+       {{ HTML::style('assets/css/style.css') }} 
+        {{ HTML::style('assets/css/boo-coloring.css') }} 
+         {{ HTML::style('assets/css/boo-utility.css') }} 
+          {{ HTML::style('assets/css/lib/bootstrap-responsive.css') }} 
+          {{ HTML::style('assets/plugins/select2/select-theme.css') }} 
     
     
 
@@ -20,7 +30,6 @@
 
   </head>
   <body>   <!-- Docs master nav -->
-  <div class="container" style="border:0; padding:0;">
     <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
