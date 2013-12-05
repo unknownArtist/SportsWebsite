@@ -1,18 +1,24 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="container">
-<div class="labellineheight">
+<div class="row-fluid">
+    <div class="span8 grider">
+      <div class="widget widget-simple">
+        <div class="widget-header">
+     <div class=""> 
     @if ($errors->any())
     <ul style="color:red;">
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
     </ul>
-@endif
     </div>
+@endif
+    
 
-   <div class="col-xs-7" style="float:none; margin:0 auto;">
-    <div class="labellineheight">
-         {{ Form::open(array('url'=>'admin/rinks/'.$rinks['id'].'/edit','POST','files' => true))}}
+   <div class="row-fluid">
+        <div class="span12 form-dark">
+            <ul class="form-list label-left list-bordered">
+ 
+         {{ Form::open(array('url'=>'admin/rinks/'.$rinks['id'].'/edit','POST','files' => true,'class'=>'form-horizontal'))}}
               {{ Form::token() }}
           <?php $id= Request::segment(3);
               $adresses = RinksAddress::where('rink_id','=',$id)->get();
@@ -40,62 +46,91 @@
               }
             ?>
              
-              <div class="col-xs-6">
-            {{ Form::label('rink_addresse', 'Addresses:') }}
-            {{ Form::text('rink_addresse', $d ,array('class'=>'form-control')) }}
-           	</div>
-            <div class="col-xs-6">
-            {{ Form::label('rink_seating_capacity', 'Seating Capacity:')}}
-            {{ Form::text('rink_seating_capacity',$rinks['rink_seating_capacity'],array('class'=>'form-control')) }}
-         	</div>
-            <div class="col-xs-6">
-            {{ Form::label('rink_change_rooms', 'No. of Change Rooms:') }}
-            {{ Form::text('rink_change_rooms',$rinks['rink_change_rooms'],array('class'=>'form-control')) }}
-        	</div>
-            <div class="col-xs-6">
-            {{ Form::label('rink_boardType', 'Board Type:') }}
-            {{ Form::text('rink_boardType',$rinks['rink_boardType'],array('class'=>'form-control')) }}
-         	</div>
-            <div class="col-xs-6">
-            {{ Form::label('rink_other', 'Other:') }}
-            {{ Form::text('rink_other',$rinks['rink_other'],array('class'=>'form-control')) }}
-         	</div>
-            <div class="col-xs-6">
-            {{ Form::label('rink_homeTeams', 'Home Teams:') }}
-            {{ Form::text('rink_homeTeams',$ho,array('class'=>'form-control')) }}
-         	</div>
-            <div class="col-xs-6">
-            {{ Form::label('rink_highlights', 'Highlights:') }}
-            {{ Form::text('rink_highlights',$rinks['rink_highlights'],array('class'=>'form-control')) }}
-         	</div>
-            <div class="col-xs-6">
-            {{ Form::label('rink_history', 'History:') }}
-            {{ Form::text('rink_history',$rinks['rink_history'],array('class'=>'form-control')) }}
-         	</div>
-            <div class="col-xs-6">
-            {{ Form::label('rink_opened_date', 'Opened:(date)')}}
-            {{ Form::text('rink_opened_date',$rinks['rink_history'],array('class'=>'form-control')) }}
+             <li class="control-group"> 
+            {{ Form::label('rink_addresse', 'Addresses:','',array('class'=>'span6','placeholder'=>'Address')) }}
+            <div class="controls">
+            {{ Form::text('rink_addresse', $d ,array('class'=>'span6')) }}
+            </div>
+            </li>
+          
+            <li class="control-group">
+            {{ Form::label('rink_seating_capacity', 'Seating Capacity:', 'Seating Capacity', '', array('class'=>'control-label'))}}
+            <div class="controls">
+            {{ Form::text('rink_seating_capacity',$rinks['rink_seating_capacity'],array('class'=>'span6')) }}
+            </div>
+            </li>
+         	
+            <li class="control-group">
+            {{ Form::label('rink_change_rooms', 'No. of Change Rooms:','',array('class'=>'span6','id'=>'rink_change_rooms')) }}
+            <div class="controls">
+            {{ Form::text('rink_change_rooms',$rinks['rink_change_rooms'],array('class'=>'span6')) }}
+            </div>
+            </li>
+        	
+            <li class="control-group">
+            {{ Form::label('rink_boardType', 'Board Type:','',array('class'=>'span6','id'=>'rink_boardType')) }}
+            <div class="controls">
+            {{ Form::text('rink_boardType',$rinks['rink_boardType'],array('class'=>'span6')) }}
+            </div>
+            </li>
+         	
+            <li class="control-group">
+            {{ Form::label('rink_other', 'Other:', 'Other:', '', array('class'=>'control-label')) }}
+            <div class="controls">
+            {{ Form::text('rink_other',$rinks['rink_other'],array('class'=>'span6')) }}
+            </div>
+            </li>
+                     	
+            <li class="control-group">
+            {{ Form::label('rink_homeTeams', 'Home Teams:','',array('class'=>'span6','placeholder'=>'Name')) }}
+            <div class="controls">
+            {{ Form::text('rink_homeTeams',$ho,array('class'=>'span6')) }}
+         	  </div>
+            </li>
+            <li class="control-group">
+            {{ Form::label('rink_highlights', 'Highlights:', 'Highlights', '', array('class'=>'control-label')) }}
+            <div class="controls">
+            {{ Form::text('rink_highlights',$rinks['rink_highlights'],array('class'=>'span6')) }}
+         	  </div>
+            </li>
+            <li class="control-group">
+            {{ Form::label('rink_history', 'History:', 'History', '', array('class'=>'control-label')) }}
+            <div class="controls">
+            {{ Form::text('rink_history',$rinks['rink_history'],array('class'=>'span6')) }}
+         	  </div>
+            </li>
+            <li class="control-group">
+            {{ Form::label('rink_opened_date', 'Opened:(date)', 'Opened(date)', '', array('class'=>'control-label'))}}
+            <div class="controls">
+            {{ Form::text('rink_opened_date',$rinks['rink_history'],array('class'=>'span6')) }}
           	</div>
-            <div class="col-xs-6">
-            {{ Form::label('rink_closed_date', 'Closed:(date)') }}
-            {{ Form::text('rink_closed_date',$rinks['rink_closed_date'],array('class'=>'form-control')) }}
+            </li>
+            <li class="control-group">
+            {{ Form::label('rink_closed_date', 'Closed:(date)', 'Closed(date)', '', array('class'=>'control-label')) }}
+            <div class="controls">
+            {{ Form::text('rink_closed_date',$rinks['rink_closed_date'],array('class'=>'span6')) }}
           	</div>
-            <div class="col-xs-6">
+            </li>
+            <li class="control-group">
             {{ Form::label('rink_description', 'Information:')}}
-            {{ Form::textarea('rink_description',$rinks['rink_description'],array('class'=>'form-control')) }}
-         	</div>
-            <div class="col-xs-6">
-            {{ Form::label('rink_layout_image', 'Layout Image:') }}
+            <div class="controls">
+            {{ Form::textarea('rink_description',$rinks['rink_description'],array('class'=>'span6')) }}
+         	  </div>
+            </li>
+            <li class="control-group">
+            {{ Form::label('rink_layout_image', 'Layout Image:', 'Layout Image', '', array('class'=>'control-label')) }}
+            <div class="controls">
             {{ Form::file('rink_layout_image', array('title' => 'rink_layout_image','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4)) }}
             {{Form::image('uploads/rinks_images/'.$img);}}
           	</div>
-            
-                  <div class="col-xs-6">
+            </li>
+
                    {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success pull-right backbtn'))}}
-            		</div>
-                    <div class="col-xs-6">
+            		
+
                   {{ Form::submit('Update', array('class'=>'btn btn-primary pull-right')) }}
                   </div>
+                </ul>
 
   {{ Form::close() }}
   </div>

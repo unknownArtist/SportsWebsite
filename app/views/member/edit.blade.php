@@ -1,81 +1,89 @@
 @extends('layouts.admin')
 @section('content')
-<div class="well">
-    @if ($errors->any())
+<div class="row-fluid">
+    <div class="span8 grider">
+      <div class="widget widget-simple">
+        <div class="widget-header">    @if ($errors->any())
     <ul>
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
     </ul>
+     </div>
 @endif
-    </div>
+   
 
  
  
-  
-	 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies">
-    <thead>
-    <tbody>
-    	{{ Form::open(array('url'=>'members/'.$users->user_id.'/update','POST','files'=>true))}}
+  <div class="row-fluid">
+        <div class="span12 form-dark">
+            <ul class="form-list label-left list-bordered">
+
+    	{{ Form::open(array('url'=>'members/'.$users->user_id.'/update','POST','files'=>true,'class'=>'form-horizontal'))}}
         
-        <tr class="odd gradeX">
-        	<tr>
-        		<td>
-        			{{ Form::label('name','Name')}}
-        			{{ Form::text('name',$users->name,array('class'=>'form-control','id'=>'myId'))}}
-
-        		</td>
-
-        		<td>
-        			{{ Form::label('pname','Nick Name')}}
-        			{{ Form::text('player_nickname',$users->player_nickname,array('class'=>'form-control'))}}
-        		</td>
-
-
-        	</tr>
-        	<tr>
-        		<td>
-        			{{ Form::label('age','age')}}
-        			{{ Form::text('age',$users->age,array('class'=>'form-control'))}}
-        		</td>
-        		<td>
-        			{{ Form::label('weight','weight')}}
-        			{{ Form::text('weight',$users->weight,array('class'=>'form-control'))}}
-        		</td>
-        	</tr>
-        	<tr>
-        		<td>
-        			{{ Form::label('height','height')}}
-        			{{ Form::text('height',$users->height,array('class'=>'form-control'))}}
-        		</td>
-        		<td>
-        			{{ Form::label('position','position')}}
-        			{{ Form::text('position',$users->position,array('class'=>'form-control'))}}
-        		</td>
-        	</tr>
-        	<tr>
-        		<td>
-        			{{ Form::label('shoots','shoots')}}
+                <li class="control-group">
+            			{{ Form::label('name','Name')}}
+                <div class="controls">        
+            			{{ Form::text('name',$users->name,array('class'=>'form-control','id'=>'name'))}}
+                 </div>
+                    </li>        
+                <li class="control-group">
+            			{{ Form::label('pname','Nick Name', '', array('class'=>'control-label'))}}
+                <div class="controls">        
+            			{{ Form::text('player_nickname',$users->player_nickname,array('class'=>'form-control'))}}	
+                 </div>
+                    </li>        
+                <li class="control-group">
+            			{{ Form::label('age','age', '', array('class'=>'control-label'))}}
+                <div class="controls">        
+            			{{ Form::text('age',$users->age,array('class'=>'form-control'))}}
+                 </div>
+                    </li>        
+                <li class="control-group">
+            			{{ Form::label('weight','weight', '', array('class'=>'control-label'))}}
+                <div class="controls">        
+            			{{ Form::text('weight',$users->weight,array('class'=>'form-control'))}}
+                 </div>
+                    </li>        
+            	<li class="control-group">
+            			{{ Form::label('height','height', '', array('class'=>'control-label'))}}
+                <div class="controls">        
+            			{{ Form::text('height',$users->height,array('class'=>'form-control'))}}
+                  </div>
+                    </li>       
+            	<li class="control-group">
+            			{{ Form::label('position','position', '', array('class'=>'control-label'))}}
+                <div class="controls">        
+            			{{ Form::text('position',$users->position,array('class'=>'form-control'))}}
+                    </div>
+                    </li>     
+            	<li class="control-group">
+        			{{ Form::label('shoots','shoots', '', array('class'=>'control-label'))}}
+                <div class="controls">    
         			{{ Form::text('shoots',$users->shoots,array('class'=>'form-control'))}}
-        		</td>
-        		<td>
-        			{{ Form::label('statistic','statistic')}}
+                   </div>
+                    </li>  
+        		<li class="control-group">
+        			{{ Form::label('statistic','statistic', '', array('class'=>'control-label'))}}
+                   <div class="controls"> 
         			{{ Form::text('statistic',$users->statistic,array('class'=>'form-control'))}}
-        		</td>
-        	</tr>
-        	<tr>
-        		<td>
-        			{{ Form::label('achievements','achievements')}}
+                  </div>
+                    </li>   
+        		<li class="control-group">
+        			{{ Form::label('achievements','achievements', '', array('class'=>'control-label'))}}
+                    <div class="controls">
         			{{ Form::text('achievements',$users->achievements,array('class'=>'form-control'))}}
-        		</td>
-            <td>
+                 </div>
+                    </li>    
+        	<li class="control-group">
                 {{ Form::submit('Update',array('class'=>'btn btn-primary','style'=>'margin-top:25px;'))}}
                 {{ Form::hidden('id',Request::segment(3))}}
-                {{ HTML::link('members','Back',array('class'=>'btn btn-success','style'=>'margin-top:25px;'))}}
-            </td>
-
-        </tr>
+                {{ HTML::link('members','Back',array('class'=>'btn btn-success'))}}
+            </li>    
+        
 
         {{ Form::close() }}
-    </tbody>
-    </table>
+            </ul>
+              </div>
+                  </div>
+                    </div>
 
 @stop
