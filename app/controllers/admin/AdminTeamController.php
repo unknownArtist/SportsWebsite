@@ -219,8 +219,17 @@ class AdminTeamController extends BaseController {
 	}
 	public function getSchedule()
 	{
+		$id = Sentry::getUser()->id;
+		if(!$id)
+		{
+			echo "please login first";
+
+		}
+		else
+		{
 		$schedules = Schedule::where('active', 1)->get();
 		return View::make('schedule.index')->with('schedules',$schedules);
+	}
 	}
 	public function getEditSchedule()
 	{   

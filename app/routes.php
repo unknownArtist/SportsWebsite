@@ -16,9 +16,13 @@
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
 
-Route::resource('test','TestController');
+	Route::get('/',array("uses"=>'HomeController@getIndex'));
+	Route::get('loginhome',array("uses"=>'HomeController@getHome'));
+	Route::resource('test','TestController');
 
 	/*---------------------Events-------------------------*/
+	Route::post('feeds', array('uses'=>'EventController@postFeed'));
+	Route::get('feeds', array('uses'=>'EventController@getFeed'));
 	Route::post('events/create', array('uses'=>'EventController@postCreate'));
 	Route::get('events/create', array('uses'=>'EventController@getCreate'));
 	Route::get('events', array('uses'=>'EventController@getindex')); 
@@ -26,6 +30,7 @@ Route::resource('test','TestController');
 	/*--------------------------------------------------------------------*/
 
 	/*---------------------Message center Routes-------------------------*/
+	Route::get('user/messages/{id}/readmsg', array('uses'=>'MessageCentreController@getReadmessage'));
 	Route::get('user/message/create', array('uses'=>'MessageCentreController@getmessagecreate'));
 	Route::get('user/messages/{id}/delete', array('uses'=>'MessageCentreController@getDelete'));
 	Route::post('user/messages/{id}/reply', array('uses'=>'MessageCentreController@postReply'));
@@ -39,7 +44,7 @@ Route::resource('test','TestController');
 // 	Route::get('admin/Config',array("uses"=>'AdminConfigController@getindex'));
 // /*------------------------------------------------------*/
 
-	Route::get('/',array("uses"=>'HomeController@getIndex'));
+	
 
 /*--------------schedule-------------------------*/
    Route::get('schedule',array("uses"=>'AdminTeamController@getSchedule'));

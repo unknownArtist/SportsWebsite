@@ -126,9 +126,18 @@ class ProfileController extends BaseController {
 	
 	public function getMembers()
 	{
+		$id = Sentry::getUser()->id;
+		if(!$id)
+		{
+			echo "please login first";
+
+		}
+		else
+		{
 		$users = User::all();
 		// $user_id = Sentry::getUser()->id;
 		return View::make('member.index')->with('users',$users);
+	}
 	}
 	public function getMembersprofile($id)
 	{
