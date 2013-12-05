@@ -1,34 +1,14 @@
-@extends('layouts.adminlogin')
+@extends('layouts.logout')
 @section('content')
-	<style>
-    #errors 
-    {
-       margin-left: 500px;
-       color: red;
-    }
-    #success 
-    {
-       margin-left: 500px;
-       color: green;
-    }
-    #adminText {
-      margin-left: 550px;
-    }
-    #loginForm {
-      margin-left: 500px;
-    }
-    .formz {
-      margin-top: 4px;
-    }
-	.well {
-		  
-		}
-    .form-control {
-      width: 250px;
-    }
-	</style>
+	<div id="main-content" class="container-fluid">
+
+<div id="page-content" class="page-content">
+<div class="row-fluid margin-top20">
+<div class="col-xs-12 grider">
+<div class="widget widget-simple">
+<div class="span3 loginformmargin">
 <h2 id="adminText">User Login</h2>
-   <div class="well" >
+   <div class="" >
       <div id="errors">
         @if (Session::get('errors'))
           {{ Session::get('errors') }}
@@ -44,12 +24,19 @@
          {{ Form::open(array('login','POST'))  }}
               {{ Form::token() }}
       
-                  {{ Form::text('email','', array('class'=>'form-control formz','placeholder' => 'Email address')) }}
-                  {{ Form::password('password' , array('class'=>'form-control formz','placeholder' => 'Password','AUTOCOMPLETE' => 'OFF')) }}  
-                  {{ Form::submit('Login', array('class'=>'btn btn-primary span12 formz')) }}
+                  {{ Form::text('email','', array('class'=>'form-control formz span12','placeholder' => 'Email address', 'id'=>'logininput')) }}
+                  {{ Form::password('password' , array('class'=>'form-control formz span12','placeholder' => 'Password','AUTOCOMPLETE' => 'OFF')) }}  
+                  {{ Form::submit('Login', array('class'=>'btn btn-primary pull-right margin-bottom15 margin-top5')) }}
         </div>
 
   </div>
 {{ Form::close() }}
 
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 @stop

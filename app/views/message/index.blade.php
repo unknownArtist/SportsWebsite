@@ -49,12 +49,19 @@ setTimeout(function(){
   </div>
   
   <div class="col-sm-10 comingevents">
+  <div class="col-sm-1">
+  <p>Subject:</p>
+  </div>
+  <div class="col-sm-10">
     @if($inbox->notification == 0)
+    
     <p>{{HTML::link('user/messages/'.$inbox->id.'/readmsg',$inbox->subject)}}</p>
     
      @else
      <p style="font-weight:bold; color:green;">{{HTML::link('user/messages/'.$inbox->id.'/readmsg',$inbox->subject)}}</p>
      @endif
+     
+     </div>
   
   </div> 
   
