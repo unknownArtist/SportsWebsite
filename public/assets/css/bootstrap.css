@@ -5332,3 +5332,13 @@ float:left;
 {
 	color:#333;
 }
+
+.redbadge
+{
+	padding:2px 5px !important;
+}
+
+.logoutfont a
+{
+	font-size:13px !important;
+}

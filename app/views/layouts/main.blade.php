@@ -124,9 +124,11 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
       <li id="li_schedule"><a href="{{URL::to('schedule')}}">Schedule</a></li>
        
     </ul>
-    <ul class="nav pull-right">
-       <li id="li_messages"><a href="{{URL::to('user/messages')}}">Inbox({{ MessageCentreController::getUnreadMessages() }})</a></li>
-      <li><a href="/">Logout</a></li> 
+    <ul class="nav user-menu">
+    
+     <li><a class="btn-glyph fontello-icon-edit tip-bc" href="{{URL::to('user/messages')}}" title="Messages"><span class="badge badge-important">{{ MessageCentreController::getUnreadMessages() }}</span></a></li>     
+       
+      <li class="logoutfont"><a href="/">Logout</a></li> 
 	</ul>                      
                                 
                           
