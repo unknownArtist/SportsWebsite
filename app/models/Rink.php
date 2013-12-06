@@ -15,7 +15,11 @@ class Rink extends Eloquent {
 	public function getImage($id)
     { 
         $rink = RinksImage::where('rink_id','=',$id)->get();
-        return $rink[0]->rink_image;
+          foreach($rink as $rinks )
+        {
+          $image=$rinks->rink_image;
+        }
+        return $image;
     }
     
     public function getAddress($id)
