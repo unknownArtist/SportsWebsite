@@ -5,17 +5,18 @@ class Team extends Eloquent {
 	protected $table  = "teams";
 
 	public static $rules = array(
-		'team_name' 		=> 'required',
-		'president_name' 	=> 'required',
-		'head_coach' 		=> 'required',
+		
+        
+        
+        'head_coach' 		=> 'required',
 		'assistant_coach' 	=> 'required',
 		'history' 			=> 'required',
 		'time_keepers' 		=> 'required',
 		'referees' 			=> 'required',
 		'medics' 			=> 'required',
 		'founded' 			=> 'required',
-		'disbanded' 		=> 'required',
-        'video_name1'      =>  'required'
+		'disbanded' 		=> 'required'
+        
 	);
 
     public function getPrevJerseys($id)

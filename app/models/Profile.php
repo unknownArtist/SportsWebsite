@@ -23,4 +23,21 @@ public function getImage($id)
          return $profile[0]->player_profile_videos;
 
     }
+public function getCurent($id)
+    {  
+
+        $profile = ProfileCurteam::where('player_profile_id','=',$id)->get();
+        
+         return $profile[0]->current_team;
+
+    }
+    public function getPrev($id)
+    {  
+
+        $profile = ProfilePrvteam::where('player_profile_id','=',$id)->get();
+        
+         return $profile[0]->previous_team;
+
+    }
 }
+

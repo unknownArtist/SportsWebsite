@@ -31,7 +31,7 @@
 @foreach($inboxs as $inbox)
 
 
-<div class="col-sm-1 col-md-1">
+<div class="col-sm-1 col-md-1 emailname">
   
     <a href="#" class="thumbnail">
       <img data-src="holder.js/100%x180" alt="...">
@@ -42,18 +42,27 @@
     
   </div>
   
-  <div class="col-sm-10 comingevents">
+  <div class="col-sm-9 comingmessageview">
+  <div class="col-sm-2">
+  <p>Subject:</p>
+  </div>
+  <div class="col-sm-10">
     @if($inbox->notification == 0)
+    
     <p>{{HTML::link('user/messages/'.$inbox->id.'/readmsg',$inbox->subject)}}</p>
     
      @else
+     <div class="unreadmessage">
      <p style="font-weight:bold; color:green;">{{HTML::link('user/messages/'.$inbox->id.'/readmsg',$inbox->subject)}}</p>
+     </div>
      @endif
+     
+     </div>
   
   </div> 
   
-  <div class="col-sm-1">
-  {{ HTML::link('user/messages/'.$inbox->from_user.'/'.$inbox->id.'/reply','Reply',array('class'=>'','style'=>'margin-top:;'))}}
+  <div class="col-sm-2 comingmessageview">
+  {{ HTML::link('user/messages/'.$inbox->from_user.'/'.$inbox->id.'/reply','Reply',array('class'=>'','style'=>'margin-left:29px;'))}} /
    {{ HTML::link('user/messages/'.$inbox->id.'/delete','Delete',array('class'=>'','style'=>'margin-top:;'))}}
   </div> 
  

@@ -78,6 +78,7 @@
 /*--------------Profile routes-------------------------*/
 	Route::post('members/{userID}/update',array('uses'=>'ProfileController@postMembersprofile'));
 	Route::get('members/{userID}/profile',array('uses'=>'ProfileController@getMembersprofile'));
+	Route::get('members/view/{id}',array("uses"=>'ProfileController@getMembersview'));
 	Route::get('members',array("uses"=>'ProfileController@getMembers'));
 	Route::get('profile',array("uses"=>'ProfileController@getIndex'));
 	Route::get('profile/create',array("uses"=>'ProfileController@getCreate'));

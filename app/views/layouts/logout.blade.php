@@ -7,14 +7,23 @@
     {{ HTML::style('assets/css/sb-admin.css') }}
     {{ HTML::style('assets/css/bootstrap.css') }}
     {{ HTML::style('assets/font-awesome/css/font-awesome.min.css') }} 
-    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css" />
+    
+     {{ HTML::style('assets/css/lib/bootstrap.css') }} 
+     {{ HTML::style('assets/css/extension.css') }} 
+      {{ HTML::style('assets/css/boo.css') }} 
+       {{ HTML::style('assets/css/style.css') }} 
+        {{ HTML::style('assets/css/boo-coloring.css') }} 
+         {{ HTML::style('assets/css/boo-utility.css') }} 
+          {{ HTML::style('assets/css/lib/bootstrap-responsive.css') }} 
+          {{ HTML::style('assets/plugins/select2/select-theme.css') }} 
+  <!--  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css" />
     <link href="assets/css/lib/bootstrap.css" rel="stylesheet">
     <link href="assets/css/lib/bootstrap-responsive.css" rel="stylesheet">
     <link href="assets/css/extension.css" rel="stylesheet">
     <link href="assets/css/boo.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/boo-coloring.css" rel="stylesheet">
-    <link href="assets/css/boo-utility.css" rel="stylesheet">
+    <link href="assets/css/boo-utility.css" rel="stylesheet">-->
      {{ HTML::style('assets/css/fullcalendar.css') }}
     {{ HTML::style('assets/css/fullcalendar.print.css') }}
     
@@ -48,11 +57,11 @@ switch(CurrPage){
 case '':
  $('#li_home').addClass('active') ;
  break;
-case 'profile':
- $('#li_profile').addClass('active') ;
+case 'register':
+ $('#li_register').addClass('active') ;
  break;
-case 'members':
- $('#li_member').addClass('active') ;
+case 'login':
+ $('#li_login').addClass('active') ;
  break;
  case 'events':
  $('#li_events').addClass('active') ;
@@ -66,7 +75,15 @@ case 'members':
 
 
 }
+
 });
+
+$(function(){
+    $('.carousel').carousel({
+      interval: 5000
+    });
+});
+
 </script> 
 
 <style type="text/css">
@@ -92,12 +109,12 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
                         <div class="nav-collapse collapse">
                             
                             <ul class="nav">
-                                <li class="active"> <a href="{{URL::to('/')}}">Home</a> </li>                              
+                                <li id="li_home"> <a href="{{URL::to('/')}}">Home</a> </li>                              
                                 
                             </ul>
                              <ul class="nav pull-right">
-       
-      <li><a href="login">Login</a></li> 
+      <li id="li_register"><a href="{{URL::to('user/register')}}">Sign up</a></li>  
+      <li id="li_login"><a href="{{URL::to('login')}}">Sign in</a></li> 
 	</ul>
                         </div>
                     </div>
@@ -142,6 +159,7 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
 <script src="assets/js/lib/jquery-ui.js"></script> 
 <script src="assets/js/lib/bootstrap.js"></script> 
 <script src="assets/js/lib/jquery.cookie.js"></script> 
+
 
 <!-- Plugins Bootstrap --> 
 <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> 
@@ -202,6 +220,12 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
 <!-- Only This Demo Page --> 
 <script src="assets/js/demo/demo-form.js"></script>
 <script src="assets/js/demo/demo-wisyhtml5.js"></script> 
+
+<script src="assets/js/respond.min.js"></script>
+	<!-- Holder renders image placeholders entirely on the client side (http://imsky.github.io/holder/) -->
+	
+	<!-- Your javascript file -->
+	
     
   </body>
   
