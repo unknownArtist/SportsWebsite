@@ -29,7 +29,7 @@
                 {{Form::image('uploads/profiles_images/'.$profile->getImage($profile->id),'',array('class'=>'profileimage'));}}
                 <div class="statistic-box well well-black padding-bottom15 margin-top15">
                 <div class="section-title">
-                 <h4 class="">D O B: <br /><span class="spancolor margin-left0">{{ $profile->age}}</span></h4>
+                 <h4 class="">Age: <br /><span class="spancolor margin-left0">{{ $profile->age}} Years</span></h4>
                  </div>
                   <div class="section-title">
                  <h4>Weight: <br /><span class="spancolor margin-left0">{{ $profile->weight}}</span></h4>

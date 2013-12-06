@@ -1,10 +1,12 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="row-fluid">
-    <div class="span8 grider">
-      <div class="widget widget-simple">
-        <div class="widget-header">
+<div id="main-content" class="container-fluid">
+
+<div id="page-content" class="page-content">
+<div class="row-fluid margin-top20">
+<div class="col-xs-9 grider">
+<div class="widget widget-simple">
     @if ($errors->any())
     <ul style="color:red;">
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
@@ -15,6 +17,9 @@
 	<div class="row-fluid">
         <div class="span12 form-dark">
             <ul class="form-list label-left list-bordered">
+            <li class="section-form">
+            <h4>Add New Team</h4>
+            </li>
 
     	           {{ Form::open(array('url'=>'admin/team/create','POST','files' => true,'class'=>'form-horizontal'))}}
                      <li class="control-group">
@@ -25,33 +30,63 @@
                     </li>
 
         	        <li class="control-group"> 
-        			{{ Form::label('name','Team Logoo', '', array('class'=>'control-label'))}}
-                    <div class="controls">    
-        			{{ Form::file('team_logo',array('title' => 'team_logo','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'span6'))}}
+        			{{ Form::label('name','Team Logo', '', array('class'=>'control-label'))}}
+                    <div class="controls"> 
+                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
+                                <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
+                                <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>
+                                {{ Form::file('team_logo',array('title' => 'team_logo','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'span6'))}}
+                                </span> <a href="#" class="btn btn-red fileupload-exists" data-dismiss="fileupload" style="vertical-align:top">Remove</a> </div>   
+        			
                     </div>
                     </li>
                     
 
         	        <li class="control-group"> 
         			{{ Form::label('team_photo','Team Photo', '', array('class'=>'control-label'))}}
-                    <div class="controls">    
-        			{{ Form::file('photo_name',array('title' => 'photo_name','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'span6','id'=>'photo_name'))}}
+                    <div class="controls">  
+                      <div class="fileupload fileupload-new pull-left" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
+                                <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
+                                <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>
+                               {{ Form::file('photo_name',array('title' => 'photo_name','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'span6','id'=>'photo_name'))}}
+                                </span> <a href="#" class="btn btn-red fileupload-exists" data-dismiss="fileupload" style="vertical-align:top">Remove</a> </div>
+        			
                     </div>
                     </li>
         	        <li class="control-group"> 
                     {{ Form::label('Team_photos','Team Photo', '', array('class'=>'control-label'))}}
-                    <div class="controls">    
-                    {{ Form::file('photo_name1',array('title' => 'photo_name1','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'span6'))}}
+                    <div class="controls">
+                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
+                                <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
+                                <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>
+                              {{ Form::file('photo_name1',array('title' => 'photo_name1','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'span6'))}}
+                                </span> <a href="#" class="btn btn-red fileupload-exists" data-dismiss="fileupload" style="vertical-align:top">Remove</a> </div>    
+                    
                     </div>
                     </li>
                      <li class="control-group"> 
                     {{ Form::label('jersey_image','Jersey Image', '', array('class'=>'control-label'))}}
-                    <div class="controls">    
-                    {{ Form::file('jersey_image',array('title' => 'jersey_image','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'span6'))}}
+                    <div class="controls"> 
+                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
+                                <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
+                                <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>
+                              {{ Form::file('jersey_image',array('title' => 'jersey_image','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'span6'))}}
+                                </span> <a href="#" class="btn btn-red fileupload-exists" data-dismiss="fileupload" style="vertical-align:top">Remove</a> </div>   
+                   
                      <li class="control-group">  
                     {{ Form::label('previous_jerseys','Previous Jerseys', '', array('class'=>'control-label'))}}
-                    <div class="controls">    
-                    {{ Form::file('previous_jerseysimg',array('title' => 'previous_jerseysimg','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'span6'))}}
+                    <div class="controls"> 
+                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
+                                <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
+                                <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>
+                              {{ Form::file('previous_jerseysimg',array('title' => 'previous_jerseysimg','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'span6'))}}
+                                </span> <a href="#" class="btn btn-red fileupload-exists" data-dismiss="fileupload" style="vertical-align:top">Remove</a> </div>   
+                   
                     </div>
                     </li>
                     
@@ -133,21 +168,23 @@
                     {{ Form::text('video_name1','',array('class'=>'span6','id'=>'Videos2'))}}
                     </div>
                     </li>
-             
+             <li class="span8 margin-bottom15">
             {{ Form::label('','')}}
-            {{ Form::hidden('abc','',array('class'=>'span6'))}}
-         
-                       
-                {{ Form::submit('Add',array('class'=>'btn btn-primary pull-right'))}}
-                {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success pull-right backbtn'))}}      
+            {{ Form::hidden('abc','',array('class'=>'span6'))}}        
+                      
+                {{ Form::submit('Add',array('class'=>'btn btn-primary pull-right addbtnmargin'))}}
+                 {{ HTML::link('admin/teams','Back',array('class'=>'btn btn-success backbtn pull-right'))}}
+                      
                 {{ Form::close() }}
-           </div>
+           		</li>
        </ul>
+       </div>
         </div>  
         </div> 
         </div>
-
-    
+        </div>
+        </div>
+            
      <script >
          $('.datepicker').datepicker({
 

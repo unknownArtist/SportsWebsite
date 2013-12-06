@@ -165,75 +165,84 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
 
   	@yield('content')
     
+    </div>
      <!-- // page-container  --> 
 
 <!-- Le javascript --> 
 <!-- Placed at the end of the document so the pages load faster --> 
-<script src="assets/plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.min.js"></script> 
-<script src="assets/js/lib/jquery.js"></script> 
-<script src="assets/js/lib/jquery-ui.js"></script> 
-<script src="assets/js/lib/bootstrap.js"></script> 
-<script src="assets/js/lib/jquery.cookie.js"></script> 
+
+ {{ HTML::script('assets/plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.min.js') }}    
+{{ HTML::script('assets/js/lib/jquery.js') }}    
+{{ HTML::script('assets/js/lib/jquery-ui.js') }}    
+{{ HTML::script('assets/js/lib/bootstrap.js') }}    
+{{ HTML::script('assets/js/lib/jquery.cookie.js') }}    
 
 <!-- Plugins Bootstrap --> 
-<script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> 
-<script src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js"></script> 
-<script src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script> 
-<script src="assets/plugins/bootstrap-daterangepicker/js/date.js"></script> 
-<script src="assets/plugins/bootstrap-daterangepicker/js/bootstrap-daterangepicker.js"></script> 
-<script src="assets/plugins/bootstrap-fileupload/js/bootstrap-fileupload.js"></script> 
-<script src="assets/plugins/bootstrap-rowlink/js/bootstrap-rowlink.js"></script> 
-<script src="assets/plugins/bootstrap-progressbar/js/bootstrap-progressbar.js"></script> 
-<script src="assets/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js"></script> 
-<script src="assets/plugins/bootstrap-select/bootstrap-select.js"></script> 
-<script src="assets/plugins/bootstrap-bootbox/bootbox.min.js"></script> 
-<script src="assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js"></script> 
-<script src="assets/plugins/bootstrap-modal/js/bootstrap-modal.js"></script> 
-<script src="assets/plugins/bootstrap-wizard/js/bootstrap-wizard.js"></script> 
-<script src="assets/plugins/bootstrap-toggle-buttons/js/bootstrap-toggle-buttons.js"></script> 
+
+{{ HTML::script('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}    
+{{ HTML::script('assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js') }}    
+{{ HTML::script('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}    
+{{ HTML::script('assets/plugins/bootstrap-daterangepicker/js/date.js') }}    
+{{ HTML::script('assets/plugins/bootstrap-daterangepicker/js/bootstrap-daterangepicker.js') }}    
+
+{{ HTML::script('assets/plugins/bootstrap-fileupload/js/bootstrap-fileupload.js') }}    
+{{ HTML::script('assets/plugins/bootstrap-rowlink/js/bootstrap-rowlink.js') }}    
+{{ HTML::script('assets/plugins/bootstrap-progressbar/js/bootstrap-progressbar.js') }}    
+{{ HTML::script('assets/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js') }}    
+{{ HTML::script('assets/plugins/bootstrap-select/bootstrap-select.js') }}    
+
+{{ HTML::script('assets/plugins/bootstrap-bootbox/bootbox.min.js') }}    
+{{ HTML::script('assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js') }}    
+{{ HTML::script('assets/plugins/bootstrap-modal/js/bootstrap-modal.js') }}    
+{{ HTML::script('assets/plugins/bootstrap-wizard/js/bootstrap-wizard.js') }}    
+{{ HTML::script('assets/plugins/bootstrap-toggle-buttons/js/bootstrap-toggle-buttons.js') }}    
 
 <!-- Plugins Custom --> 
-<script src="assets/plugins/google-code-prettify/prettify.js"></script> 
-<script src="assets/plugins/nicescroll/jquery.nicescroll.min.js"></script> 
-<script src="assets/plugins/qtip2/dist/jquery.qtip.min.js"></script> 
-<script src="assets/plugins/list/js/list.min.js"></script> 
-<script src="assets/plugins/list/plugins/list.paging.min.js"></script> 
-<script src="assets/plugins/fullcalendar/fullcalendar.js"></script> 
+{{ HTML::script('assets/plugins/google-code-prettify/prettify.js') }} 
+{{ HTML::script('assets/plugins/nicescroll/jquery.nicescroll.min.js') }}       
+{{ HTML::script('assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js') }}    
+{{ HTML::script('assets/plugins/list/js/list.min.js') }}    
+{{ HTML::script('assets/plugins/list/plugins/list.paging.min.js') }}    
+{{ HTML::script('assets/plugins/fullcalendar/fullcalendar.js') }}   
 
 <!-- Plugins Forms --> 
-<script src="assets/plugins/uniform/jquery.uniform.js"></script> 
-<script src="assets/plugins/select2/select2.min.js"></script> 
-<script src="assets/plugins/counter/jquery.counter.js"></script> 
-<script src="assets/plugins/elastic/jquery.elastic.js"></script> 
-<script src="assets/plugins/inputmask/jquery.inputmask.js"></script> 
-<script src="assets/plugins/inputmask/jquery.inputmask.extensions.js"></script> 
-<script src="assets/plugins/validate/js/jquery.validate.min.js"></script> 
-<script src="assets/plugins/xbreadcrumbs/xbreadcrumbs.js"></script> 
+{{ HTML::script('assets/plugins/uniform/jquery.uniform.js') }} 
+{{ HTML::script('assets/plugins/select2/select2.min.js') }}       
+{{ HTML::script('assets/plugins/counter/jquery.counter.js') }}    
+{{ HTML::script('assets/plugins/elastic/jquery.elastic.js') }}    
+{{ HTML::script('assets/plugins/inputmask/jquery.inputmask.js') }}    
+{{ HTML::script('assets/plugins/inputmask/jquery.inputmask.extensions.js') }}   
+{{ HTML::script('assets/plugins/validate/js/jquery.validate.min.js') }}    
+{{ HTML::script('assets/plugins/xbreadcrumbs/xbreadcrumbs.js') }}   
+
 
 <!-- Charts --> 
-<script src="assets/plugins/sparkline/jquery.sparkline.js"></script> 
-<script src="assets/plugins/flot/jquery.flot.js"></script> 
-<script src="assets/plugins/flot/jquery.flot.categories.js"></script> 
-<script src="assets/plugins/flot/jquery.flot.grow.js"></script> 
-<script src="assets/plugins/flot/jquery.flot.orderBars.js"></script> 
-<script src="assets/plugins/flot/jquery.flot.pie.js"></script> 
-<script src="assets/plugins/flot/jquery.flot.resize.js"></script> 
-<script src="assets/plugins/flot/jquery.flot.selection.js"></script> 
-<script src="assets/plugins/flot/jquery.flot.stack.js"></script> 
-<script src="assets/plugins/flot/jquery.flot.stackpercent.js"></script> 
-<script src="assets/plugins/flot/jquery.flot.time.js"></script> 
+{{ HTML::script('assets/plugins/sparkline/jquery.sparkline.js') }} 
+{{ HTML::script('assets/plugins/flot/jquery.flot.js') }}       
+{{ HTML::script('assets/plugins/flot/jquery.flot.categories.js') }}    
+{{ HTML::script('assets/plugins/flot/jquery.flot.grow.js') }}    
+{{ HTML::script('assets/plugins/flot/jquery.flot.orderBars.js') }}    
+{{ HTML::script('assets/plugins/flot/jquery.flot.pie.js') }}   
+{{ HTML::script('assets/plugins/flot/jquery.flot.resize.js') }}    
+{{ HTML::script('assets/plugins/flot/jquery.flot.selection.js') }}   
+{{ HTML::script('assets/plugins/flot/jquery.flot.stack.js') }}   
+{{ HTML::script('assets/plugins/flot/jquery.flot.stackpercent.js') }}    
+{{ HTML::script('assets/plugins/flot/jquery.flot.time.js') }}   
+
 
 <!-- Plugins Tables --> 
-<script src="assets/plugins/datatables/media/js/jquery.dataTables.js"></script> 
-<script src="assets/plugins/datatables/plugin/jquery.dataTables.plugins.js"></script> 
-<script src="assets/plugins/datatables/plugin/jquery.dataTables.columnFilter.js"></script> 
+
+{{ HTML::script('assets/plugins/datatables/media/js/jquery.dataTables.js') }}   
+{{ HTML::script('assets/plugins/datatables/plugin/jquery.dataTables.plugins.js') }}    
+{{ HTML::script('assets/plugins/datatables/plugin/jquery.dataTables.columnFilter.js') }}   
 
 <!-- main js -->
-<script src="assets/js/application.js"></script> 
+
+{{ HTML::script('assets/js/application.js') }}   
 
 <!-- Only This Demo Page --> 
-<script src="assets/js/demo/demo-form.js"></script>
-<script src="assets/js/demo/demo-wisyhtml5.js"></script> 
+{{ HTML::script('assets/js/demo/demo-form.js') }}    
+{{ HTML::script('assets/js/demo/demo-wisyhtml5.js') }}   
     
   </body>
   
