@@ -1,8 +1,12 @@
 @extends('layouts.main')
 @section('content')
 
+
 <div id="main-content" class="container-fluid">
 
+<div style="color:red" class="">
+        {{ Session::get('errors') }}
+    </div>
 <div id="page-content" class="page-content">
 <div class="row-fluid margin-top20">
 <div class="col-xs-9 grider">
@@ -34,7 +38,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
   </div> 
   
   <div class="col-sm-11 clearfix">
-  {{ HTML::link('members/'.$user->id.'/profile','View Profile...',array('class'=>'pull-right','style'=>'margin-top:;'))}}
+  {{ HTML::link('members/view/'.$user->id,'View Profile...',array('class'=>'pull-right','style'=>'margin-top:;'))}}
   </div>
   
   <hr class="userchathr" />
