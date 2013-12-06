@@ -15,7 +15,7 @@ class Stream extends Migration {
 			$table->increments('id');
 			$table->integer('user_id');
 			$table->integer('team_id');
-			$table->string('stream');
+			$table->string('stream',1500);
 			$table->timestamp('created_at');
 		});
 	}
