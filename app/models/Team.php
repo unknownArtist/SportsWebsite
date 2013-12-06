@@ -5,8 +5,12 @@ class Team extends Eloquent {
 	protected $table  = "teams";
 
 	public static $rules = array(
-		'team_name' 		=> 'required',
+		'team_logo'          =>'required',
+        'previous_jerseysimg'=>'required',
+        'photo_name'        =>'required',
+        'photo_name1' 		=> 'required',
 		'president_name' 	=> 'required',
+        'jersey_image'      =>'required',
 		'head_coach' 		=> 'required',
 		'assistant_coach' 	=> 'required',
 		'history' 			=> 'required',

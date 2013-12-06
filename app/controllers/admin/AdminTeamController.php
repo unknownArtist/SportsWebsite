@@ -55,25 +55,7 @@ class AdminTeamController extends BaseController {
 	public function postCreateTeam()
 	{ 
 		$user = Sentry::getUser();
-		$playerid=$user->id;
-			
-		// $previous_jerseys = Input::get('previous_jerseys');
-		// foreach($previous_jerseys as $key=>$value)
-		// 			  {
-					  
-		// 			  	print_r($value);
-		// 			  	die();
-
-		// 				DB::table('team_prevjerseys')->insert(
-		// 						array(
-		// 								'team_id'	 =>	$id,
-		// 								'team_prevjerseysimg'=>	$this->ImageCrop('previous_jerseysimg','teamPhotos','200','200',''),
-		// 								'previous_jersey'   => $value
-		// 		                    ));
-							 		
-		// 					 }
-		
-		
+		// $playerid=$user->id;
 		 $team_logo = $this->ImageCrop('team_logo','teamImages','200','200','');
 		$jersey_image = $this->ImageCrop('jersey_image','prevTeamImages','200','200','');
 		// $prev_jersy = $this->ImageCrop('previous_jerseys','teamPhotos','200','200','');
@@ -86,7 +68,7 @@ class AdminTeamController extends BaseController {
 		}
 		$id = DB::table('teams')->insertGetId(
     		array(
-    			'player_id'         =>		$playerid,
+    			// 'player_id'         =>		$playerid,
     			'team_name'			=>		Input::get('team_name'),
     			'team_logo'			=>		$team_logo,
     			'current_jersey'	=>		Input::get('current_jersey'),
@@ -186,14 +168,10 @@ class AdminTeamController extends BaseController {
 
 	public function getDeleteTeam($id)
 	{
-		DB::table('teams')->where('id',$id)->delete();
-		$medics = DB::table('team_medics')->get();
-		$referee = DB::table('team_referees')->get();
-		$time_keepe = DB::table('team_timeKeepers')->get();
-		$previous_jersey = DB::table('team_prevJerseys')->get();
 
-		return Redirect::to('admin.team.index', compact('medics','referee','time_keepe','previous_jersey'))
-						->with('teams',Team::all());
+		DB::table('teams')->where('id',$id)->delete();
+		
+		return Redirect::to('admin/teams');
 	}
 
 	public function getConfig()
