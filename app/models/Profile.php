@@ -19,8 +19,22 @@ public function getImage($id)
     {  
 
         $profile = ProfileImage::where('player_profile_id','=',$id)->get();
-        
-         return $profile[0]->player_profile_videos;
+
+       if($profile->isEmpty())
+       {
+       	return "download.jpg";
+       	
+       }
+        else
+        {
+
+          foreach($profile as $profiles )
+        {
+        	
+          return $profiles->player_profile_videos;
+
+        }
+    }
 
     }
 public function getCurent($id)
