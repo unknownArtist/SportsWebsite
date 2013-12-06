@@ -18,7 +18,8 @@
 <div class="col-xs-12">
  @foreach($streams as $stream)
  
-<div class="col-sm-1">
+ <div class="col-xs-12">
+<div class="col-sm-1 emailname">
     <a href="#" class="thumbnail">
       <img data-src="holder.js/100%x180" alt="...">
     </a>
@@ -28,11 +29,14 @@
   
 
 
-  <div class="col-sm-7">
+  <div class="col-sm-10">
   <p>{{ $stream->stream }} </p>
   </div> 
-  <div class="col-sm-4">
+  </div>
+  <div class="col-xs-12" style="clear:both;">
+  
  	<p class="pull-right timecolor">{{ $stream->getDateFrm($stream->created_at) }}</p>
+ 
   </div>
   <hr class="userchathr" />
    @endforeach
