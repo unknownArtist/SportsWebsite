@@ -187,7 +187,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 
       </div>
         <div id="loginForm">
-         {{ Form::open(array('login','POST'))  }}
+         {{ Form::open(array('url'=>'login','POST'))  }}
               {{ Form::token() }}
       
                   {{ Form::text('email','', array('class'=>'form-control formz span12','placeholder' => 'Email address', 'id'=>'logininput')) }}

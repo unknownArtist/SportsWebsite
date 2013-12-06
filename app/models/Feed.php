@@ -11,7 +11,12 @@ class Feed extends Eloquent {
 		$name = Profile::where('user_id','=',$userId)
 			   ->where('team_id','=',$teamId)
 			   ->get();
-		return $name[0]->name;
+		 foreach($name as $names )
+        {
+        	
+          return $names->name;
+
+        }
 	}
 	public function getDateFrm($datefr)
 	{
@@ -39,7 +44,18 @@ class Feed extends Eloquent {
 		}
 		$str = $str == '' ? 'a moment ' : substr($str, 0, -2);
 
-		return $str;
+		$time = explode(',', $str);
+
+		if(count($time) == 3)
+			{
+				return $time[0];
+			}elseif (count($time) == 2) {
+				return $time[0];
+			}else
+				{
+					return $time[0];
+				}
+
 
 
 

@@ -93,14 +93,14 @@
             <li class="control-group">
             {{ Form::label('current_teams', 'Current teams', '', array('class'=>'control-label'))}}
             <div class="controls">
-            {{ Form::text('current_teams',$profiles['current_teams'],array('class'=>'span6')) }}
+            {{ Form::text('current_teams',$profiles->getCurent($profiles->id),array('class'=>'span6')) }}
             </div>
             </li>
        
             <li class="control-group">
             {{ Form::label('previous_teams', 'Previous Teams', '', array('class'=>'control-label'))}}
             <div class="controls">
-            {{ Form::text('previous_teams',$profiles['previous_teams'],array('class'=>'span6')) }}
+            {{ Form::text('previous_teams',$profiles->getPrev($profiles->id),array('class'=>'span6')) }}
             </div>
             </li>
      

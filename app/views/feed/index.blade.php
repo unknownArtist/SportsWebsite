@@ -32,11 +32,12 @@
   <div class="col-sm-10">
   <p>{{ $stream->stream }} </p>
   </div> 
+
+  <div class="col-sm-4">
+ 	<p class="pull-right timecolor">{{ $stream->getDateFrm($stream->created_at) }} ago</p>
+
   </div>
-  <div class="col-xs-12" style="clear:both;">
-  
- 	<p class="pull-right timecolor">{{ $stream->getDateFrm($stream->created_at) }}</p>
- 
+
   </div>
   <hr class="userchathr" />
    @endforeach

@@ -107,6 +107,30 @@ class ProfileController extends BaseController {
 		  DB::table('player_profile')
             ->where('id','=',Request::segment(2))
             ->update($fields);
+          $fields1= array(
+			'player_profile_videos'=>$this->ImageCrop('player_profile_photos','profiles_images','200','200','')
+		   	);
+
+ 		 DB::table('player_profile_photos')
+            ->where('player_profile_id','=',Request::segment(2))
+            ->update($fields1);
+
+            $fields2= array(
+			'current_team'=>Input::get('current_teams')
+		   	);
+
+ 		 DB::table('player_profile_currentteam')
+            ->where('player_profile_id','=',Request::segment(2))
+            ->update($fields2);
+
+            $fields3= array(
+			'previous_team'=>Input::get('previous_teams')
+		   	);
+
+ 		 DB::table('player_profile_prevteam')
+            ->where('player_profile_id','=',Request::segment(2))
+            ->update($fields3);
+
             $id = Sentry::getUser()->id;
    		$profile = Profile::where('user_id', '=', $id)->get();
 
@@ -170,5 +194,25 @@ class ProfileController extends BaseController {
 			return Redirect::to('members');
 		
 	}
+	
+	public function getMembersview($id)
+	{
+		
+
+		$profile = Profile::where('user_id','=',$id)->get();
+
+		if($profile->isEmpty())
+		{
+
+			return Redirect::to('members')->withErrors('no profile found');
+		}
+		else
+		{
+	
+		return View::make('profile.view')->with('profiles',$profile);
+	}
+}
+
+
 }
 //http://developer13.com/post/laravel-tutorial-model-bindings
