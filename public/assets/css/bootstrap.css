@@ -5124,6 +5124,7 @@ td.visible-print {
 	
 	width:100%;
 	margin-top:0px;
+	margin-bottom:10px;
 }
 
 .comingevents
@@ -5215,6 +5216,7 @@ padding:1px;
 {
 	color:#7d828a;
 	margin-top:-10px;
+	border-bottom:1px solid #bbb;
 }
 
 .spancolor
@@ -5309,7 +5311,7 @@ float:left;
 .timecolor
 {
 	color:#77a170;
-	margin-top:60px;
+	margin-bottom:0px;
 }
 
 .txtheight
@@ -5341,4 +5343,20 @@ float:left;
 .logoutfont a
 {
 	font-size:13px !important;
+}
+
+.unreadmessage
+{
+	
+}
+
+.emailname h6
+{
+	margin:0px !important;
+	text-align:center;
+}
+
+.comingmessageview
+{
+	padding-top:9px;
 }
