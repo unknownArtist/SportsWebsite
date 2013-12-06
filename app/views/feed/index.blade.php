@@ -32,7 +32,7 @@
   <p>{{ $stream->stream }} </p>
   </div> 
   <div class="col-sm-4">
- 	<p class="pull-right timecolor">{{ $stream->getDateFrm($stream->created_at) }}</p>
+ 	<p class="pull-right timecolor">{{ $stream->getDateFrm($stream->created_at) }} ago</p>
   </div>
   <hr class="userchathr" />
    @endforeach
