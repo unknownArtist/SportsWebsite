@@ -45,20 +45,7 @@ class Feed extends Eloquent {
 		$str = $str == '' ? 'a moment ' : substr($str, 0, -2);
 
 		$time = explode(',', $str);
-
-		if(count($time) == 3)
-			{
-				return $time[0];
-			}elseif (count($time) == 2) {
-				return $time[0];
-			}else
-				{
-					return $time[0];
-				}
-
-
-
-
+		return $time[0];
 	
 	}
 }
