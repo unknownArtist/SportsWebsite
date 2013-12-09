@@ -77,10 +77,14 @@ class ProfileController extends BaseController {
 		$profile = Profile::find( $id );
 		$teams = Team::all();
 		$allTeams = array();
-		foreach($teams as $team)
+		if(count($teams) > 0)
 		{
-			$allTeams[$team->id] = $team->team_name;
+			foreach($teams as $team)
+			{
+				$allTeams[$team->id] = $team->team_name;
+			}
 		}
+		
 
 	return View::make('profile.edit')->with('profiles',$profile)
 									->with('teams',$allTeams);
@@ -119,7 +123,7 @@ class ProfileController extends BaseController {
 			'current_team'=>Input::get('current_teams')
 		   	);
 
- 		 DB::table('player_profile_currentteam')
+ 		 DB::table('player_profile_currentTeam')
             ->where('player_profile_id','=',Request::segment(2))
             ->update($fields2);
 
@@ -127,7 +131,7 @@ class ProfileController extends BaseController {
 			'previous_team'=>Input::get('previous_teams')
 		   	);
 
- 		 DB::table('player_profile_prevteam')
+ 		 DB::table('player_profile_prevTeam')
             ->where('player_profile_id','=',Request::segment(2))
             ->update($fields3);
 
