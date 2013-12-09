@@ -264,11 +264,11 @@ filter: progid:dximagetransform.microsoft.gradient(enabled=false);
 }
 
 .well-black .fc-button-next {
-  color: #E6E8EB;
+ 
 }
 
 .well-black .fc-button-prev {
-  color: #E6E8EB;
+ 
 }
 
 .well-black .fc-state-active,
@@ -284,7 +284,7 @@ filter: progid:dximagetransform.microsoft.gradient(enabled=false);
 
 .fc-state-disabled,
 .fc-state-disabled .fc-button-inner {
-  color: #999;
+  color: #333;
 }
 
 .fc-state-disabled {

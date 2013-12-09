@@ -24,7 +24,8 @@ class EventController extends BaseController {
 	}
 	public function getCreate()
 	{
-		return View::make('event.create');
+		$events = Calender::all(); 
+		return View::make('event.create')->with('events',$events);
 	}
 	public function postCreate()
 	{
@@ -66,6 +67,7 @@ class EventController extends BaseController {
 	public function getFeed()
 	{
 		$team = Sentry::getUser()->id;
+		$events = Calender::all(); 
 		 
 		 $teams_id = Profile::where('user_id','=',$team)->get();
 		 foreach ($teams_id as $team_id)
@@ -82,6 +84,7 @@ class EventController extends BaseController {
         
 		 	
 		 		return View::make('feed.index')
+							->with('events',$events)
 							->with('streams',$stream);
 }
 	
@@ -121,6 +124,6 @@ class EventController extends BaseController {
 											'stream'     => $fields['stream'],
 											'created_at' =>$date,
 												));
-	return Redirect::to('feeds');
+	return Redirect::to('events/create');
 	}
 }

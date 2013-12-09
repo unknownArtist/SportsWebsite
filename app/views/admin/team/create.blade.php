@@ -32,7 +32,7 @@
         	        <li class="control-group"> 
         			{{ Form::label('name','Team Logo', '', array('class'=>'control-label'))}}
                     <div class="controls"> 
-                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload">
+                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload" style="margin-bottom:0px;">
                                 <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
                                 <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>
@@ -46,7 +46,7 @@
         	        <li class="control-group"> 
         			{{ Form::label('team_photo','Team Photo', '', array('class'=>'control-label'))}}
                     <div class="controls">  
-                      <div class="fileupload fileupload-new pull-left" data-provides="fileupload">
+                      <div class="fileupload fileupload-new pull-left" data-provides="fileupload" style="margin-bottom:0px;">
                                 <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
                                 <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>
@@ -58,7 +58,7 @@
         	        <li class="control-group"> 
                     {{ Form::label('Team_photos','Team Photo', '', array('class'=>'control-label'))}}
                     <div class="controls">
-                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload">
+                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload" style="margin-bottom:0px;">
                                 <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
                                 <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>
@@ -70,7 +70,7 @@
                      <li class="control-group"> 
                     {{ Form::label('jersey_image','Jersey Image', '', array('class'=>'control-label'))}}
                     <div class="controls"> 
-                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload">
+                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload" style="margin-bottom:0px;">
                                 <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
                                 <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>
@@ -80,7 +80,7 @@
                      <li class="control-group">  
                     {{ Form::label('previous_jerseys','Previous Jerseys', '', array('class'=>'control-label'))}}
                     <div class="controls"> 
-                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload">
+                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload" style="margin-bottom:0px;">
                                 <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
                                 <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>
@@ -120,12 +120,7 @@
                     {{ Form::text('time_keepers','',array('class'=>'span6'))}}
                     </div>
                     </li>
-        	        <li class="control-group"> 
-        			{{ Form::label('disbanded','Team Disbanded', '', array('class'=>'control-label'))}}
-                    <div class="controls">    
-                    {{Form::text('disbanded','',array('class'=>'span6'))}}
-                    </div>
-                    </li>
+        	       
         	        <li class="control-group"> 
                     {{ Form::label('history','Team History', '', array('class'=>'control-label'))}}
                     <div class="controls">    
@@ -147,9 +142,18 @@
         	        <li class="control-group"> 
         			{{ Form::label('founded','Team Founded', '', array('class'=>'control-label'))}}
                     <div class="controls">    
-        			{{ Form::text('founded','',array('class'=>'span6 datepicker'))}}
+        			{{ Form::text('founded','',array('class'=>'span6 input-medium margin-00', 'id'=>'datePicker'))}}
+                    </div>
+                    
+                    </li>
+                    
+                     <li class="control-group"> 
+        			{{ Form::label('disbanded','Team Disbanded', '', array('class'=>'control-label'))}}
+                    <div class="controls">    
+                   {{ Form::text('disbanded','',array('class'=>'span6 input-medium margin-00', 'id'=>'datePicker'))}}
                     </div>
                     </li>
+                    
         	        <li class="control-group"> 
                     {{ Form::label('president_name','President Name', '', array('class'=>'control-label'))}}
                     <div class="controls">    

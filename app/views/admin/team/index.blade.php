@@ -7,11 +7,11 @@
 <div class="col-xs-12 grider">
 <div class="widget widget-simple">
     <div class="col-xs-12 widget-header">
-        {{ HTML::link('admin/team/create','Add Team',array('class' => 'btn btn-success')) }}
+        {{ HTML::link('admin/team/create','Add Team',array('class' => 'btn btn-success margin-bottom10')) }}
     </div>
 
 	
-        
+        <div class="widget-header margin-bottom15">
            <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered margin-top15" id="companies" style="margin-bottom:15px;">
     <thead>
 
@@ -76,6 +76,7 @@
     
     </tbody>
     </table>  
+    </div>
     
     </div>
     </div>

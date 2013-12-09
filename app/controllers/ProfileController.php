@@ -12,12 +12,14 @@ class ProfileController extends BaseController {
 		// Display the info here with the user_id(session) check
 		$id = Sentry::getUser()->id;
    		$profile = Profile::where('user_id','=',$id)->get();
-       return View::make('profile.index')->with('profiles',$profile);
+		$events = Calender::all(); 
+       return View::make('profile.index')->with('profiles',$profile)->with('events', $events);
 	}
 	public function getCreate()
 	{
 		$id = Sentry::getUser()->id;
 		$profile = DB::table('player_profile')->where('user_id','=', $id)->get(); 
+		$events = Calender::all();
 
 		if($profile) // here you had to place this code.. where we are displaying form.. so the logice is .. user cannot access this page
 		{
@@ -30,7 +32,7 @@ class ProfileController extends BaseController {
 		{
 			$allTeams[$team->id] = $team->team_name;
 		}
-		return View::make('profile.create')->with('teams',$allTeams);
+		return View::make('profile.create')->with('teams',$allTeams)->with('events', $events);
 	}
 	public function postCreate()
 	{
@@ -81,8 +83,9 @@ class ProfileController extends BaseController {
 		{
 			$allTeams[$team->id] = $team->team_name;
 		}
-
+		$events = Calender::all(); 
 	return View::make('profile.edit')->with('profiles',$profile)
+									->with('events',$events)
 									->with('teams',$allTeams);
 	}
 
@@ -133,6 +136,7 @@ class ProfileController extends BaseController {
 
             $id = Sentry::getUser()->id;
    		$profile = Profile::where('user_id', '=', $id)->get();
+		
 
             return Redirect::to('profile')
             ->with('profiles',$profile)
@@ -151,6 +155,7 @@ class ProfileController extends BaseController {
 	public function getMembers()
 	{
 		$id = Sentry::getUser()->id;
+		
 		if(!$id)
 		{
 			echo "please login first";
@@ -159,16 +164,18 @@ class ProfileController extends BaseController {
 		else
 		{
 		$users = User::all();
+		$events = Calender::all(); 
 		// $user_id = Sentry::getUser()->id;
-		return View::make('member.index')->with('users',$users);
+		return View::make('member.index')->with('users',$users)->with('events',$events);
 	}
 	}
 	public function getMembersprofile($id)
 	{
 		$users = Profile::where('user_id', $id)->get();
 
-
+		
 		return View::make('member.edit')
+					
 				   ->with('users',$users[0]);
 		// $user_id = Sentry::getUser()->id;
 		
@@ -200,6 +207,7 @@ class ProfileController extends BaseController {
 		
 
 		$profile = Profile::where('user_id','=',$id)->get();
+		$events = Calender::all();
 
 		if($profile->isEmpty())
 		{
@@ -208,8 +216,8 @@ class ProfileController extends BaseController {
 		}
 		else
 		{
-	
-		return View::make('profile.view')->with('profiles',$profile);
+			 
+		return View::make('profile.view')->with('profiles',$profile)->with('events',$events);
 	}
 }
 

@@ -112,8 +112,6 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
                                 
 	 <li id="li_profile"><a href="{{URL::to('profile')}}">My Profile</a></li>
 
-    <li id="li_profile" style="display:none;"><a href="{{URL::to('profile')}}">My Profile</a></li>
-
 
   <li id="li_member"><a href="{{URL::to('members')}}">Members</a></li>
 
@@ -241,7 +239,8 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
 {{ HTML::script('assets/js/application.js') }}   
 
 <!-- Only This Demo Page --> 
-{{ HTML::script('assets/js/demo/demo-form.js') }}    
+{{ HTML::script('assets/js/demo/demo-form.js') }} 
+{{ HTML::script('assets/js/demo/demo-datepicker.html') }}    
 {{ HTML::script('assets/js/demo/demo-wisyhtml5.js') }}   
     
   </body>

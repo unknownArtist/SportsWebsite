@@ -55,7 +55,7 @@
                <li class="control-group">
         			{{ Form::label('jersey_image','Jersey Image', '', array('class'=>'control-label'))}}
               <div class="controls">
-              <div class="fileupload fileupload-new pull-left" data-provides="fileupload">
+              <div class="fileupload fileupload-new pull-left" data-provides="fileupload" style="margin-bottom:0px;">
                                 <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
                                 <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>

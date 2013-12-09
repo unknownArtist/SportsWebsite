@@ -56,25 +56,21 @@ $(document).ready(function(){
 var CurrPage = GetCurrentPageName();
  
 switch(CurrPage){
-case 'loginhome':
+case 'rinks':
  $('#li_home').addClass('active') ;
  break;
-case 'profile':
+case 'teams':
  $('#li_profile').addClass('active') ;
  break;
-case 'members':
+case 'create':
  $('#li_member').addClass('active') ;
  break;
- case 'events':
- $('#li_events').addClass('active') ;
- break;
- case 'schedule':
+ case 'config':
  $('#li_schedule').addClass('active') ;
  break;
  case 'messages':
  $('#li_messages').addClass('active') ;
  break;
-
 
 }
 });
@@ -105,11 +101,22 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
                         <div class="nav-collapse collapse">
                             
                             <ul class="nav">
-                                <li id="li_home"> <a href="#">Link1</a> </li>
+                                <li id="li_home"> <a href="{{URL::to('admin/rinks')}}">Rinks</a> </li>                                
                                 
-	 <li id="li_profile"><a href="#">Link2</a></li> 
+	 <li id="li_profile"><a href="{{URL::to('admin/teams')}}">Teams</a></li> 
+     
+      <li id="li_member"><a href="{{URL::to('events/create')}}">Events</a></li> 
+     
+     <li id="li_schedule"><a href="{{URL::to('admin/config')}}">Schedules</a></li> 
+     
+     
        
-    </ul>          
+    </ul>      
+    
+     <ul class="nav user-menu">    
+       
+      <li class="logoutfont"><a href="/">Logout</a></li> 
+	</ul>      
                              
                         </div>
                     </div>
@@ -219,7 +226,8 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
 
 <!-- Only This Demo Page --> 
 {{ HTML::script('assets/js/demo/demo-form.js') }}    
-{{ HTML::script('assets/js/demo/demo-wisyhtml5.js') }}   
+{{ HTML::script('assets/js/demo/demo-wisyhtml5.js') }}  
+{{ HTML::script('assets/js/demo/demo-datepicker.html') }}    
 	
   </body>
   
