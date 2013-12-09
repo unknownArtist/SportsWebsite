@@ -41,16 +41,26 @@ public function getCurent($id)
     {  
 
         $profile = ProfileCurteam::where('player_profile_id','=',$id)->get();
-        
-         return $profile[0]->current_team;
+         foreach($profile as $profiles )
+        {
+          
+          return $profiles->current_team;
+
+        }
+         
 
     }
     public function getPrev($id)
     {  
 
         $profile = ProfilePrvteam::where('player_profile_id','=',$id)->get();
-        
-         return $profile[0]->previous_team;
+         foreach($profile as $profiles )
+        {
+          
+          return $profiles->previous_team;
+
+        }
+         
 
     }
 }
