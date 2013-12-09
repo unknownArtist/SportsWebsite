@@ -15,7 +15,7 @@
     </ul>
 @endif
     </div>
-
+     
    
         <div class="row-fluid">
           <div class="span12 form-dark">
@@ -37,7 +37,7 @@
             {{ Form::text('name',$profiles['name'],array('class'=>'span6')) }}
              </div>
             </li> 
-           
+         
             <li class="control-group">
             {{ Form::label('player_nickname', 'NickName:', '', array('class'=>'control-label')) }}
             <div class="controls">
@@ -51,7 +51,7 @@
             {{ Form::text('age',$profiles['age'],array('class'=>'span6')) }}
             </div>
             </li> 
-         	
+         	  
             <li class="control-group">
             {{ Form::label('weight', 'Weight:', '', array('class'=>'control-label'))}}
             <div class="controls">
@@ -72,7 +72,7 @@
             {{ Form::text('position',$profiles['position'],array('class'=>'span6')) }}
             </div>
             </li>
-        
+       
             <li class="control-group">
             {{ Form::label('shoots', 'Shoots', '', array('class'=>'control-label'))}}
             <div class="controls">
@@ -93,7 +93,7 @@
             {{ Form::text('statistic',$profiles['statistic'],array('class'=>'span6')) }}
             </div>
             </li>
-        	
+        	 
             <li class="control-group">
             {{ Form::label('current_teams', 'Current teams', '', array('class'=>'control-label'))}}
             <div class="controls">
