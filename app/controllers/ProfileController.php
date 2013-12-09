@@ -34,6 +34,13 @@ class ProfileController extends BaseController {
 	}
 	public function postCreate()
 	{
+		$v = Validator::make(Input::all(), Profile::$rules);
+		if($v->fails())
+		{
+			return Redirect::to('profile/create')
+						   ->withInput()
+						   ->withErrors($v);
+		}
 		
 		$userId = Sentry::getUser()->id; echo $userId;
 		$user = DB::table('users')->where('id','=',$userId)->get();
@@ -107,6 +114,9 @@ class ProfileController extends BaseController {
 		  DB::table('player_profile')
             ->where('id','=',Request::segment(2))
             ->update($fields);
+            $proimg=Input::file('player_profile_photos');
+            if($proimg)
+            {
           $fields1= array(
 			'player_profile_videos'=>$this->ImageCrop('player_profile_photos','profiles_images','200','200','')
 		   	);
@@ -114,6 +124,7 @@ class ProfileController extends BaseController {
  		 DB::table('player_profile_photos')
             ->where('player_profile_id','=',Request::segment(2))
             ->update($fields1);
+        }
 
             $fields2= array(
 			'current_team'=>Input::get('current_teams')
@@ -212,6 +223,15 @@ class ProfileController extends BaseController {
 		return View::make('profile.view')->with('profiles',$profile);
 	}
 }
+public function getSchedule()
+	{
+		// $id = Sentry::getUser()->id;
+		
+		$schedules = Schedule::where('active', 1)->get();
+		
+	
+		return View::make('schedule.index')->with('schedules',$schedules);
+		}
 
 
 }

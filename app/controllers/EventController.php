@@ -74,8 +74,7 @@ class EventController extends BaseController {
 		 		
 		 	}
 		 	
-
-			$stream = Feed::where('team_id','=',$my_teamid)
+	$stream = Feed::where('team_id','=',$my_teamid)
 	                  ->orderBy('id','DESC')
                       ->get();
 
