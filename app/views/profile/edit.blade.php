@@ -122,11 +122,11 @@
             </li>
          
             
-                  <li class="margin-bottom15 span2 loginformmargin">
-                  {{ HTML::link('profile',"Back",array('class'=>'btn btn-success'))}}
-       		
-             
-                  {{ Form::submit('Update', array('class'=>'btn btn-primary')) }}
+                  <li class="span8 margin-bottom15">
+                  
+                  {{ Form::submit('Update', array('class'=>'btn btn-primary pull-right addbtnmargin')) }}
+                  {{ HTML::link('profile',"Back",array('class'=>'btn btn-success backbtn pull-right'))}}         
+                  
                   </li>
              
   {{ Form::close() }}
