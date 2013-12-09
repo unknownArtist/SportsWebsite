@@ -1,10 +1,14 @@
 @extends('layouts.main')
 @section('content')
-<div class="row-fluid">
-    <div class="span8 grider">
-      <div class="widget widget-simple">
-        <div class="widget-header">
-    <div class="">      
+<div id="main-content" class="container-fluid">
+
+<div id="page-content" class="page-content">
+<div class="row-fluid margin-top20">
+<div class="col-xs-9 grider">
+<div class="widget widget-simple">
+
+
+<div class="">      
     @if ($errors->any())
     <ul style="color:red;">
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
@@ -104,21 +108,35 @@
             <li class="control-group">
              {{ Form::label('userprofileimage', 'Choose Your Picture', '', array('class'=>'control-label')) }}
              <div class="controls">
-              {{ Form::file('player_profile_photos', array('title' => 'player_profile_photos','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4, 'class'=>'span6')) }}
+              <div class="fileupload fileupload-new pull-left" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
+                                <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
+                                <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>
+                                 {{ Form::file('player_profile_photos', array('title' => 'player_profile_photos','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4, 'class'=>'span6')) }}
+                                </span> <a href="#" class="btn btn-red fileupload-exists" data-dismiss="fileupload" style="vertical-align:top">Remove</a> </div>
               </div>
             </li>
          
             
-                 
+                  <li class="margin-bottom15 span2 loginformmargin">
                   {{ HTML::link('profile',"Back",array('class'=>'btn btn-success'))}}
        		
              
-                  {{ Form::submit('Update', array('class'=>'btn btn-primary span2 formz pull-right')) }}
+                  {{ Form::submit('Update', array('class'=>'btn btn-primary')) }}
+                  </li>
              
   {{ Form::close() }}
+  </ul>
+  </div>
+  </div>
+      
+    
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
   
-  </div>
-  </div>
-  </div>
+ 
     
 @stop

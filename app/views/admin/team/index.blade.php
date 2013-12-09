@@ -1,13 +1,18 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="container">
-    <div class="col-xs-12">
+   <div id="main-content" class="container-fluid">
+
+<div id="page-content" class="page-content">
+<div class="row-fluid margin-top20">
+<div class="col-xs-12 grider">
+<div class="widget widget-simple">
+    <div class="col-xs-12 widget-header">
         {{ HTML::link('admin/team/create','Add Team',array('class' => 'btn btn-success')) }}
     </div>
 
 	
         
-           <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="companies" style="margin-bottom:15px;">
+           <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered margin-top15" id="companies" style="margin-bottom:15px;">
     <thead>
 
         <tr>
@@ -73,5 +78,10 @@
     </table>  
     
     </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
     
 @stop
