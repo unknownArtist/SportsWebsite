@@ -21,7 +21,15 @@
  <div class="col-xs-12">
 <div class="col-sm-1 emailname">
     <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
+
+<?php $img =  DB::table('player_profile')
+		->where('user_id','=',$stream->user_id)
+		->join('player_profile_photos as ppp','ppp.player_profile_id','=','player_profile.id')
+		->select('player_profile_videos')
+		->get();
+ ?>
+ 	
+     {{Form::image('uploads/profiles_images/'.$img[0]->player_profile_videos,'',array('class'=>'profileimage'));}}
     </a>
 
     <h6>{{ $stream->getUserName($stream->user_id, $stream->team_id) }}</h6>

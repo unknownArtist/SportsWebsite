@@ -41,6 +41,7 @@ class MessageCentreController extends BaseController {
 
 		 	$plimg=ProfileImage::where('player_profile_id','=',$plid)
                ->get();
+               
               if($plimg->isEmpty())
               {
               	$pic='download.jpg';
