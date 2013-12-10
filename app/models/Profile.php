@@ -23,8 +23,19 @@ public function getImage($id)
 
        if($profile->isEmpty())
        {
-       	return "download.jpg";
+
+         DB::table('player_profile_photos')->insert(array(
+        'player_profile_id' => $id,
+        'player_profile_videos' => 'download.jpg',
+        ));
+
+
+    	foreach($profile as $profiles )
+        {
+          
+          return $profiles->player_profile_videos;
        	
+       }
        }
         else
         {

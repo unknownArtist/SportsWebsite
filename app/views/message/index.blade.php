@@ -34,7 +34,9 @@
 <div class="col-sm-1 col-md-1 emailname">
   
     <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
+ {{Form::image('uploads/profiles_images/'.$pic,'',array('class'=>'profileimage'));}}
+
+      <!-- <img data-src="holder.js/100%x180" alt="..."> -->
     </a>
     
     <h6>{{$email}}</h6>

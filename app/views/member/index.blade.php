@@ -29,7 +29,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 <div class="userchat">
 <div class="col-sm-1">
     <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
+    {{Form::image('uploads/profiles_images/'.$pic,'',array('class'=>'profileimage'));}}
     </a>
   </div>
   
