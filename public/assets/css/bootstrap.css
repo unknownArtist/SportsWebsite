@@ -5382,4 +5382,39 @@ padding:1px;
 {
 	line-height:13px !important;
 }
+
+.fc-event-inner
+{
+	padding:22px 0 22px 0;
+	
+}
+
+.fc-event-skin
+{
+	background:#ccc !important;
+	border:none !important;
+	
+	
+}
+
+.fc-event-title {
+ background:#99F;
+ padding:5px 0 5px 0;
+ display:none;
+ 
+}
+.fc-event-inner:hover .fc-event-title {
+  display:block;
+}
+
+.fc-event-time
+{
+	background:#99F;
+	padding:5px 0 5px 0;
+	display:none;
+}
+
+.fc-event-inner:hover .fc-event-time {
+	display:block;	
+}
 	

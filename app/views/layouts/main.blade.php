@@ -22,20 +22,7 @@ setTimeout(function(){
         {{ HTML::style('assets/css/boo-coloring.css') }} 
          {{ HTML::style('assets/css/boo-utility.css') }} 
           {{ HTML::style('assets/css/lib/bootstrap-responsive.css') }} 
-          {{ HTML::style('assets/plugins/select2/select-theme.css') }} 
-          
-          
-         
-          
-	
-	<!-- Core CSS File. The CSS code needed to make eventCalendar works -->
-	
-    {{ HTML::style('assets/css/eventCalendar.css') }} 
-	
-	<!-- Theme CSS file: it makes eventCalendar nicer -->
-	
-    {{ HTML::style('assets/css/eventCalendar_theme_responsive.css') }} 
-     
+          {{ HTML::style('assets/plugins/select2/select-theme.css') }}     
      
    <!-- <link href="assets/css/lib/bootstrap-responsive.css" rel="stylesheet">
     <link href="assets/css/extension.css" rel="stylesheet">
@@ -253,10 +240,7 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
 <!-- Only This Demo Page --> 
 {{ HTML::script('assets/js/demo/demo-form.js') }} 
 {{ HTML::script('assets/js/demo/demo-datepicker.html') }}    
-{{ HTML::script('assets/js/demo/demo-wisyhtml5.js') }}   
-
-
-{{ HTML::script('assets/js/jquery.eventCalendar.js') }}   
+{{ HTML::script('assets/js/demo/demo-wisyhtml5.js') }}    
     
   </body>
   

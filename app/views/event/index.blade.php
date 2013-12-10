@@ -9,11 +9,6 @@
 <div class="widget widget-simple">
 
 <div id='calendar'></div>
-<div id="eventCalendarDefault"></div>
-				
-			
-				
-			</div>
 </div>
 </div>
 </div>
@@ -60,13 +55,6 @@
 	});
 
 </script>
-<script>  
-					$(document).ready(function() {  
-						$("#eventCalendarDefault").eventCalendar({
-							eventsjson: 'json/events.json.php' // link to events json
-						});  
-					});  
-				</script>
 <style>
 
 	#calendar {
