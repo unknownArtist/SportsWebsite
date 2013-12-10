@@ -62,7 +62,7 @@ class EventController extends BaseController {
 												));
 		$events = Calender::all(); 
 		
-		return Redirect::to('event.index')->with('events',$events);
+		return Redirect::to('events/create')->with('events',$events);
 	}
 	public function getFeed()
 	{
@@ -123,6 +123,6 @@ class EventController extends BaseController {
 											'stream'     => $fields['stream'],
 											'created_at' =>$date,
 												));
-	return Redirect::to('events/create');
+	return Redirect::to('feeds');
 	}
 }

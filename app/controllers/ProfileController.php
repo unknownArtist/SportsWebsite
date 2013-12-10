@@ -174,19 +174,39 @@ class ProfileController extends BaseController {
 	{
 		$id = Sentry::getUser()->id;
 		
-		if(!$id)
-		{
-			echo "please login first";
-
-		}
-		else
-		{
 		$users = User::all();
 		$events = Calender::all(); 
-		// $user_id = Sentry::getUser()->id;
-		return View::make('member.index')->with('users',$users)->with('events',$events);
+		 $user_id = Sentry::getUser()->id;
+		 $emails=Profile::where('user_id','=',$user_id)
+               ->get();
+               
+            foreach($emails as $email)
+		 	{    
+		 	 
+				$plid=$email->id;
+				}
+
+		 	$plimg=ProfileImage::where('player_profile_id','=',$plid)
+               ->get();
+              if($plimg->isEmpty())
+              {
+              	$pic='download.jpg';
+              }
+              else
+              {
+                foreach($plimg as $plimgs)
+		 	{     
+
+		 	$pic=$plimgs->player_profile_videos;
+
+			 }
+			 }
+		return View::make('member.index')
+								->with('users',$users)
+								->with('events',$events)
+								->with('pic',$pic);
 	}
-	}
+	
 	public function getMembersprofile($id)
 	{
 		$users = Profile::where('user_id', $id)->get();

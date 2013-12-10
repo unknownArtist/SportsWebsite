@@ -33,10 +33,27 @@ class MessageCentreController extends BaseController {
                ->get();
                
             foreach($emails as $email)
-		 {     $name=$email->name;
-		 	
-		 	
-		 	}
+		 	{    
+		 	 $name=$email->name;
+
+		 		$plid=$email->id;
+				}
+
+		 	$plimg=ProfileImage::where('player_profile_id','=',$plid)
+               ->get();
+              if($plimg->isEmpty())
+              {
+              	$pic='download.jpg';
+              }
+              else
+              {
+                foreach($plimg as $plimgs)
+		 	{     
+
+		 	$pic=$plimgs->player_profile_videos;
+
+			 }
+			 }
 		 	$notification = Inbox::where('to_user','=',$user->id)
 	                  ->where('notification','=',1)
 	                  ->orderBy('id','DESC')
@@ -45,6 +62,7 @@ class MessageCentreController extends BaseController {
 					->with('inboxs',$inbox)
 					->with('email',$name)
 					->with('events',$events)
+					->with('pic',$pic)
 					->with('notifications',$notification);
 			
 	}
