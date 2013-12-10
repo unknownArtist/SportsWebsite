@@ -96,7 +96,7 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
                 <div class="navbar-inner">
                     <div class="container-fluid">
                         <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                        <a class="brand" href="{{URL::to('/')}}">iSkate Admin</a>
+                        <a class="brand" href="{{URL::to('admin/rinks')}}">iSkate Admin</a>
                         
                         <div class="nav-collapse collapse">
                             
@@ -115,7 +115,7 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
     
      <ul class="nav user-menu">    
        
-      <li class="logoutfont"><a href="/">Logout</a></li> 
+      <li class="logoutfont"><a href="{{URL::to('admin/login')}}">Logout</a></li> 
 	</ul>      
                              
                         </div>
