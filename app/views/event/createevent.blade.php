@@ -24,7 +24,7 @@
             <h4>Add New Event</h4>
             </li>
 
-        {{ Form::open(array('url'=>'events/create','POST','files'=>true,'class'=>'form-horizontal'))}}
+        {{ Form::open(array('url'=>'events/createevent','POST','files'=>true,'class'=>'form-horizontal'))}}
      
                     <li class="control-group">
                     {{ Form::label('ev_name','Event Name', '', array('class'=>'control-label'))}}
