@@ -9,38 +9,20 @@
 <div class="widget widget-simple">
 
 <div id='calendar'></div>
-<div id="eventCalendarDefault"></div>
-				<pre>$(id).eventCalendar({
-  // link to events json
-  eventsjson: 'file.json' 
-});</pre>
-			
-				<script>  
-					$(document).ready(function() {  
-						$("#eventCalendarDefault").eventCalendar({
-							eventsjson: 'json/events.json.php' // link to events json
-						});  
-					});  
-				</script>
-			</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
-
-@foreach($events as $event)
-
-@endforeach
-
+		
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 <script>
 
 	$(document).ready(function() {
 	
-		var date = new Date();
+	var date = new Date();
 		var d = date.getDate();
 		var m = date.getMonth();
 		var y = date.getFullYear();
@@ -53,7 +35,7 @@
 
 				{
 					
-				title:'<?php echo " ".$event->ev_name." "."at"." ".$event->ev_place ?>',
+				title:'<?php echo $event->ev_name."at".$event->ev_place ?>',
 					start: '<?php echo $event->ev_time  ?>',
 					
 					allDay: false
