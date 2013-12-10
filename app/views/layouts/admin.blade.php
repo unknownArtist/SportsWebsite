@@ -62,7 +62,7 @@ case 'rinks':
 case 'teams':
  $('#li_profile').addClass('active') ;
  break;
-case 'create':
+case 'createevent':
  $('#li_member').addClass('active') ;
  break;
  case 'config':
@@ -105,7 +105,7 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
                                 
 	 <li id="li_profile"><a href="{{URL::to('admin/teams')}}">Teams</a></li> 
      
-      <li id="li_member"><a href="{{URL::to('events/create')}}">Events</a></li> 
+      <li id="li_member"><a href="{{URL::to('events/createevent')}}">Events</a></li> 
      
      <li id="li_schedule"><a href="{{URL::to('admin/config')}}">Schedules</a></li> 
      

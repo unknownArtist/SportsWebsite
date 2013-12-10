@@ -23,8 +23,8 @@
 	/*---------------------Events-------------------------*/
 	Route::post('feeds', array('uses'=>'EventController@postFeed'));
 	Route::get('feeds', array('uses'=>'EventController@getFeed'));
-	Route::post('events/create', array('uses'=>'EventController@postCreate'));
-	Route::get('events/create', array('uses'=>'EventController@getCreate'));
+	Route::post('events/createevent', array('uses'=>'EventController@postCreate'));
+	Route::get('events/createevent', array('uses'=>'EventController@getCreate'));
 	Route::get('events', array('uses'=>'EventController@getindex')); 
 
 	/*--------------------------------------------------------------------*/
