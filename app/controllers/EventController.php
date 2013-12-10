@@ -70,13 +70,16 @@ class EventController extends BaseController {
 		$events = Calender::all(); 
 		 
 		 $teams_id = Profile::where('user_id','=',$team)->get();
-		 foreach ($teams_id as $team_id)
-		 	{
-		 		$my_teamid= $team_id->team_id;
-		 		
-		 	}
+		foreach ($teams_id as $team_id)
+		{
+	 		$my_teamid= $team_id->team_id;
+	 		
+
+		}
+
 		 	
-	$stream = Feed::where('team_id','=',$my_teamid)
+			
+			$stream = Feed::where('team_id','=',$my_teamid)
 	                  ->orderBy('id','DESC')
                       ->get();
 
@@ -85,6 +88,7 @@ class EventController extends BaseController {
 		 		return View::make('feed.index')
 							->with('events',$events)
 							->with('streams',$stream);
+						
 }
 	
 	public function postFeed()
