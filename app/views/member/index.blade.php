@@ -29,10 +29,9 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 <div class="userchat">
 <div class="col-sm-1">
 
-    <a href="#" class="">
-    {{Form::image('uploads/profiles_images/'.$pic,'',array('class'=>'memberimage'));}}
+   
 
-    <a href="#" class="thumbnail">
+    <a href="#" class="">
     	<?php $img =  DB::table('player_profile')
 		->where('user_id','=',$user->id)
 		->join('player_profile_photos as ppp','ppp.player_profile_id','=','player_profile.id')
@@ -40,7 +39,7 @@ src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&a
 		->get();
  ?>
 
-    {{Form::image('uploads/profiles_images/'.$img[0]->player_profile_videos,'',array('class'=>'profileimage'));}}
+    {{Form::image('uploads/profiles_images/'.$img[0]->player_profile_videos,'',array('class'=>'memberimage'));}}
 
     </a>
   </div>

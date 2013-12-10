@@ -149,6 +149,8 @@ class MessageCentreController extends BaseController {
   //           ->where('to_user', Sentry::getUser()->id)
   //           ->where('id', $inbox_id)
   //           ->update(array('notification' => 0));
+
+		
  		return View::make('message.reply')->with('teams',$allTeamsMember)->with('events',$events);
   }
    public function postReply()
