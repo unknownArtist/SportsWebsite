@@ -43,9 +43,9 @@
                         <i class="icon-edit"></i> Update
                     </a>
 
-                    <a href="{{URL::to('profile/'.$profile->id.'/delete')}}" class="btn btn-mini" alt="Delete" onclick="return confirm('Are you sure?')">
+                   <!-- <a href="{{URL::to('profile/'.$profile->id.'/delete')}}" class="btn btn-mini" alt="Delete" onclick="return confirm('Are you sure?')">
                         <i class="icon-remove"></i> Delete
-                    </a>
+                    </a>-->
                 </div>
                 </div>
                 
