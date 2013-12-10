@@ -26,7 +26,7 @@ setTimeout(function(){
           
           
          
-          {{ HTML::style('assets/css/paragridma.css') }} 
+          
 	
 	<!-- Core CSS File. The CSS code needed to make eventCalendar works -->
 	
@@ -74,7 +74,7 @@ $(document).ready(function(){
 var CurrPage = GetCurrentPageName();
  
 switch(CurrPage){
-case 'loginhome':
+case 'feeds':
  $('#li_home').addClass('active') ;
  break;
 case 'profile':
