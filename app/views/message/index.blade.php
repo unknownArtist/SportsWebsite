@@ -33,8 +33,8 @@
 
 <div class="col-sm-1 col-md-1 emailname">
   
-    <a href="#" class="thumbnail">
- {{Form::image('uploads/profiles_images/'.$pic,'',array('class'=>'profileimage'));}}
+    <a href="#" class="">
+ {{Form::image('uploads/profiles_images/'.$pic,'',array('class'=>'memberimage'));}}
 
       <!-- <img data-src="holder.js/100%x180" alt="..."> -->
     </a>
@@ -64,7 +64,7 @@
   </div> 
   
   <div class="col-sm-2 comingmessageview">
-  {{ HTML::link('user/messages/'.$inbox->from_user.'/'.$inbox->id.'/reply','Reply',array('class'=>'','style'=>'margin-left:29px;'))}} /
+  {{ HTML::link('user/messages/'.$inbox->from_user.'/'.$inbox->id.'/reply','Reply',array('class'=>'','style'=>'margin-left:26px;'))}} /
    {{ HTML::link('user/messages/'.$inbox->id.'/delete','Delete',array('class'=>'','style'=>'margin-top:;'))}}
   </div> 
  
