@@ -14,9 +14,13 @@
 </div>
 </div>
 </div>
+
+
 @foreach($events as $event)
 
 @endforeach
+
+
 
 <script>
 

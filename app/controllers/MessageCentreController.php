@@ -18,6 +18,7 @@ class MessageCentreController extends BaseController {
             
      if ($inbox->isEmpty() )
 		{
+			
 			return Redirect::to('user/message/create');
 		}
         
@@ -155,7 +156,8 @@ class MessageCentreController extends BaseController {
 	public function getmessagecreate()
 
 	{
-	return View::make('message.create');
+		$events = Calender::all(); 
+	return View::make('message.create')->with('events',$events);
 	}
 
 	public static function getUnreadMessages()
