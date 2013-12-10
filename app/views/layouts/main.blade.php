@@ -23,6 +23,18 @@ setTimeout(function(){
          {{ HTML::style('assets/css/boo-utility.css') }} 
           {{ HTML::style('assets/css/lib/bootstrap-responsive.css') }} 
           {{ HTML::style('assets/plugins/select2/select-theme.css') }} 
+          
+          
+         
+          
+	
+	<!-- Core CSS File. The CSS code needed to make eventCalendar works -->
+	
+    {{ HTML::style('assets/css/eventCalendar.css') }} 
+	
+	<!-- Theme CSS file: it makes eventCalendar nicer -->
+	
+    {{ HTML::style('assets/css/eventCalendar_theme_responsive.css') }} 
      
      
    <!-- <link href="assets/css/lib/bootstrap-responsive.css" rel="stylesheet">
@@ -62,7 +74,7 @@ $(document).ready(function(){
 var CurrPage = GetCurrentPageName();
  
 switch(CurrPage){
-case 'loginhome':
+case 'feeds':
  $('#li_home').addClass('active') ;
  break;
 case 'profile':
@@ -242,6 +254,9 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
 {{ HTML::script('assets/js/demo/demo-form.js') }} 
 {{ HTML::script('assets/js/demo/demo-datepicker.html') }}    
 {{ HTML::script('assets/js/demo/demo-wisyhtml5.js') }}   
+
+
+{{ HTML::script('assets/js/jquery.eventCalendar.js') }}   
     
   </body>
   

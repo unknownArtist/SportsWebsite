@@ -9,6 +9,20 @@
 <div class="widget widget-simple">
 
 <div id='calendar'></div>
+<div id="eventCalendarDefault"></div>
+				<pre>$(id).eventCalendar({
+  // link to events json
+  eventsjson: 'file.json' 
+});</pre>
+			
+				<script>  
+					$(document).ready(function() {  
+						$("#eventCalendarDefault").eventCalendar({
+							eventsjson: 'json/events.json.php' // link to events json
+						});  
+					});  
+				</script>
+			</div>
 </div>
 </div>
 </div>

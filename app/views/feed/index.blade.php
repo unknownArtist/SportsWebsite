@@ -20,7 +20,7 @@
  
  <div class="col-xs-12">
 <div class="col-sm-1 emailname">
-    <a href="#" class="thumbnail">
+    <a href="#" class="">
 
 <?php $img =  DB::table('player_profile')
 		->where('user_id','=',$stream->user_id)
@@ -29,7 +29,7 @@
 		->get();
  ?>
  	
-     {{Form::image('uploads/profiles_images/'.$img[0]->player_profile_videos,'',array('class'=>'profileimage'));}}
+     {{Form::image('uploads/profiles_images/'.$img[0]->player_profile_videos,'',array('class'=>'memberimage'));}}
     </a>
 
     <h6>{{ $stream->getUserName($stream->user_id, $stream->team_id) }}</h6>
@@ -41,8 +41,8 @@
   <p>{{ $stream->stream }} </p>
   </div> 
 
-  <div class="col-sm-12">
- 	<p class="pull-right timecolor">{{ $stream->getDateFrm($stream->created_at) }} ago</p>
+  <div class="col-sm-12" style="clear:both;">
+ 	<p class="pull-right timecolor padding-bottom5">{{ $stream->getDateFrm($stream->created_at) }} ago</p>
 
   </div>
 
