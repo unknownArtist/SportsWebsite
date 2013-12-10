@@ -17,7 +17,7 @@ class AdminTeamController extends BaseController {
 	    );
 
 	    $rules = array(
-	    	'email'		=> 'required|email',
+	    	'email'		=> 'required',
 	    	'password'	=> 'required'
 	    );
 
@@ -26,12 +26,13 @@ class AdminTeamController extends BaseController {
 	    	{  
 	    		return Redirect::to('admin/login')->withErrors($v);
 	    	}
-	   	$login = AdminLogin::where('email','=',$credentials['email'])
+	   	$login = DB::table('admin_login')->where('email','=',$credentials['email'])
 	   			 		   ->where('password','=',md5($credentials['password']))
-	   			  		   ->count();
+	   			  		   ->get();
+	   			  		 
 	    if($login)
 	    {
-	    	return Redirect::to('admin');
+	    	return Redirect::to('admin/rinks');
 	    }else
 	    	{
 	    		return Redirect::to('admin/login')->with('errors',"Email or Password is wrong");
