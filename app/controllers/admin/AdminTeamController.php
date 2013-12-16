@@ -17,7 +17,7 @@ class AdminTeamController extends BaseController {
 	    );
 
 	    $rules = array(
-	    	'email'		=> 'required|email',
+	    	'email'		=> 'required',
 	    	'password'	=> 'required'
 	    );
 
@@ -26,12 +26,13 @@ class AdminTeamController extends BaseController {
 	    	{  
 	    		return Redirect::to('admin/login')->withErrors($v);
 	    	}
-	   	$login = AdminLogin::where('email','=',$credentials['email'])
+	   	$login = DB::table('admin_login')->where('email','=',$credentials['email'])
 	   			 		   ->where('password','=',md5($credentials['password']))
-	   			  		   ->count();
+	   			  		   ->get();
+	   			  		 
 	    if($login)
 	    {
-	    	return Redirect::to('admin');
+	    	return Redirect::to('admin/rinks');
 	    }else
 	    	{
 	    		return Redirect::to('admin/login')->with('errors',"Email or Password is wrong");
@@ -55,27 +56,9 @@ class AdminTeamController extends BaseController {
 	public function postCreateTeam()
 	{ 
 		$user = Sentry::getUser();
-		$playerid=$user->id;
-			
-		// $previous_jerseys = Input::get('previous_jerseys');
-		// foreach($previous_jerseys as $key=>$value)
-		// 			  {
-					  
-		// 			  	print_r($value);
-		// 			  	die();
-
-		// 				DB::table('team_prevjerseys')->insert(
-		// 						array(
-		// 								'team_id'	 =>	$id,
-		// 								'team_prevjerseysimg'=>	$this->ImageCrop('previous_jerseysimg','teamPhotos','200','200',''),
-		// 								'previous_jersey'   => $value
-		// 		                    ));
-							 		
-		// 					 }
 		
 		
-		 $team_logo = $this->ImageCrop('team_logo','teamImages','200','200','');
-		$jersey_image = $this->ImageCrop('jersey_image','prevTeamImages','200','200','');
+		 
 		// $prev_jersy = $this->ImageCrop('previous_jerseys','teamPhotos','200','200','');
 		$v = Validator::make(Input::all(), Team::$rules);
 		if($v->fails())
@@ -84,9 +67,11 @@ class AdminTeamController extends BaseController {
 						   ->withInput()
 						   ->withErrors($v);
 		}
+		$team_logo = $this->ImageCrop('team_logo','teamImages','200','200','');
+		$jersey_image = $this->ImageCrop('jersey_image','prevTeamImages','200','200','');
 		$id = DB::table('teams')->insertGetId(
     		array(
-    			'player_id'         =>		$playerid,
+    			// 'player_id'         =>		$playerid,
     			'team_name'			=>		Input::get('team_name'),
     			'team_logo'			=>		$team_logo,
     			'current_jersey'	=>		Input::get('current_jersey'),
@@ -102,6 +87,13 @@ class AdminTeamController extends BaseController {
 		
 		if($id)
 		{
+			$v = Validator::make(Input::all(), Team::$rules);
+		if($v->fails())
+		{
+			return Redirect::to('admin/team/create')
+						   ->withInput()
+						   ->withErrors($v);
+		}
 			DB::table('team_photos')->insert(array(
 				'team_id'	=>	$id,
 				'photo_name'=>	 $this->ImageCrop('photo_name','teamImages','200','200',''),
@@ -155,24 +147,40 @@ class AdminTeamController extends BaseController {
 	}
 	public function postEditTeam()
 	{
-		$team_logo = $this->ImageCrop('team_logo','teamImages','200','200','');
-		$jersey_image = $this->ImageCrop('jersey_image','prevTeamImages','200','200','');
-		$v = Validator::make(Input::all(), Team::$rules);
-		if($v->fails())
-		{
-			return Redirect::to('admin/team/'.Input::get('id').'/edit')
-						   ->withInput()
-						   ->withErrors($v);
-		}
+		$temlog=Input::file('team_logo');
+		if($temlog){
+		 $team_logo = $this->ImageCrop('team_logo','teamImages','200','200','');
+		DB::table('teams')
+				->where('id','=',Input::get('id'))
+				->update(
+    		array(
+    			  'team_logo'			=>		$team_logo,
+    			  	)
+		        );
+			}
+			$temjes=Input::file('jersey_image');
+			if($temjes)
+			{
+				$jersey_image = $this->ImageCrop('jersey_image','prevTeamImages','200','200','');
 
-		$id = DB::table('teams')
+				DB::table('teams')
+				->where('id','=',Input::get('id'))
+				->update(
+    		array(
+    			  'jersey_image'=>	$jersey_image,
+    			  	)
+		        );
+			}
+
+		
+			$id = DB::table('teams')
 				->where('id','=',Input::get('id'))
 				->update(
     		array(
     			'team_name'			=>		Input::get('team_name'),
-    			'team_logo'			=>		$team_logo,
+    			// 'team_logo'			=>		$team_logo,
     			'current_jersey'	=>		Input::get('current_jersey'),
-    			 'jersey_image'		=>		$jersey_image,
+    			 // 'jersey_image'		=>		$jersey_image,
     			'president_name'	=>		Input::get('president_name'),
     			'head_coach'		=>		Input::get('head_coach'),
     			'assistant_coach'	=>		Input::get('assistant_coach'),
@@ -186,14 +194,10 @@ class AdminTeamController extends BaseController {
 
 	public function getDeleteTeam($id)
 	{
-		DB::table('teams')->where('id',$id)->delete();
-		$medics = DB::table('team_medics')->get();
-		$referee = DB::table('team_referees')->get();
-		$time_keepe = DB::table('team_timeKeepers')->get();
-		$previous_jersey = DB::table('team_prevJerseys')->get();
 
-		return Redirect::to('admin.team.index', compact('medics','referee','time_keepe','previous_jersey'))
-						->with('teams',Team::all());
+		DB::table('teams')->where('id',$id)->delete();
+		
+		return Redirect::to('admin/teams');
 	}
 
 	public function getConfig()
@@ -217,20 +221,8 @@ class AdminTeamController extends BaseController {
 );
 	return Redirect::to('admin/config');
 	}
-	public function getSchedule()
-	{
-		$id = Sentry::getUser()->id;
-		if(!$id)
-		{
-			echo "please login first";
-
-		}
-		else
-		{
-		$schedules = Schedule::where('active', 1)->get();
-		return View::make('schedule.index')->with('schedules',$schedules);
-	}
-	}
+	
+		
 	public function getEditSchedule()
 	{   
 		$id = Request::segment(3);

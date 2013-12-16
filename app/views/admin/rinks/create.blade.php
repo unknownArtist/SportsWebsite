@@ -1,10 +1,12 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="row-fluid">
-    <div class="span8 grider">
-      <div class="widget widget-simple">
-        <div class="widget-header">
+<div id="main-content" class="container-fluid">
+
+<div id="page-content" class="page-content">
+<div class="row-fluid margin-top20">
+<div class="col-xs-9 grider">
+<div class="widget widget-simple">
      <div class="">     
     @if ($errors->any())
     <ul style="color:red;">
@@ -15,6 +17,9 @@
     <div class="row-fluid">
         <div class="span12 form-dark">
             <ul class="form-list label-left list-bordered">
+              <li class="section-form">
+            <h4>Add New Rink</h4>
+            </li>
  
                    {{ Form::open(array('rink.create','Post', 'files' => true,'class'=>'form-horizontal'))  }}
                    {{ Form::token() }}
@@ -80,7 +85,13 @@
                     <li class="control-group">
                     {{ Form::label('rink_layout_image', 'Layout Image', '', array('class'=>'control-label')) }}
                     <div class="controls">
-                    {{ Form::file('rink_layout_image',array('title' => 'rink_layout_image','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>'span6'))}}
+                    <div class="fileupload fileupload-new pull-left" data-provides="fileupload" style="margin-bottom:0px;">
+                                <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"> <img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /> </div>
+                                <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
+                                <span class="btn btn-file" style="vertical-align:top"> <span class="fileupload-new">Select image</span> <span class="fileupload-exists">Change</span>
+                             {{ Form::file('rink_layout_image',array('title' => 'rink_layout_image','type' => 'image','naming' => 'random','length' => 20, 'size_limit' => 4,'class'=>''))}}
+                                </span> <a href="#" class="btn btn-red fileupload-exists" data-dismiss="fileupload" style="vertical-align:top">Remove</a> </div>
+                         
                      </div>
                     </li>
                     <li class="control-group">
@@ -95,17 +106,23 @@
                     {{ Form::text('rink_closed_date','',array('class'=>'span6 datepicker')) }}
                      </div>
                     </li>
-                     <li class="control-group">
-                  {{ HTML::link('admin/rinks/create','Back',array('class'=>'btn btn-success'))}}
+                     <li class="span8 margin-bottom15">               
                   
 
-                  {{ Form::submit('Submit', array('class'=>'btn btn-primary pull-right')) }}                
+                  {{ Form::submit('Submit', array('class'=>'btn btn-primary pull-right addbtnmargin')) }}   
+                   {{ HTML::link('admin/rinks/create','Back',array('class'=>'btn btn-success pull-right backbtn'))}}
+                         </li>       
                   {{ Form::close() }}
+                 
                 </ul>
            </div>  
          </div>
          </div>
          </div>
+         </div>
+         </div>
+         </div>
+         
          
      <script >
          $('.datepicker').datepicker({

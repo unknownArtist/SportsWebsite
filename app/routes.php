@@ -23,8 +23,8 @@
 	/*---------------------Events-------------------------*/
 	Route::post('feeds', array('uses'=>'EventController@postFeed'));
 	Route::get('feeds', array('uses'=>'EventController@getFeed'));
-	Route::post('events/create', array('uses'=>'EventController@postCreate'));
-	Route::get('events/create', array('uses'=>'EventController@getCreate'));
+	Route::post('events/createevent', array('uses'=>'EventController@postCreate'));
+	Route::get('events/createevent', array('uses'=>'EventController@getCreate'));
 	Route::get('events', array('uses'=>'EventController@getindex')); 
 
 	/*--------------------------------------------------------------------*/
@@ -47,7 +47,7 @@
 	
 
 /*--------------schedule-------------------------*/
-   Route::get('schedule',array("uses"=>'AdminTeamController@getSchedule'));
+   Route::get('schedule',array("uses"=>'ProfileController@getSchedule'));
 /*-----------------------------------------------------*/
 /*--------------Rink routes-------------------------*/
 
@@ -78,6 +78,7 @@
 /*--------------Profile routes-------------------------*/
 	Route::post('members/{userID}/update',array('uses'=>'ProfileController@postMembersprofile'));
 	Route::get('members/{userID}/profile',array('uses'=>'ProfileController@getMembersprofile'));
+	Route::get('members/view/{id}',array("uses"=>'ProfileController@getMembersview'));
 	Route::get('members',array("uses"=>'ProfileController@getMembers'));
 	Route::get('profile',array("uses"=>'ProfileController@getIndex'));
 	Route::get('profile/create',array("uses"=>'ProfileController@getCreate'));

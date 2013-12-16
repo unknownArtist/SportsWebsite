@@ -9,6 +9,7 @@ class MessageCentreController extends BaseController {
 	public function getIndex()
 	{
 		$user = Sentry::getUser();
+		$events = Calender::all(); 
 		$inbox = Inbox::where('to_user','=',$user->id)
 	                  ->where('read_status','=',1)
 	                  ->orderBy('id','DESC')
@@ -17,6 +18,7 @@ class MessageCentreController extends BaseController {
             
      if ($inbox->isEmpty() )
 		{
+			
 			return Redirect::to('user/message/create');
 		}
         
@@ -31,10 +33,28 @@ class MessageCentreController extends BaseController {
                ->get();
                
             foreach($emails as $email)
-		 {     $name=$email->name;
-		 	
-		 	
-		 	}
+		 	{    
+		 	 $name=$email->name;
+
+		 		$plid=$email->id;
+				}
+
+		 	$plimg=ProfileImage::where('player_profile_id','=',$plid)
+               ->get();
+               
+              if($plimg->isEmpty())
+              {
+              	$pic='download.jpg';
+              }
+              else
+              {
+                foreach($plimg as $plimgs)
+		 	{     
+
+		 	$pic=$plimgs->player_profile_videos;
+
+			 }
+			 }
 		 	$notification = Inbox::where('to_user','=',$user->id)
 	                  ->where('notification','=',1)
 	                  ->orderBy('id','DESC')
@@ -42,6 +62,8 @@ class MessageCentreController extends BaseController {
                       return View::make('message.index')
 					->with('inboxs',$inbox)
 					->with('email',$name)
+					->with('events',$events)
+					->with('pic',$pic)
 					->with('notifications',$notification);
 			
 	}
@@ -59,6 +81,7 @@ class MessageCentreController extends BaseController {
 		 	
 		 
 		$profiles = Profile::where('team_id','=',$my_teamid)->get();
+		$events = Calender::all(); 
 		$allTeamsMember = array();
 		foreach($profiles as $profile)
 		{
@@ -68,7 +91,7 @@ class MessageCentreController extends BaseController {
 			}
 				
 		}
-        return View::make('message.messagecompose')->with('teams',$allTeamsMember);
+        return View::make('message.messagecompose')->with('teams',$allTeamsMember)->with('events',$events);
 	}
 
 	 public  function postsendMessage()
@@ -94,12 +117,14 @@ class MessageCentreController extends BaseController {
   {	
   	$inbox = Inbox::where('id','=',$id)
 	                	->get();
+						$events = Calender::all(); 
 
 	DB::table('inbox')
             ->where('to_user', Sentry::getUser()->id)
             ->where('id', $id)
             ->update(array('notification' => 0));
   	 return View::make('message.readmessage')
+	 				->with('events',$events)
   	 				->with('inboxs',$inbox);
   }
   public function getReply()
@@ -110,6 +135,7 @@ class MessageCentreController extends BaseController {
 
     $profiles = Profile::where('user_id','=',$id)
                ->get();
+			   $events = Calender::all(); 
 		$allTeamsMember = array();
 		foreach($profiles as $profile)
 		{
@@ -123,7 +149,9 @@ class MessageCentreController extends BaseController {
   //           ->where('to_user', Sentry::getUser()->id)
   //           ->where('id', $inbox_id)
   //           ->update(array('notification' => 0));
- 		return View::make('message.reply')->with('teams',$allTeamsMember);
+
+		
+ 		return View::make('message.reply')->with('teams',$allTeamsMember)->with('events',$events);
   }
    public function postReply()
   { 
@@ -149,7 +177,8 @@ class MessageCentreController extends BaseController {
 	public function getmessagecreate()
 
 	{
-	return View::make('message.create');
+		$events = Calender::all(); 
+	return View::make('message.create')->with('events',$events);
 	}
 
 	public static function getUnreadMessages()

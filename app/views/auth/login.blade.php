@@ -4,9 +4,9 @@
 
 <div id="page-content" class="page-content">
 <div class="row-fluid margin-top20">
-<div class="col-xs-12 grider">
+<div class="span3 grider" style="float:none; margin:100px auto 100px auto;">
 <div class="widget widget-simple">
-<div class="span3 loginformmargin">
+<div class="span12">
 <h2 id="adminText">User Login</h2>
    <div class="" >
       <div id="errors">

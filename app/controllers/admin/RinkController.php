@@ -83,12 +83,23 @@ class RinkController extends BaseController {
 		return View::make('admin.rinks.edit')->with('rinks',$rink);
 	}
 	public function postEdit()
-	{
+	{	
+		$img = Input::file('rink_layout_image');
+	 // print_r($img);
+	 // die();
+		if($img)
+		{
+		$updateimg=$this->ImageCrop('rink_layout_image','rinks_images','200','200','');
+			DB::table('rink_images')
+            ->where('rink_id', Request::segment(3))
+            ->update(array('rink_image' =>$updateimg));
+        }
+
+			
 		$fields = array('rink_seating_capacity' => Input::get('rink_seating_capacity'),
 						 'rink_change_rooms' => Input::get('rink_change_rooms'),
 						 'rink_boardType' => Input::get('rink_boardType'),
 						 'rink_other' =>Input::get('rink_other'),
-						  'rink_homeTeams' => Input::get('rink_homeTeams'),
 						  'rink_highlights' =>Input::get('rink_highlights'),
 						  'rink_history' =>Input::get('rink_history'),
 						  'rink_opened_date' => Input::get('rink_opened_date'),
@@ -96,11 +107,33 @@ class RinkController extends BaseController {
 						   'rink_description' => Input::get('rink_description'));
 		
 		
-		$destinationPath = 'public/image/';
-		Input::file('rink_layout_image')->move($destinationPath); //rink image in rink images table
+		// $destinationPath = 'public/image/';
+		// Input::file('rink_layout_image')->move($destinationPath); //rink image in rink images table
 		DB::table('rinks')
 			->where('id','=',Request::segment(3))
 			->update($fields);
+			 $d = explode(',', Input::get('rink_addresse'));
+		
+			foreach($d as $key=>$value)
+			{
+
+			DB::table('rink_addresses')
+            ->where('rink_id', Request::segment(3))
+            ->update(array('rink_addresse' => $value));
+			}
+
+			 $d = explode(',', Input::get('rink_homeTeams'));
+		
+			foreach($d as $key=>$value)
+			{
+
+			DB::table('rink_home_teams')
+            ->where('rink_id', Request::segment(3))
+            ->update(array('home_team' => $value));
+			}
+
+			
+		
 
 		return Redirect::to('admin/rinks')->with('message','Updation successful');
 		

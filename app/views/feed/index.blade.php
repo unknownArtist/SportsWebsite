@@ -18,9 +18,18 @@
 <div class="col-xs-12">
  @foreach($streams as $stream)
  
-<div class="col-sm-1">
-    <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
+ <div class="col-xs-12">
+<div class="col-sm-1 emailname">
+    <a href="#" class="">
+
+<?php $img =  DB::table('player_profile')
+		->where('user_id','=',$stream->user_id)
+		->join('player_profile_photos as ppp','ppp.player_profile_id','=','player_profile.id')
+		->select('player_profile_videos')
+		->get();
+ ?>
+ 	
+     {{Form::image('uploads/profiles_images/'.$img[0]->player_profile_videos,'',array('class'=>'memberimage'));}}
     </a>
 
     <h6>{{ $stream->getUserName($stream->user_id, $stream->team_id) }}</h6>
@@ -28,11 +37,15 @@
   
 
 
-  <div class="col-sm-7">
+  <div class="col-sm-10">
   <p>{{ $stream->stream }} </p>
   </div> 
-  <div class="col-sm-4">
- 	<p class="pull-right timecolor">{{ $stream->getDateFrm($stream->created_at) }}</p>
+
+  <div class="col-sm-12" style="clear:both;">
+ 	<p class="pull-right timecolor padding-bottom5">{{ $stream->getDateFrm($stream->created_at) }} ago</p>
+
+  </div>
+
   </div>
   <hr class="userchathr" />
    @endforeach
@@ -59,15 +72,55 @@
 </div>
 </div>
 
-<div class="col-xs-3 statistic-box well well-black padding-bottom15">
-    <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;
-showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=160&amp;wkst=1&amp;bgcolor=%23ffffff&amp;
-src=cqml7cl9kd652bpbubck7dg3v0%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=Etc%2FGMT"
- style=" border-width:0; margin:40px; " width="240" height="160" align="" frameborder="0" scrolling="no"></iframe>
+<div class="col-xs-3 statistic-box widget widget-simple padding-left10 padding-right10">
+  
+ <div class="widget-header col-xs-12 margin-bottom15">
+ <h4 style="text-align:center; float:none;">Upcoming Events</h4>
+ 
+ </div>
+ <div id='calendar' class="well well-black"></div>
+@foreach($events as $event)
+
+@endforeach
+ 
  </div>
 
 </div>
 </div>
 </div>
+
+<script>
+
+	$(document).ready(function() {
+	
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+		
+		$('#calendar').fullCalendar({
+			editable: true,
+			events: [
+
+			<?php foreach($events as $event): ?>
+
+				{
+					
+				title:'<?php echo " ".$event->ev_name." "."at"." ".$event->ev_place ?>',
+					start: '<?php echo $event->ev_time  ?>',
+					
+					allDay: false
+					
+					
+				},
+
+			<?php endforeach; ?>
+				
+			]
+		});
+		
+	});
+
+</script>
 
 @stop	
