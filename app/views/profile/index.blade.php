@@ -51,35 +51,36 @@
                 
                 </div>
                 
-                <div class="col-xs-9 padding-bottom15">
-                <div class="col-xs-12 labellineheight">
-                <h1 >{{ $profile->name }}</h1> 
-                <h3> {{ $profile->player_nickname }}</h3>              
+                <div class="col-xs-9 statistic-box well well-black">
+                <div class="col-xs-12">
+                <h1 >{{ $profile->name }}</h1>
+                <h3>( {{ $profile->player_nickname }} )</h3><hr>
+                             
                 </div>
                 
               
                 
-                <div class="col-xs-12 colorh3">
+                <div class="col-xs-12 colorh3 statistic-box well well-black padding-bottom15 margin-top15">
                 
-                <h4>Position:<span class="spancolor"> {{ $profile->position }}</span></h4>
+                <img src="assets/img/icon-ach.png"><br/><span class="spancolor"> {{ $profile->position }}</span>
                 
                 </div>   
                 
-                <div class="col-xs-12 colorh3">
+                <div class="col-xs-12 colorh3 statistic-box well well-black padding-bottom15 margin-top15">
                 
-                <h4>Statistics:<span class="spancolor"> {{ $profile->statistic }}</span></h4>
+               <img src="assets/img/icon-ach.png"><br/><span class="spancolor"> {{ $profile->statistic }}</span>
                 
                 </div>    
                 
-                <div class="col-xs-12 colorh3">
+                <div class="col-xs-12 colorh3 statistic-box well well-black padding-bottom15 margin-top15">
                 
-                <h4>Shoots:<span class="spancolor"> {{ $profile->shoots }}</span></h4>
+                <img src="assets/img/icon-ach.png"><br/><span class="spancolor"> {{ $profile->shoots }}</span>
                 
                 </div>  
                 
-                 <div class="col-xs-12 colorh3">
+                 <div class="col-xs-12 colorh3 statistic-box well well-black padding-bottom15 margin-top15">
                 
-                <h4 class="achievejustify">Achievements:<br /><span class="spancolor spanfontsize"> {{ $profile->achievements }}</span></h4>
+                <img src="assets/img/icon-ach.png"><br/><span class="spancolor spanfontsize"> {{ $profile->achievements }}</span>
                 
                 </div> 
                         <div class="col-xs-12">
