@@ -3,7 +3,7 @@
 
 ul.enlarge{
 		list-style-type:none; 
-		margin: 100px 0 0 0;
+		margin: 20px 0 20px 0;
 }
 ul.enlarge li{
 		display:inline-block; /*places the images in a line*/
@@ -23,4 +23,7 @@ box-shadow: 0 0 6px rgba(132, 132, 132, .75);
 -webkit-border-radius: 4px;
 -moz-border-radius: 4px;
 border-radius: 4px;
+margin-top: 12px;
+margin-left: 9px;
+margin-right: 10px;
 }
