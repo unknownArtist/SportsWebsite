@@ -42,7 +42,7 @@
                 </div>
                 
                 <div class="col-xs-9 statistic-box well well-black">
-                <div class="col-xs-12">
+                <div class="col-xs-12 ">
                 <h1 >{{ $profile->name }}</h1> 
                 <h3>( {{ $profile->player_nickname }} )</h3><hr>              
                 </div>
