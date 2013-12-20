@@ -82,6 +82,19 @@
                 <h4 class="achievejustify">Achievements:<br /><span class="spancolor spanfontsize"> {{ $profile->achievements }}</span></h4>
                 
                 </div> 
+                        <div class="col-xs-12 colorh3">
+                            <ul class="enlarge">
+                                  <li>
+                                      <a href="assets/img/img-1.jpg" data-lightbox="roadtrip"><img src="assets/img/img-1.jpg" height="200px" width="200px"></a>
+                                  </li>
+                                  <li>
+                                      <a href="assets/img/img-2.jpg" data-lightbox="roadtrip"><img src="assets/img/img-2.jpg" height="200px" width="200px"></a>
+                                  </li>
+                                  <li>
+                                      <a href="assets/img/img-3.jpg" data-lightbox="roadtrip"><img src="assets/img/img-3.jpg" height="200px" width="200px"></a>
+                                  </li>
+                            </ul>
+                        </div>
                 </div>         
 
     @endforeach
