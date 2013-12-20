@@ -66,6 +66,7 @@
 /*-----------------------------------------------------*/
 	
 /*--------------Auth routes-------------------------*/
+    Route::get('user/changepassword',array("uses"	=>'AuthController@getChangePassword'));
 	Route::get('user/logout', array('uses'	=>'AuthController@getLogout'));
 	Route::get('user/activation',array('uses'=>'AuthController@getActivateUser'));
 	Route::post('user/register',array("uses" =>'AuthController@postRegister'));

@@ -137,6 +137,11 @@ class AuthController extends BaseController {
 		
 	}
 
+	public function getChangePassword()
+	{
+        return View::make('auth.change_password');
+	}
+
 	
 
 }
