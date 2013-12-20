@@ -3,7 +3,7 @@
 
 ul.enlarge{
 		list-style-type:none; 
-		margin: 70px 0 0 0;
+		margin: 100px 0 0 0;
 }
 ul.enlarge li{
 		display:inline-block; /*places the images in a line*/
