@@ -26,6 +26,7 @@
     <link href="assets/css/boo-utility.css" rel="stylesheet">-->
      {{ HTML::style('assets/css/fullcalendar.css') }}
     {{ HTML::style('assets/css/fullcalendar.print.css') }}
+    {{ HTML::style('assets/css/lightbox.css') }}
     
     {{ HTML::script('assets/js/jquery.js') }} 
     {{ HTML::script('assets/js/bootstrap.js') }} 
@@ -38,7 +39,9 @@
      
      {{ HTML::script('assets/js/jquery.min.js') }} 
     {{ HTML::script('assets/js/jquery-ui.custom.min.js') }} 
-    {{ HTML::script('assets/js/fullcalendar.min.js') }} 
+    {{ HTML::script('assets/js/fullcalendar.min.js') }}
+    {{ HTML::script('assets/js/jquery-1.10.2.min.js') }} 
+    {{ HTML::script('assets/js/lightbox-2.6.min.js') }} 
 
      <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.min.js"></script>
      <script type="text/javascript">

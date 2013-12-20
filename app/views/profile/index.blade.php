@@ -82,29 +82,19 @@
                 <h4 class="achievejustify">Achievements:<br /><span class="spancolor spanfontsize"> {{ $profile->achievements }}</span></h4>
                 
                 </div> 
-                          <div class="col-xs-12 colorh3">
+                        <div class="col-xs-12 colorh3">
                             <ul class="enlarge">
-                              <li>
-                                <img src="assets/img/img-1.jpg" width="150px" height="100px" alt="image1" />
-                                  <span> 
-                                    <img src="assets/img/img-1.jpg" alt="image1" /> 
-                                  </span>
-                              </li>
-                              <li>
-                                <img src="assets/img/img-2.jpg" width="150px" height="100px" alt="image2" />
-                                  <span> 
-                                    <img src="assets/img/img-2.jpg" alt="image2" /> 
-                                  </span>
-                              </li>
-                              <li>
-                                <img src="assets/img/img-3.jpg" width="150px" height="100px" alt="image3" />
-                                  <span> 
-                                    <img src="assets/img/img-3.jpg" alt="image3" /> 
-                                  </span>
-                              </li>
-
+                                  <li>
+                                      <a href="assets/img/img-1.jpg" data-lightbox="roadtrip"><img src="assets/img/img-1.jpg" height="200px" width="200px"></a>
+                                  </li>
+                                  <li>
+                                      <a href="assets/img/img-2.jpg" data-lightbox="roadtrip"><img src="assets/img/img-2.jpg" height="200px" width="200px"></a>
+                                  </li>
+                                  <li>
+                                      <a href="assets/img/img-3.jpg" data-lightbox="roadtrip"><img src="assets/img/img-3.jpg" height="200px" width="200px"></a>
+                                  </li>
                             </ul>
-                          </div>
+                        </div>
                 </div>         
 
     @endforeach
