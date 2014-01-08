@@ -16,6 +16,7 @@
 <div class="userchat">
 
 <div class="col-xs-12">
+@if($streams)
  @foreach($streams as $stream)
  
  <div class="col-xs-12">
@@ -49,6 +50,7 @@
   </div>
   <hr class="userchathr" />
    @endforeach
+  @endif
    </div>
   </div>
   </div>
