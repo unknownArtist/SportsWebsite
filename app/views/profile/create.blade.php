@@ -118,11 +118,7 @@
                 <li class="span8 margin-bottom15">
                 		
                          {{ Form::submit('Submit', array('class'=>'btn btn-primary pull-right addbtnmargin')) }}
-                      {{ HTML::link('profile','Back',array('class'=>'btn btn-success backbtn pull-right'))}}                  
-              		
-                  
-                     
-                      
+                      {{ HTML::link('profile','Back',array('class'=>'btn btn-success backbtn pull-right'))}}   
                 </li>      
                 
         

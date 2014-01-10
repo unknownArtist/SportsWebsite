@@ -47,7 +47,7 @@
 	
 
 /*--------------schedule-------------------------*/
-   Route::get('schedule',array("uses"=>'ProfileController@getSchedule'));
+   	Route::get('schedule',array("uses"=>'ProfileController@getSchedule'));
 /*-----------------------------------------------------*/
 /*--------------Rink routes-------------------------*/
 

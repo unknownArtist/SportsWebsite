@@ -128,20 +128,7 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
             <div class="header-drawer">
                 <div class="mobile-nav text-center visible-phone"> <a href="javascript:void(0);" class="mobile-btn" data-toggle="collapse" data-target=".sidebar"><i class="aweso-icon-chevron-down"></i> Components</a> </div>
                 <!-- // Resposive navigation -->
-                <div class="breadcrumbs-nav hidden-phone">
-                    <ul id="breadcrumbs" class="breadcrumb">
-                        <li><a href="javascript:void(0);"><i class="fontello-icon-home f12"></i> Dashboard</a> <span class="divider">/</span></li>
-                        <li class="dropdown"><a href="javascript:void(0);">Table </a> <span class="divider">/</span>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:void(0);">Table</a></li>
-                                <li><a href="javascript:void(0);">Elements</a></li>
-                                <li><a href="javascript:void(0);">Elements</a></li>
-                                <li><a href="javascript:void(0);">Elements</a></li>
-                            </ul>
-                        </li>
-                        <li class="active">Boo Admin </li>
-                    </ul>
-                </div>
+                
                 <!-- // breadcrumbs --> 
             </div>
             <!-- // drawer --> 

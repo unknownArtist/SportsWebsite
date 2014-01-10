@@ -37,9 +37,6 @@
                     {{ Form::text('rink_seating_capacity','',array('class'=>'span6','id'=>'rink_seating_capacity')) }}
                      </div>
                     </li>
-
-                      
-
                     <li class="control-group">
                     {{ Form::label('rink_change_rooms', 'No. of Change Rooms', '', array('class'=>'control-label')) }}
                     <div class="controls">
