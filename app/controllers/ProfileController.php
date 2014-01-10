@@ -63,11 +63,11 @@ class ProfileController extends BaseController {
 				'player_profile_id'	=> $id,
 				'player_profile_videos'	=>	$this->ImageCrop('player_profile_photos','profiles_images','200','200',''),
 				));
-       DB::table('player_profile_currentteam')->insert(array(
+       DB::table('player_profile_currentTeam')->insert(array(
 				'player_profile_id'	=> $id,
 				'current_team'	=> Input::get('current_teams'),
 				));
-       DB::table('player_profile_prevteam')->insert(array(
+       DB::table('player_profile_prevTeam')->insert(array(
 				'player_profile_id'	=> $id,
 				'previous_team'	=> Input::get('previous_teams'),
 				));

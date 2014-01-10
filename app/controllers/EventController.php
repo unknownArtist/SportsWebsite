@@ -99,12 +99,12 @@ class EventController extends BaseController {
 		 $user_id = Sentry::getUser()->id;
 		
 		 $teams_id = Profile::where('user_id','=',$user_id)->get();
+
 		 foreach ($teams_id as $team_id)
 		 	{
 		 		$my_teamid= $team_id->team_id;
 		 		
 			}
-
 			$fields = array(
 			            'stream'    => Input::get('stream') );
            

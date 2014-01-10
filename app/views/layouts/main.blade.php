@@ -111,7 +111,7 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
                         <div class="nav-collapse collapse">
                             
                             <ul class="nav">
-                                <li id="li_home"> <a href="{{URL::to('feeds')}}">Home</a> </li>
+                                <li id="li_home"> <a href="{{URL::to('feeds')}}">Feeds</a> </li>
                                 
 	 <li id="li_profile"><a href="{{URL::to('profile')}}">My Profile</a></li>
 

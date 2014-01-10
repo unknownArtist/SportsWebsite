@@ -123,7 +123,7 @@ class AdminTeamController extends BaseController {
 		foreach($d as $key=>$value)
 		{
 			
-			DB::table('team_prevjerseys')->insert(
+			DB::table('team_prevJerseys')->insert(
 		 						array(
 								'team_id'	 =>	$id,
 								'team_prevjerseysimg'=>	$this->ImageCrop('previous_jerseysimg','teamPhotos','200','200',''),
