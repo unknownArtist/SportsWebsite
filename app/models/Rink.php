@@ -7,10 +7,10 @@ class Rink extends Eloquent {
 		'rink_addresse' 		=> 'required',
 		'rink_seating_capacity' 	=> 'required|integer',
 		'rink_change_rooms' 		=> 'required|integer',
-		'rink_boardType' 	=> 'required|integer',
+		'rink_boardType' 	=> 'required',
 		'rink_homeTeams' 	=> 'required',
-		'rink_opened_date' 			=> 'required',
-		'rink_closed_date' 		=> 'required'
+		// 'rink_opened_date' 			=> 'required',
+		// 'rink_closed_date' 		=> 'required'
 	);
 	public function getImage($id)
     { 

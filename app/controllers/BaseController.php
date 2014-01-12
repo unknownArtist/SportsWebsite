@@ -20,7 +20,7 @@ class BaseController extends Controller {
 		Mail::send('emails.registration',$data, function($message) use($to)
 		{
 			$message->to($to)
-				    ->subject('Welcome to support website');
+				    ->subject('Welcome to Iskate');
 		});
 	}
 	public function ImageCrop($image,$path,$width,$height,$desiredImagename)

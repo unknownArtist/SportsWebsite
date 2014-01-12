@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.gmail.com',
+	'host' => 'mail.iskate.co.za',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return array(
 	|
 	*/
 
-	'port' => 587,
+	'port' => 25,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'rameez.ahmad013@gmail.com', 'name' => 'Sports Website'),
+	'from' => array('address' => 'register@iskate.co.za', 'name' => 'Iskate'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'rameez.ahmad013@gmail.com',
+	'username' => 'register@iskate.co.za',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => 'Rdeveloper1',
+	'password' => 'register',
 
 	/*
 	|--------------------------------------------------------------------------

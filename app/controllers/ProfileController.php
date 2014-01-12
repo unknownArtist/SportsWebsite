@@ -220,7 +220,7 @@ class ProfileController extends BaseController {
 	{
 		
 
-		$profile = Profile::where('user_id','=',$id)->get();
+		$profile = Profile::where('user_id','=',$id)->distinct()->get();
 		$events = Calender::all();
 
 		if($profile->isEmpty())

@@ -9,6 +9,11 @@
 <div class="span12 loginformmargin ">
 <h4 id="adminText" class="widget-header">Login to Admin Account</h4>
    <div class="" >
+    <div id="errors">
+        @if (Session::get('errors'))
+          {{ Session::get('errors') }}
+        @endif
+      </div>
         <div id="loginForm">
          {{ Form::open(array('admin/login','POST'))  }}
               {{ Form::token() }}

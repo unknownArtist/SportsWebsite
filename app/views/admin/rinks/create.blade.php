@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-
+{{ HTML::script('/assets/datepicker/js/bootstrap-datepicker.js') }} 
+{{ HTML::script('/assets/datepicker/css/datepicker.css') }}  
 <div id="main-content" class="container-fluid">
 
 <div id="page-content" class="page-content">
@@ -23,7 +24,12 @@
  
                    {{ Form::open(array('rink.create','Post', 'files' => true,'class'=>'form-horizontal'))  }}
                    {{ Form::token() }}
-                   
+                   <li class="control-group">
+                    {{ Form::label('title', 'Title', '', array('class'=>'control-label'))}}
+                    <div class="controls">
+                    {{ Form::text('title','',array('class'=>'span6','placeholder'=>'Rink title')) }}
+                    </div>
+                    </li>
                    <li class="control-group">
                     {{ Form::label('rink_addresse', 'Addresses', '', array('class'=>'control-label'))}}
                     <div class="controls">
@@ -92,22 +98,38 @@
                      </div>
                     </li>
                     <li class="control-group">
-                    {{ Form::label('rink_opened_date', 'Opened(date)', '', array('class'=>'control-label')) }}
+                    {{ Form::label('rink_opened_date', 'Open from', '', array('class'=>'control-label')) }}
                     <div class="controls">
-                    {{ Form::text('rink_opened_date','',array('class'=>'span6 datepicker')) }}
+                    {{ Form::text('rink_open_date_from','',array('class'=>'span6 datepicker')) }}
                      </div>
                     </li>
+
                     <li class="control-group">
-                    {{ Form::label('rink_closed_date', 'Closed(date)', '', array('class'=>'control-label')) }}
+                    {{ Form::label('rink_opened_date', 'Open till', '', array('class'=>'control-label')) }}
                     <div class="controls">
-                    {{ Form::text('rink_closed_date','',array('class'=>'span6 datepicker')) }}
+                    {{ Form::text('rink_open_date_to','',array('class'=>'span6 datepicker')) }}
+                     </div>
+                    </li>
+
+
+                    <li class="control-group">
+                    {{ Form::label('rink_closed_date', 'Closed from', '', array('class'=>'control-label')) }}
+                    <div class="controls">
+                    {{ Form::text('rink_close_date_from','',array('class'=>'span6 datepicker')) }}
+                     </div>
+                    </li>
+
+                    <li class="control-group">
+                    {{ Form::label('rink_closed_date', 'Closed till', '', array('class'=>'control-label')) }}
+                    <div class="controls">
+                    {{ Form::text('rink_close_date_to','',array('class'=>'span6 datepicker')) }}
                      </div>
                     </li>
                      <li class="span8 margin-bottom15">               
                   
 
                   {{ Form::submit('Submit', array('class'=>'btn btn-primary pull-right addbtnmargin')) }}   
-                   {{ HTML::link('admin/rinks/create','Back',array('class'=>'btn btn-success pull-right backbtn'))}}
+                   {{ HTML::link('admin/rinks','Back',array('class'=>'btn btn-success pull-right backbtn'))}}
                          </li>       
                   {{ Form::close() }}
                  

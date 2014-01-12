@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-
+{{ HTML::script('/assets/datepicker/js/bootstrap-datepicker.js') }} 
+{{ HTML::script('/assets/datepicker/css/datepicker.css') }}
 <div id="main-content" class="container-fluid">
 
 <div id="page-content" class="page-content">
@@ -28,6 +29,14 @@
         			{{ Form::text('team_name','',array('class'=>'span6','id'=>'name'))}}
                     </div>
                     </li>
+
+                    <li class="control-group">
+                    {{ Form::label('rink_name','Team Rink', '', array('class'=>'control-label'))}}
+                    <div class="controls">    
+                    {{ Form::select('team_rink',$rinks,array('class'=>'span6','id'=>'name'))}}
+                    </div>
+                    </li>
+
 
         	        <li class="control-group"> 
         			{{ Form::label('name','Team Logo', '', array('class'=>'control-label'))}}
@@ -142,7 +151,7 @@
         	        <li class="control-group"> 
         			{{ Form::label('founded','Team Founded', '', array('class'=>'control-label'))}}
                     <div class="controls">    
-        			{{ Form::text('founded','',array('class'=>'span6 input-medium margin-00', 'id'=>'datePicker'))}}
+        			{{ Form::text('founded','',array('class'=>'span6 input-medium margin-00', 'class'=>'datepicker'))}}
                     </div>
                     
                     </li>
@@ -150,7 +159,7 @@
                      <li class="control-group"> 
         			{{ Form::label('disbanded','Team Disbanded', '', array('class'=>'control-label'))}}
                     <div class="controls">    
-                   {{ Form::text('disbanded','',array('class'=>'span6 input-medium margin-00', 'id'=>'datePicker'))}}
+                   {{ Form::text('disbanded','',array('class'=>'span6 input-medium margin-00', 'class'=>'datepicker'))}}
                     </div>
                     </li>
                     

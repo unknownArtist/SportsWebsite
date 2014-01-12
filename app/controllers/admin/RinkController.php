@@ -20,6 +20,22 @@ class RinkController extends BaseController {
 	public function postCreate()
 	{
 
+		$fields = array(
+		'title'					=> Input::get('title'),
+		'rink_seating_capacity' => Input::get('rink_seating_capacity'),
+		'rink_change_rooms' 	=> Input::get('rink_change_rooms'),
+		'rink_boardType' 		=> Input::get('rink_boardType'),
+		'rink_other' 			=> Input::get('rink_other'),
+		'rink_highlights' 		=> Input::get('rink_highlights'),
+		'rink_history' 			=> Input::get('rink_history'),
+		'rink_open_date_from' 	=> Input::get('rink_open_date_from'),
+		'rink_open_date_to' 	=> Input::get('rink_open_date_to'),
+		'rink_close_date_from' 	=> Input::get('rink_close_date_from'),
+		'rink_close_date_to' 	=> Input::get('rink_close_date_to'),
+		'rink_description' 		=> Input::get('rink_description')
+		);
+
+
 		$v = Validator::make(Input::all(), Rink::$rules);
 		if($v->fails())
 		{
@@ -27,17 +43,7 @@ class RinkController extends BaseController {
 						   ->withInput()
 						   ->withErrors($v);
 		}
-		$id = DB::table('rinks')->insertGetId(array(
-											'rink_seating_capacity' => Input::get('rink_seating_capacity'),
-											'rink_change_rooms' => Input::get('rink_change_rooms'),
-											'rink_boardType' => Input::get('rink_boardType'),
-											'rink_other' => Input::get('rink_other'),
-											'rink_highlights' => Input::get('rink_highlights'),
-											'rink_history' => Input::get('rink_history'),
-											'rink_opened_date' => Input::get('rink_opened_date'),
-											'rink_closed_date' => Input::get('rink_closed_date'),
-											'rink_description' => Input::get('rink_description')
-												));
+		$id = DB::table('rinks')->insertGetId($fields);
 
 			
 			
@@ -71,8 +77,6 @@ class RinkController extends BaseController {
 		$rinks = Rink::all(); 
 		
 		return View::make('admin.rinks.index')->with('rinks',$rinks);
-		//rink addresses in rink_addresses table should be inserted	
-		//DB::table('rink_addresses')->insert(array('rink_addresse') => $input['rink_addresse']));
 
 	}
 	public function getEdit()
@@ -96,15 +100,21 @@ class RinkController extends BaseController {
         }
 
 			
-		$fields = array('rink_seating_capacity' => Input::get('rink_seating_capacity'),
-						 'rink_change_rooms' => Input::get('rink_change_rooms'),
-						 'rink_boardType' => Input::get('rink_boardType'),
-						 'rink_other' =>Input::get('rink_other'),
-						  'rink_highlights' =>Input::get('rink_highlights'),
-						  'rink_history' =>Input::get('rink_history'),
-						  'rink_opened_date' => Input::get('rink_opened_date'),
-						   'rink_closed_date' => Input::get('rink_closed_date'),
-						   'rink_description' => Input::get('rink_description'));
+		$fields = array(
+
+			'title'					=> Input::get('title'),
+			'rink_seating_capacity' => Input::get('rink_seating_capacity'),
+			'rink_change_rooms' 	=> Input::get('rink_change_rooms'),
+			'rink_boardType' 		=> Input::get('rink_boardType'),
+			'rink_other' 			=> Input::get('rink_other'),
+			'rink_highlights' 		=> Input::get('rink_highlights'),
+			'rink_history' 			=> Input::get('rink_history'),
+			'rink_open_date_from' 	=> Input::get('rink_open_date_from'),
+			'rink_open_date_to' 	=> Input::get('rink_open_date_to'),
+			'rink_close_date_from' 	=> Input::get('rink_close_date_from'),
+			'rink_close_date_to' 	=> Input::get('rink_close_date_to'),
+			'rink_description' 		=> Input::get('rink_description')
+		);
 		
 		
 		// $destinationPath = 'public/image/';

@@ -11,7 +11,7 @@ setTimeout(function(){
     {{ HTML::style('assets/css/bootstrap.css') }}
     {{ HTML::style('assets/css/sb-admin.css') }}
     {{ HTML::style('assets/font-awesome/css/font-awesome.min.css') }} 
-   
+  
    
      <!--<link href="assets/css/lib/bootstrap.css" rel="stylesheet">-->
      {{ HTML::style('assets/css/lib/bootstrap.css') }} 
@@ -36,12 +36,12 @@ setTimeout(function(){
     
     {{ HTML::script('assets/js/jquery.js') }} 
     {{ HTML::script('assets/js/bootstrap.js') }}     
-     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css" />
+
 
     
     {{ HTML::script('assets/js/jquery.js') }} 
     {{ HTML::script('assets/js/bootstrap.js') }}     
-     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css" />
+
 
      <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
      <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
@@ -53,7 +53,7 @@ setTimeout(function(){
     {{ HTML::script('assets/js/jquery-ui.custom.min.js') }} 
     {{ HTML::script('assets/js/fullcalendar.min.js') }} 
 
-     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.min.js"></script>
+
      <script type="text/javascript">
 function GetCurrentPageName() { 
 //method to get Current page name from url. 
@@ -107,7 +107,6 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
     {{ HTML::script('assets/js/jquery-ui.custom.min.js') }} 
     {{ HTML::script('assets/js/fullcalendar.min.js') }} 
 
-     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.min.js"></script>
      <script type="text/javascript">
 function GetCurrentPageName() { 
 //method to get Current page name from url. 
@@ -215,8 +214,8 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
 
 <!-- Plugins Bootstrap --> 
 
-{{ HTML::script('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}    
-{{ HTML::script('assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js') }}    
+   
+
 {{ HTML::script('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}    
 {{ HTML::script('assets/plugins/bootstrap-daterangepicker/js/date.js') }}    
 {{ HTML::script('assets/plugins/bootstrap-daterangepicker/js/bootstrap-daterangepicker.js') }}    
