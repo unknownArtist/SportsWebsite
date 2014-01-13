@@ -3,66 +3,44 @@
    <div id="main-content" class="container-fluid">
 
 <div id="page-content" class="page-content">
-<div class="row-fluid margin-top20">
-<div class="col-xs-12 grider">
-<div class="widget widget-simple">
-
-           <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered margin-top15" id="companies" style="margin-bottom:15px;">
-    <thead>
-
-        <tr>
-        	<th>Team Logo</th>
-            <th>Team Name</th>
-            <th>Current Jersey</th>
-            <th>Previous Jerseys</th>
-            <th>President Name</th>
-            <th>Head Coach</th>
-            <th>Assistant Coach</th>
-            <th>Time Keepers</th>
-            <th>Medics</th>
-            <th>Referees</th>
-            <th>History</th>
-            <th>Founded</th>
-            <th>Disbanded</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-   
-        <tr class="odd gradeX">
-        @foreach($teams as $team)
-            <td>{{Form::image('uploads/teamImages/'.$team->team_logo, '', array('class'=>'imagewidth') )}}</td>
-            <td>{{ $team->team_name }}</td>
 
 
-            <td>{{ $team->current_jersey }}</td>
+        
 
+@foreach($teams as $team)
+   <div class="col-xs-2 grider margin-top20 widget widget-simple" style="
+    width: 240px; margin-right:30px; margin-left:30px;">
+        <ul class="thumbnails margin-top20">
+        
+            <li style="margin-left:30px;">
+                {{Form::image('uploads/teamImages/'.$team->team_logo, '', array('class'=>' img-polaroid') )}}
+            </li>
+            <li>
+                <h4>Team</h4>
+                {{ $team->team_name }}
+            </li>
+            <li>  
+                <h4>Rink</h4>  
+                {{ $team->team_rink }}
+            </li> 
+            <li>
+                <h4>Founded</h4>
+                {{ $team->founded }}
+                
+           
+            </li>
+            <li>
+                {{ HTML::link("team/{$team->id}/detail", "Details", array('class'=>'btn btn-success') )}}
+            </li>
+        </ul>
+    </div>
+      
 
-            <td>{{ ($team->getPrevJerseys($team->id)); }}</td>
-            <td>{{ $team->president_name }}</td>
-            <td>{{ $team->head_coach }}</td>
-            <td>{{ $team->assistant_coach }}</td>
-
-            <td>{{ ($team->getTimeKeeper($team->id)); }}</td>
-
-
-            <td>{{($team->getMedics($team->id));}}</td>
-
-
-            <td>{{ ($team->getReferees($team->id));}}</td>
-
-            <td>{{ $team->history }}</td>
-            <td>{{ $team->founded }}</td>
-            <td>{{ $team->disbanded }}</td>
-            <td>
-                <button class="btn">Details</button>
-            </td>
-        </tr>               
+    
         
     @endforeach
     
-    </tbody>
-    </table>  
+   
 
     {{ $teams->links() }}
     </div>

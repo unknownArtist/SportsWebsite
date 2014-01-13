@@ -37,7 +37,7 @@ class HomeController extends BaseController {
 	}
 	public function getRinkDetails()
 	{
-		return 'details';
+		return View::make('rinks.details');
 	}
 
 	
