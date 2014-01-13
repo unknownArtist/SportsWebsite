@@ -25,6 +25,10 @@ class HomeController extends BaseController {
 		return View::make('team.index', compact('medics','referee','time_keepe','previous_jersey'))
 						->with('teams',Team::paginate(20));;
 	}
+	public function getTeamDetails()
+	{
+		return View::make('team.details');
+	}
 	public function getRinks()
 	{
 		$rinks = Rink::paginate(20);

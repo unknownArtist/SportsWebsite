@@ -16,7 +16,7 @@
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
 
-
+	Route::get('team/{id}/detail',array("uses"=>'HomeController@getTeamDetails'));
 	Route::get('rink/{id}/detail',array("uses"=>'HomeController@getRinkDetails'));
 	Route::get('teams/list',array("uses"=>'HomeController@getTeams'));
 	Route::get('rinks/list',array("uses"=>'HomeController@getRinks'));
