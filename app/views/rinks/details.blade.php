@@ -16,7 +16,7 @@
 	<div class="col-xs-12 widget-header">
     
    
-  {{ HTML::link('profile/create','Add Profile',array('class' => 'btn btn-success')) }}
+ 
        
    
     
