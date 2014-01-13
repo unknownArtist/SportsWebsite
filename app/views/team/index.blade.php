@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.logout')
 @section('content')
    <div id="main-content" class="container-fluid">
 
