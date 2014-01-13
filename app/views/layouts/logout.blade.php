@@ -72,6 +72,10 @@ case 'login':
  case 'schedule':
  $('#li_schedule').addClass('active') ;
  break;
+ $('#li_rinks').addClass('active') ;
+ break;
+ $('#li_teams').addClass('active') ;
+ break;
  case 'messages':
  $('#li_messages').addClass('active') ;
  break;
@@ -112,7 +116,11 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
                         <div class="nav-collapse collapse">
                             
                             <ul class="nav">
-                                <li id="li_home"> <a href="{{URL::to('/')}}">Home</a> </li>                              
+                                <li id="li_home"> <a href="{{URL::to('/')}}">Home</a> </li>
+
+                                  <li id="li_teams">{{ HTML::link('teams/list','Teams') }}</li>
+
+                                  <li id="li_rinks">{{ HTML::link('rinks/list','Rinks') }}</li>                              
                                 
                             </ul>
                              <ul class="nav pull-right">

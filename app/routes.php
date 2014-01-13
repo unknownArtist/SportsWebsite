@@ -16,6 +16,11 @@
 // Route::get('admin/team',array('uses'=>'AdminTeamController@index'));
 
 
+
+	Route::get('rink/{id}/detail',array("uses"=>'HomeController@getRinkDetails'));
+	Route::get('teams/list',array("uses"=>'HomeController@getTeams'));
+	Route::get('rinks/list',array("uses"=>'HomeController@getRinks'));
+
 	Route::get('/',array("uses"=>'HomeController@getIndex'));
 	Route::get('loginhome',array("uses"=>'HomeController@getHome'));
 	Route::resource('test','TestController');

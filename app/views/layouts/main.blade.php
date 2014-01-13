@@ -80,6 +80,10 @@ case 'members':
  case 'schedule':
  $('#li_schedule').addClass('active') ;
  break;
+ $('#li_rinks').addClass('active') ;
+ break;
+ $('#li_teams').addClass('active') ;
+ break;
  case 'messages':
  $('#li_messages').addClass('active') ;
  break;
@@ -112,19 +116,14 @@ border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px aria
                             
                             <ul class="nav">
                                 <li id="li_home"> <a href="{{URL::to('feeds')}}">Feeds</a> </li>
-                                
-	 <li id="li_profile"><a href="{{URL::to('profile')}}">My Profile</a></li>
-
-
-  <li id="li_member"><a href="{{URL::to('members')}}">Members</a></li>
-
+                                <li id="li_profile"><a href="{{URL::to('profile')}}">My Profile</a></li>
+                                <li id="li_member"><a href="{{URL::to('members')}}">Members</a></li>
+                                <li id="li_events"><a href="{{URL::to('events')}}">Events</a></li>
+                                <li id="li_schedule"><a href="{{URL::to('schedule')}}">Schedule</a></li>
+                                <li id="li_teams">{{ HTML::link('teams/list','Teams') }}</li>
+                                <li id="li_rinks">{{ HTML::link('rinks/list','Rinks') }}</li>
        
-      <li id="li_events"><a href="{{URL::to('events')}}">Events</a></li>
-      
-      
-      <li id="li_schedule"><a href="{{URL::to('schedule')}}">Schedule</a></li>
-       
-    </ul>
+                            </ul>
     <ul class="nav user-menu">
     
      <li><a class="btn-glyph fontello-icon-edit tip-bc" href="{{URL::to('user/messages')}}" title="Messages"><span class="badge badge-important">{{ MessageCentreController::getUnreadMessages() }}</span></a></li>     
